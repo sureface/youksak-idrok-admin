@@ -1,0 +1,39 @@
+.sidebar{
+  flex: 1;
+  height: calc(100vh - 50px);
+  background: #f9f9f9;
+  position: sticky;
+  top: 50px;
+
+  &-wrapper{
+    padding: 20px;
+    color: #555;
+
+    .sidebar-menu{
+      .sidebar-title{
+        font-size: 20px;
+      }
+      .sidebar-list{
+        list-style: none;
+        padding: 0;
+
+        &-item{
+          padding: 10px 0;
+          font-size: 18px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          &_icon{
+            margin-right: 15px;
+            color: #555555;
+          }
+          &_link{
+            text-decoration: none;
+            color: #555555;
+          }
+        }
+      }
+    }
+
+  }
+}
