@@ -1,6 +1,30 @@
 .courses {
   flex: 7;
-  padding: 20px;
+  padding: 35px 40px;
+  overflow-y: auto;
+}
+.courses-title {
+  text-align: center;
+  font-family: sans-serif;
+  color: #3B82F6;
+  padding: 0;
+  margin: 0;
+}
+.courses-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.courses-wrapper_form {
+  padding: 30px;
+}
+.courses-wrapper_form .input-group {
+  display: flex;
+  flex-direction: column;
+}
+.courses-wrapper_form .input-group label {
+  font-size: 20px;
 }
 
 /*# sourceMappingURL=courses.css.map */
