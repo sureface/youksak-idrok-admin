@@ -1,8 +1,17 @@
 import React from 'react';
-import {BiMessageDetail} from "react-icons/bi"
+import {BiMessageDetail} from "react-icons/bi";
+import {useHistory} from "react-router-dom";
 import "../topbar/topbar.scss";
 
+
 const Topbar = () => {
+    let history = useHistory();
+
+    const clearStorageAndBack = () => {
+        localStorage.clear();
+        history.push("/");
+    }
+
     return (
         <div className="topbar">
             <div className="topbar_wrapper">
@@ -14,6 +23,7 @@ const Topbar = () => {
                         <BiMessageDetail  className="icon"/>
                         <span className="top-icon-badge">2</span>
                     </div>
+                    <button className="logOut" onClick={clearStorageAndBack}>chiqish</button>
                 </div>
             </div>
         </div>

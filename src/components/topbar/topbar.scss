@@ -22,6 +22,8 @@
       }
     }
     &-top_right{
+      display: flex;
+      align-items: center;
       &_container{
         position: relative;
         cursor: pointer;
@@ -43,6 +45,22 @@
           height: 15px;
           border: 2px solid #fff;
           border-radius: 50%;
+        }
+      }
+      .logOut{
+        margin-left: 20px;
+        padding: 7px 20px;
+        color: #ffffff;
+        background: transparent;
+        border: 1px solid #ffffff;
+        text-transform: uppercase;
+        font-weight: 600;
+        transition: all .5s ease-in-out;
+        cursor: pointer;
+
+        &:hover{
+          background: #ffffff;
+          color: #3B82F6;
         }
       }
     }

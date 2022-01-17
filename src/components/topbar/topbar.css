@@ -19,6 +19,10 @@
   font-size: 25px;
   cursor: pointer;
 }
+.topbar_wrapper-top_right {
+  display: flex;
+  align-items: center;
+}
 .topbar_wrapper-top_right_container {
   position: relative;
   cursor: pointer;
@@ -41,6 +45,21 @@
   height: 15px;
   border: 2px solid #fff;
   border-radius: 50%;
+}
+.topbar_wrapper-top_right .logOut {
+  margin-left: 20px;
+  padding: 7px 20px;
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid #ffffff;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+.topbar_wrapper-top_right .logOut:hover {
+  background: #ffffff;
+  color: #3B82F6;
 }
 
 /*# sourceMappingURL=topbar.css.map */

@@ -13,7 +13,7 @@ const Sidebar = () => {
                 <div className="sidebar-menu">
                     <ul className="sidebar-list">
                         <li className="sidebar-list-item">
-                            <NavLink exact={true} to="/" className="sidebar-list-item_link">
+                            <NavLink exact={true} to="/courses" className="sidebar-list-item_link">
                                 <FaThList className="sidebar-list-item_icon" />
                                 Kurslar
                             </NavLink>
