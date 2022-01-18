@@ -3,6 +3,7 @@ import {FaThList, FaUserGraduate} from "react-icons/fa"
 import {RiStackFill} from "react-icons/ri";
 import {AiOutlineSafetyCertificate} from "react-icons/ai";
 import {BsInfoCircle} from "react-icons/bs";
+import {MdCategory} from "react-icons/md";
 import "../sidebar/sidebar.scss";
 import {Link, NavLink} from "react-router-dom";
 
@@ -13,7 +14,13 @@ const Sidebar = () => {
                 <div className="sidebar-menu">
                     <ul className="sidebar-list">
                         <li className="sidebar-list-item">
-                            <NavLink exact={true} to="/courses" className="sidebar-list-item_link">
+                            <NavLink exact={true} to="/category" className="sidebar-list-item_link">
+                                <MdCategory className="sidebar-list-item_icon" />
+                                Bo'limlar
+                            </NavLink>
+                        </li>
+                        <li className="sidebar-list-item">
+                            <NavLink to="/courses" className="sidebar-list-item_link">
                                 <FaThList className="sidebar-list-item_icon" />
                                 Kurslar
                             </NavLink>

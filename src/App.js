@@ -9,6 +9,7 @@ import Certifications from "./pages/certifications/certifications";
 import News from "./pages/news/news";
 import Teachers from "./pages/teachers/teachers";
 import Login from "./pages/login/login";
+import Category from "./pages/category/category";
 
 function App() {
 
@@ -33,6 +34,9 @@ function App() {
                           <Login />
                       </Route>
                       <PrivateRoute>
+                          <Route path="/category">
+                              <Category />
+                          </Route>
                           <Route path="/courses">
                               <Courses />
                           </Route>

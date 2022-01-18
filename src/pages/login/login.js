@@ -22,7 +22,7 @@ const Login = () => {
             .then((res) => {
                 console.log(res)
                 localStorage.setItem("TOKEN-YUKSAK-IDROK", res.data.token);
-                history.push("/courses");
+                history.push("/category");
                 setLogin("");
                 setPassword("");
             })
