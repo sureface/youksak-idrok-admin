@@ -20,7 +20,7 @@ const Login = () => {
         }
         axios.post(`${process.env.REACT_APP_API_PATH}/login`, data)
             .then((res) => {
-                console.log(res)
+                console.log(res, "token come")
                 localStorage.setItem("TOKEN-YUKSAK-IDROK", res.data.token);
                 history.push("/category");
                 setLogin("");
