@@ -1,63 +1,40 @@
 import React, {useState, useEffect} from 'react';
 import "../category/category.scss"
-import axios from "axios";
-import {AiFillDelete} from "react-icons/ai"
 import {BsPencilFill} from "react-icons/bs"
 import {NavLink} from "react-router-dom";
+import { getCategories, postCategory } from './query';
+import DeleteButton from './deleteButton';
+
 
 const Category = () => {
     const [name, setName] = useState("");
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [delLoading, setDelLoading] = useState(false);
 
 
-    const fetchCategories = () => {
-        axios.get(`${process.env.REACT_APP_API_PATH}/categories`)
-            .then((res) => {
-                let resData = res.data.categories
-                setData(resData)
-                console.log(res, 'updated')
-            })
-            .catch(err => console.log(err));
+
+    const fetchCategories = async () => {
+        const {categories, error} = await getCategories();
+        if(categories) {
+            setData(categories)
+        }
     }
 
     useEffect(() => {
-        fetchCategories();
-    },[])
+        fetchCategories()
+    }, [])
 
 
     const onSubmitHandler = async (e) => {
         e.preventDefault();
         setIsLoading(true);
-
-        const data = {
-            name: name
-        }
-
-        await  axios.post(`${process.env.REACT_APP_API_PATH}/categories?token=${localStorage.getItem('TOKEN-YUKSAK-IDROK')}`, data)
-            .then((res) => {
-                console.log(res, "added")
-                setName("");
-                setIsLoading(false);
-            })
-            .catch(err => console.log(err));
-
-        fetchCategories();
+        const {data, err} = await postCategory(name);
+        await fetchCategories()
+        setIsLoading(false)
+        setName("")
     }
 
 
-
-    const deleteCategories = async (index) => {
-        setDelLoading(true);
-        await axios.delete(`${process.env.REACT_APP_API_PATH}/categories/${index}?token=${localStorage.getItem('TOKEN-YUKSAK-IDROK')}`)
-            .then((res) => {
-                console.log(res, 'categories deleted')
-                setDelLoading(false);
-            })
-            .catch(err => console.log(err));
-        fetchCategories();
-    }
 
     return (
         <div className="category">
@@ -105,25 +82,7 @@ const Category = () => {
                                 <NavLink to={"/category-edit/" + item.id + "/" + item.name.replace(/\s+/g, '-')}>
                                     <BsPencilFill className="change"/>
                                 </NavLink>
-                                {
-                                    delLoading ?
-                                        <div className="lds-spinner">
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                        </div>
-                                        :
-                                        <AiFillDelete className="delete" onClick={() => deleteCategories(item.id)}/>
-                                }
+                                <DeleteButton fetchCategories={fetchCategories} id={item.id} />
                             </div>
                         </div>
                     )
