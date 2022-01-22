@@ -21,6 +21,7 @@ const UpdateCategories = (props) => {
         fetchCategories();
     },[])
 
+
     const onSubmitHandler = async (e) => {
         e.preventDefault();
         const {data, error} = await patchCategory(name, id)
