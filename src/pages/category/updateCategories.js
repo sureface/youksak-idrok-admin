@@ -1,26 +1,20 @@
 import React, {useState, useEffect} from 'react';
 import {useParams, useHistory} from "react-router-dom";
 import "../category/category.scss"
-import axios from "axios";
-// import {AiFillDelete} from "react-icons/ai"
-// import {BsPencilFill} from "react-icons/bs"
+import { getCategoriesById, patchCategory } from './query';
 
 const UpdateCategories = (props) => {
 
     const [name, setName] = useState("");
-    const [data, setData] = useState([]);
 
     const {id} = useParams();
     const history = useHistory();
 
     const fetchCategories = async () => {
-        await axios.get(`${process.env.REACT_APP_API_PATH}/categories/${id}`)
-            .then((res) => {
-                let resData = res.data.name
-                setName(resData)
-                console.log(res, 'updatedById')
-            })
-            .catch(err => console.log(err));
+        const {name, error} = await getCategoriesById(id);
+        if(name) {
+            setName(name)
+        }
     }
 
     useEffect(() => {
@@ -30,18 +24,9 @@ const UpdateCategories = (props) => {
 
     const onSubmitHandler = async (e) => {
         e.preventDefault();
-
-        const data = {
-            name: name
-        }
-
-        await  axios.patch(`${process.env.REACT_APP_API_PATH}/categories/${id}?token=${localStorage.getItem('TOKEN-YUKSAK-IDROK')}`, data)
-            .then((res) => {
-                console.log(res, "addedById")
-                setName("");
-                history.push("/category");
-            })
-            .catch(err => console.log(err));
+        const {data, error} = await patchCategory(name, id)
+        setName("");
+        history.push("/category");
     }
 
 

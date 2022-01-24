@@ -8,6 +8,7 @@ const Courses = () => {
     const [descriptions, setDescriptions] = useState("");
     const [image, setImage] = useState(null);
 
+
     const onSubmit = (e) => {
         e.preventDefault();
 
