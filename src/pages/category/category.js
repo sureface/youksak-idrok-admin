@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import "../category/category.scss"
+import "../../App.scss"
 import {BsPencilFill} from "react-icons/bs"
 import {NavLink} from "react-router-dom";
 import { getCategories, postCategory } from './query';

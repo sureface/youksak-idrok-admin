@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useParams, useHistory} from "react-router-dom";
-import "../category/category.scss"
+import "../../App.scss"
 import { getCategoriesById, patchCategory } from './query';
 
 const UpdateCategories = (props) => {

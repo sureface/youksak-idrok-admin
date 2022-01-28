@@ -1,5 +1,5 @@
 import React from 'react';
-import "../teachers/teachers.scss";
+import "../../App.scss";
 
 const Teachers = () => {
     return (
