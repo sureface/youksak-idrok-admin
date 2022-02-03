@@ -6,7 +6,16 @@ const Courses = () => {
     const [category, setCategory] = useState("");
     const [name, setName] = useState("");
     const [descriptions, setDescriptions] = useState("");
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState("");
+
+
+    const handleImage = (event) => {
+        if(event.target.files && event.target.files.length > 0) {
+            setImage(event.target.files)
+        }
+    }
+
+    console.log(image);
 
 
     const onSubmit = (e) => {
@@ -43,12 +52,13 @@ const Courses = () => {
                     <div className="input-group">
                         <label htmlFor="description">Kurs haqida malumot</label>
                         <textarea name="description" id="description" placeholder="kurs haqida malumot" required
-                                  onChange={(e) => setDescriptions(e.target.value)}/>
+                                  onChange={(event) => handleImage(event)}/>
                     </div>
                     <div className="input-group">
                         <label htmlFor="image">Kurs chun rasim</label>
-                        <input className="image" type="file" name="image" id="image" placeholder="kurs uchun rasim"
+                        <input accept="image/*" className="image" type="file" name="image" id="image" placeholder="kurs uchun rasim"
                                required onChange={(e) => setImage(e.target.files)}/>
+                        {image && (<img src={URL.createObjectURL(image[0])} alt='' width={300}/> )}
                     </div>
                     <div className="input-group">
                         <div className="btn">
