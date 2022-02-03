@@ -71,23 +71,34 @@ const Category = () => {
                 </form>
             </div>
             <h1 className="courses-title">Qo'shilgan Yo'nalishlar</h1>
-            {
-                data.map((item, index) => {
-                    return (
-                        <div key={index} className="category-result">
-                            <div className="category-result_title">
-                                {index - -1 + ' ' + item.name}
-                            </div>
-                            <div className="category-result_btn">
-                                <NavLink to={"/category-edit/" + item.id + "/" + item.name.replace(/\s+/g, '-')}>
-                                    <BsPencilFill className="change"/>
-                                </NavLink>
-                                <DeleteButton fetchCategories={fetchCategories} id={item.id} />
-                            </div>
-                        </div>
-                    )
-                })
-            }
+            <div className="card-wrapper">
+                {
+                    data ?
+                        data.map((item, index) => {
+                            return (
+                                <div key={index} className="card-wrapper_card">
+                                    <div className="card-wrapper_card-text">
+                                        <div className="card-wrapper_card-text_title">
+                                            {item.name}
+                                        </div>
+                                    </div>
+
+                                    <div className="card-wrapper_card-btns">
+                                        <NavLink className="NavLink" to={"/category-edit/" + item.id + "/" + item.name.replace(/\s+/g, '-')}>
+                                            Tahrirlash
+                                        </NavLink>
+
+                                        <div>
+                                            <DeleteButton fetchCategories={fetchCategories} id={item.id} />
+                                        </div>
+                                    </div>
+
+                                </div>
+                            )
+                        })
+                        : ""
+                }
+            </div>
         </div>
     );
 };

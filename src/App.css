@@ -1,9 +1,57 @@
 .container {
   display: flex;
 }
+.container .login-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  height: 100vh;
+}
+.container .login-wrapper h1 {
+  font-family: sans-serif;
+  padding-bottom: 20px;
+}
+.container .login-wrapper_form {
+  width: 500px;
+  padding: 50px 30px;
+  border: 1px solid #787878;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.container .login-wrapper_form input {
+  padding: 10px;
+  margin-bottom: 15px;
+}
+.container .login-wrapper_form .btn {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-top: 15px;
+}
+.container .login-wrapper_form .btn button {
+  padding: 7px 20px;
+  background: #ffffff;
+  border: 1px solid #787878;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+.container .login-wrapper_form .btn button:hover {
+  background: #222222;
+  color: #ffffff;
+}
 .container .category, .container .certifications, .container .about, .container .courses, .container .news, .container .teachers {
   flex: 7;
-  padding: 20px;
+  padding: 50px;
 }
 .container .category .btn .lds-spinner, .container .certifications .btn .lds-spinner, .container .about .btn .lds-spinner, .container .courses .btn .lds-spinner, .container .news .btn .lds-spinner, .container .teachers .btn .lds-spinner {
   color: #3B82F6;
@@ -83,32 +131,65 @@
     opacity: 0;
   }
 }
-.container .category-res_title, .container .certifications-res_title, .container .about-res_title, .container .courses-res_title, .container .news-res_title, .container .teachers-res_title {
-  text-align: center;
-  padding-top: 20px;
-  padding-bottom: 15px;
+.container .category .card-wrapper, .container .certifications .card-wrapper, .container .about .card-wrapper, .container .courses .card-wrapper, .container .news .card-wrapper, .container .teachers .card-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 32px;
+  padding: 30px 0;
 }
-.container .category-result, .container .certifications-result, .container .about-result, .container .courses-result, .container .news-result, .container .teachers-result {
-  padding: 10px 30px;
+.container .category .card-wrapper_card, .container .certifications .card-wrapper_card, .container .about .card-wrapper_card, .container .courses .card-wrapper_card, .container .news .card-wrapper_card, .container .teachers .card-wrapper_card {
+  width: 23rem;
+  height: auto;
+  border: 1px solid #767676;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.container .category .card-wrapper_card-image, .container .certifications .card-wrapper_card-image, .container .about .card-wrapper_card-image, .container .courses .card-wrapper_card-image, .container .news .card-wrapper_card-image, .container .teachers .card-wrapper_card-image {
+  height: 12rem;
+}
+.container .category .card-wrapper_card-text, .container .certifications .card-wrapper_card-text, .container .about .card-wrapper_card-text, .container .courses .card-wrapper_card-text, .container .news .card-wrapper_card-text, .container .teachers .card-wrapper_card-text {
+  padding: 7px 10px;
+}
+.container .category .card-wrapper_card-text_title, .container .certifications .card-wrapper_card-text_title, .container .about .card-wrapper_card-text_title, .container .courses .card-wrapper_card-text_title, .container .news .card-wrapper_card-text_title, .container .teachers .card-wrapper_card-text_title {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 20px;
+  text-transform: capitalize;
+  font-family: sans-serif;
+  text-align: center;
+  color: #3B82F6;
+}
+.container .category .card-wrapper_card-text_des, .container .certifications .card-wrapper_card-text_des, .container .about .card-wrapper_card-text_des, .container .courses .card-wrapper_card-text_des, .container .news .card-wrapper_card-text_des, .container .teachers .card-wrapper_card-text_des {
+  font-family: sans-serif;
+  text-align: justify;
+}
+.container .category .card-wrapper_card-btns, .container .certifications .card-wrapper_card-btns, .container .about .card-wrapper_card-btns, .container .courses .card-wrapper_card-btns, .container .news .card-wrapper_card-btns, .container .teachers .card-wrapper_card-btns {
+  padding: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #d9d9d9;
 }
-.container .category-result_btn, .container .certifications-result_btn, .container .about-result_btn, .container .courses-result_btn, .container .news-result_btn, .container .teachers-result_btn {
-  display: flex;
-}
-.container .category-result_btn .change, .container .certifications-result_btn .change, .container .about-result_btn .change, .container .courses-result_btn .change, .container .news-result_btn .change, .container .teachers-result_btn .change {
+.container .category .card-wrapper_card-btns div, .container .certifications .card-wrapper_card-btns div, .container .about .card-wrapper_card-btns div, .container .courses .card-wrapper_card-btns div, .container .news .card-wrapper_card-btns div, .container .teachers .card-wrapper_card-btns div {
+  text-decoration: none;
+  border: none;
+  padding: 5px 10px;
+  background: #ce0202;
+  font-size: 15px;
+  font-family: sans-serif;
+  color: #ffffff;
   cursor: pointer;
-  padding: 5px;
-  margin-left: 5px;
-  color: #00a500;
 }
-.container .category-result_btn .delete, .container .certifications-result_btn .delete, .container .about-result_btn .delete, .container .courses-result_btn .delete, .container .news-result_btn .delete, .container .teachers-result_btn .delete {
-  cursor: pointer;
-  padding: 5px;
-  margin-left: 5px;
-  color: #bf0000;
+.container .category .card-wrapper_card-btns .NavLink, .container .certifications .card-wrapper_card-btns .NavLink, .container .about .card-wrapper_card-btns .NavLink, .container .courses .card-wrapper_card-btns .NavLink, .container .news .card-wrapper_card-btns .NavLink, .container .teachers .card-wrapper_card-btns .NavLink {
+  text-decoration: none;
+  border: none;
+  padding: 5px 10px;
+  background: #4fa800;
+  font-size: 15px;
+  font-family: sans-serif;
+  color: #ffffff;
 }
 .container .category-title, .container .certifications-title, .container .about-title, .container .courses-title, .container .news-title, .container .teachers-title {
   text-align: center;
@@ -125,7 +206,6 @@
 }
 .container .category-wrapper_form, .container .certifications-wrapper_form, .container .about-wrapper_form, .container .courses-wrapper_form, .container .news-wrapper_form, .container .teachers-wrapper_form {
   width: 100%;
-  padding: 30px;
 }
 .container .category-wrapper_form .input-group, .container .certifications-wrapper_form .input-group, .container .about-wrapper_form .input-group, .container .courses-wrapper_form .input-group, .container .news-wrapper_form .input-group, .container .teachers-wrapper_form .input-group {
   display: flex;

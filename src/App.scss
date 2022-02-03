@@ -1,9 +1,62 @@
 .container{
   display: flex;
 
+  .login-wrapper{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    height: 100vh;
+
+    h1{
+      font-family: sans-serif;
+      padding-bottom: 20px;
+    }
+
+    &_form{
+      width: 500px;
+      padding: 50px 30px;
+      border: 1px solid #787878;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+
+      input{
+        padding: 10px;
+        margin-bottom: 15px;
+      }
+      .btn{
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        margin-top: 15px;
+        button{
+          padding: 7px 20px;
+          background: #ffffff;
+          border: 1px solid #787878;
+          text-transform: uppercase;
+          font-weight: 600;
+          transition: all .5s ease-in-out;
+          cursor: pointer;
+
+          &:hover{
+            background: #222222;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+
   .category, .certifications, .about, .courses, .news, .teachers{
     flex: 7;
-    padding: 20px;
+    padding: 50px;
 
     .btn{
       //3B82F6
@@ -87,31 +140,68 @@
       }
 
     }
-    &-res_title{
-      text-align: center;
-      padding-top: 20px;
-      padding-bottom: 15px;
-    }
-    &-result {
-      padding: 10px 30px;
+
+    .card-wrapper{
+      width: 100%;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #d9d9d9;
-    }
-    &-result_btn{
-      display: flex;
-      .change{
-        cursor: pointer;
-        padding: 5px;
-        margin-left: 5px;
-        color: #00a500;
-      }
-      .delete{
-        cursor: pointer;
-        padding: 5px;
-        margin-left: 5px;
-        color: #bf0000;
+      flex-wrap: wrap;
+      gap: 32px;
+      padding: 30px 0;
+
+      &_card{
+        width: 23rem;
+        height: auto;
+        border: 1px solid #767676;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &-image{
+          height: 12rem;
+        }
+        &-text{
+          padding: 7px 10px;
+          &_title{
+            margin-bottom: 10px;
+            margin-top: 10px;
+            font-size: 20px;
+            text-transform: capitalize;
+            font-family: sans-serif;
+            text-align: center;
+            color: #3B82F6;
+          }
+          &_des{
+            font-family: sans-serif;
+            text-align: justify;
+          }
+        }
+        &-btns{
+          padding: 15px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          div{
+            text-decoration: none;
+            border: none;
+            padding: 5px 10px;
+            background: #ce0202;
+            font-size: 15px;
+            font-family: sans-serif;
+            color: #ffffff;
+            cursor: pointer;
+          }
+          .NavLink{
+            text-decoration: none;
+            border: none;
+            padding: 5px 10px;
+            background: #4fa800;
+            font-size: 15px;
+            font-family: sans-serif;
+            color: #ffffff;
+          }
+        }
       }
     }
 
@@ -130,7 +220,6 @@
 
       &_form{
         width: 100%;
-        padding: 30px;
 
         .input-group{
           display: flex;

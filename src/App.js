@@ -12,6 +12,7 @@ import Teachers from "./pages/teachers/teachers";
 import Login from "./pages/login/login";
 import Category from "./pages/category/category";
 import UpdateCategories from "./pages/category/updateCategories";
+import UpdateCourses from "./pages/courses/updateCourses";
 
 function App() {
 
@@ -26,18 +27,6 @@ function App() {
             }}/>
         )
     }
-
-        axios.interceptors.response.use(undefined, function (err) {
-            return new Promise(function () {
-                if (err.response.status === 401) {
-                    console.log("error 401 test")
-                    localStorage.clear();
-                }
-                throw err
-            });
-        });
-
-
 
   return (
       <div>
@@ -58,6 +47,9 @@ function App() {
                           </Route>
                           <Route path="/courses">
                               <Courses />
+                          </Route>
+                          <Route path="/courses-edit/:id">
+                              <UpdateCourses />
                           </Route>
                           <Route path="/about">
                               <About />
