@@ -63,6 +63,9 @@ function App() {
                           <Route path="/teachers">
                               <Teachers />
                           </Route>
+                          <Route path="/teachers/:id">
+                              <Teachers />
+                          </Route>
                       </PrivateRoute>
                   </Switch>
               </div>
