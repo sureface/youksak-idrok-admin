@@ -131,16 +131,7 @@ const Courses = () => {
                     </div>
                     <div className="input-group">
                         <label htmlFor="description">Kurs haqida malumot</label>
-<<<<<<< HEAD
-                        <textarea name="description" id="description" placeholder="kurs haqida malumot" required
-                                  onChange={(event) => handleImage(event)}/>
-                    </div>
-                    <div className="input-group">
-                        <label htmlFor="image">Kurs chun rasim</label>
-                        <input accept="image/*" className="image" type="file" name="image" id="image" placeholder="kurs uchun rasim"
-                               required onChange={(e) => setImage(e.target.files)}/>
-                        {image && (<img src={URL.createObjectURL(image[0])} alt='' width={300}/> )}
-=======
+
                         <textarea name="description" id="description" placeholder="kurs haqida malumot"
                              value={descriptions}     onChange={(e) => setDescriptions(e.target.value)}/>
                     </div>
@@ -148,7 +139,7 @@ const Courses = () => {
                         <label htmlFor="image">Kurs chun rasim</label>
                         <input className="image" type="file" name="image" id="image" placeholder="kurs uchun rasim"
                                 onChange={(e) => setImage(e.target.files)}/>
->>>>>>> main
+
                     </div>
                     <div className="input-group">
                         <div className="btn">

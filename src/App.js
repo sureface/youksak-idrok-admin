@@ -13,6 +13,7 @@ import Login from "./pages/login/login";
 import Category from "./pages/category/category";
 import UpdateCategories from "./pages/category/updateCategories";
 import UpdateCourses from "./pages/courses/updateCourses";
+import NewsEdit from "./pages/news/newsEdit";
 
 function App() {
 
@@ -59,6 +60,9 @@ function App() {
                           </Route>
                           <Route path="/news">
                               <News />
+                          </Route>
+                          <Route path="/news-edit/:id">
+                              <NewsEdit />
                           </Route>
                           <Route path="/teachers">
                               <Teachers />
