@@ -9,11 +9,15 @@ const UpdateCourses = () => {
     const history = useHistory();
     const {id} = useParams();
     const [category, setCategory] = useState("");
-    const [courses, setCourses] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
+    const [defCat, setDefCat] = useState("");
     const [name, setName] = useState("");
     const [descriptions, setDescriptions] = useState("");
     const [image, setImage] = useState(null);
+    const [isChange, setIsChange] = useState(false);
+    const [isChange1, setIsChange1] = useState(false);
+    const [isChange2, setIsChange2] = useState(false);
+    const [isChange3, setIsChange3] = useState(false);
 
     // categoriyani  selectni ichiga ob kelish
     const fetchCategoriesForCourses = async () => {
@@ -23,18 +27,21 @@ const UpdateCourses = () => {
         }else console.log(error)
     }
 
-    console.log(category,"////")
     // kurslani ob kelish
     const fetchCourses = async () => {
         try {
             const res = await axios.get(`${API_URL}/courses/${id}`)
+            const re2 = await axios.get(`${API_URL}/categories/${res.data.course[0].category_id}`)
+            console.log(re2, "cat by id")
             console.log(res, "*****************************")
-            let cat = res.data.course[0].category_id
+            let defcategory = re2.data.name
             let title = res.data.course[0].title
             let des = res.data.course[0].description
-            setSelectedCategory(cat)
+            let img =  res.data.course[0].image
+            setDefCat(defcategory)
             setName(title)
             setDescriptions(des)
+            setImage(img)
         } catch (e) {
             if (e.response.status === 401){
                 localStorage.clear();
@@ -48,6 +55,22 @@ const UpdateCourses = () => {
         fetchCourses();
     }, [])
 
+    const onChangeCategory = (e) => {
+        setSelectedCategory(e.target.value);
+        setIsChange(true);
+    }
+    const onChangeTitle = (e) => {
+        setName(e.target.value);
+        setIsChange1(true);
+    }
+    const onChangeDes = (e) => {
+        setDescriptions(e.target.value);
+        setIsChange2(true);
+    }
+    const onChangeImg = (e) => {
+        setImage(e.target.files);
+        setIsChange3(true);
+    }
 
     // kurs qoshish
     const onSubmit = async (e) => {
@@ -55,10 +78,18 @@ const UpdateCourses = () => {
 
         const data = new FormData();
 
-        data.append('category', selectedCategory);
-        data.append('title', name);
-        data.append('description', descriptions);
-        data.append('image', image[0]);
+        if (isChange === true){
+            data.append('category', selectedCategory);
+        }
+        if (isChange1 === true){
+            data.append('title', name);
+        }
+        if (isChange2 === true){
+            data.append('description', descriptions);
+        }
+        if (isChange3 === true){
+            data.append('image', image[0]);
+        }
 
         const config = {
             headers: {
@@ -66,40 +97,22 @@ const UpdateCourses = () => {
             }
         }
 
-        await axios.post(`${API_URL}/courses?token=${getToken()}`, data, config)
+        await axios.patch(`${API_URL}/courses/${id}?token=${getToken()}`, data, config)
             .then((res) => {
-                console.log(res, "++++++++++++++");
-                setCourses("");
+                console.log(res, "post qo'yildi");
                 setName("");
                 setDescriptions("");
                 setImage(null);
                 setSelectedCategory("");
+                history.push("/courses");
             })
             .catch(err => {
+                console.log(err.response.data.message, "my message +++")
                 if (err.response.status === 401){
                     localStorage.clear();
                     history.push("/");
                 }
             })
-
-        await fetchCourses();
-    }
-
-    // delete courses
-    const deleteCourses = async (index) => {
-        console.log(index, "index here")
-        await axios.delete(`${API_URL}/courses/${index}?token=${getToken()}`)
-            .then(res => {
-                console.log(res)
-            })
-            .catch(err => {
-                if (err.response.status === 401){
-                    localStorage.clear();
-                    history.push("/");
-                }
-            })
-
-        await fetchCourses();
     }
 
     return (
@@ -109,8 +122,13 @@ const UpdateCourses = () => {
                 <form className="courses-wrapper_form" onSubmit={onSubmit}>
                     <div className="input-group">
                         <label htmlFor="category">Kurs yo'nalishi</label>
-                        <select name="category" id="category" onChange={(e) => setSelectedCategory(e.target.value)}>
-                            <option value={category[0].id}>{category[0].name}</option>
+                        {selectedCategory}
+                        <select name="category" id="category" onChange={onChangeCategory}>
+                            {category ?
+                                <option value={defCat}>{defCat}</option>
+                                :
+                                <option value="1">kategoriya tanlang</option>
+                            }
                             {category ?
                                 category.map((item, index) => {
                                     return (
@@ -124,27 +142,28 @@ const UpdateCourses = () => {
                     <div className="input-group">
                         <label htmlFor="title">Kurs nomi</label>
                         <input type="text" name="title" id="title" placeholder="kurs nomi" required
-                               value={name}  onChange={(e) => setName(e.target.value)}/>
+                               value={name} onChange={onChangeTitle}/>
                     </div>
                     <div className="input-group">
                         <label htmlFor="description">Kurs haqida malumot</label>
                         <textarea name="description" id="description" placeholder="kurs haqida malumot"
-                                  value={descriptions}     onChange={(e) => setDescriptions(e.target.value)}/>
+                                  value={descriptions} onChange={onChangeDes}/>
                     </div>
                     <div className="input-group">
                         <label htmlFor="image">Kurs chun rasim</label>
                         <input className="image" type="file" name="image" id="image" placeholder="kurs uchun rasim"
-                               onChange={(e) => setImage(e.target.files)}/>
+                               onChange={onChangeImg}/>
                     </div>
                     <div className="input-group">
                         <div className="btn">
+                            <button style={{marginRight: 20 + 'px'}}>Orqaga qaytish</button>
                             <button type="submit">Joylashtirish</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-    );
+    )
 };
 
 export default UpdateCourses;
