@@ -2,42 +2,45 @@ import React, {useState, useEffect} from 'react';
 import "../../App.scss";
 import axios from "axios";
 import {API_URL, getToken} from "../../utils/axios";
-import {NavLink, useHistory} from "react-router-dom";
-import {getCategoriesForCourses, getCourses} from "./query";
+import {NavLink, useHistory, useParams} from "react-router-dom";
+import {getCategoriesForCourses} from "./query";
 
-const Courses = () => {
+const UpdateCourses = () => {
     const history = useHistory();
+    const {id} = useParams();
     const [category, setCategory] = useState("");
     const [courses, setCourses] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
     const [name, setName] = useState("");
     const [descriptions, setDescriptions] = useState("");
-    const [image, setImage] = useState("");
-
-
-    const handleImage = (event) => {
-        if(event.target.files && event.target.files.length > 0) {
-            setImage(event.target.files)
-        }
-    }
-
-    console.log(image);
+    const [image, setImage] = useState(null);
 
     // categoriyani  selectni ichiga ob kelish
     const fetchCategoriesForCourses = async () => {
         const {categoriesForCourses, error} = await getCategoriesForCourses();
-        console.log(categoriesForCourses, " ****  category come ****")
         if (categoriesForCourses){
             setCategory(categoriesForCourses)
         }else console.log(error)
     }
 
+    console.log(category,"////")
     // kurslani ob kelish
     const fetchCourses = async () => {
-        const {fetchCourses, error} = await getCourses();
-        if (fetchCourses){
-            setCourses(fetchCourses)
-        }else console.log(error)
+        try {
+            const res = await axios.get(`${API_URL}/courses/${id}`)
+            console.log(res, "*****************************")
+            let cat = res.data.course[0].category_id
+            let title = res.data.course[0].title
+            let des = res.data.course[0].description
+            setSelectedCategory(cat)
+            setName(title)
+            setDescriptions(des)
+        } catch (e) {
+            if (e.response.status === 401){
+                localStorage.clear();
+                history.push("/");
+            }else console.log(e)
+        }
     }
 
     useEffect(() => {
@@ -66,6 +69,11 @@ const Courses = () => {
         await axios.post(`${API_URL}/courses?token=${getToken()}`, data, config)
             .then((res) => {
                 console.log(res, "++++++++++++++");
+                setCourses("");
+                setName("");
+                setDescriptions("");
+                setImage(null);
+                setSelectedCategory("");
             })
             .catch(err => {
                 if (err.response.status === 401){
@@ -73,13 +81,6 @@ const Courses = () => {
                     history.push("/");
                 }
             })
-
-        setCourses("");
-        setName("");
-        setDescriptions("");
-        setImage(null);
-        setSelectedCategory("");
-
 
         await fetchCourses();
     }
@@ -109,11 +110,7 @@ const Courses = () => {
                     <div className="input-group">
                         <label htmlFor="category">Kurs yo'nalishi</label>
                         <select name="category" id="category" onChange={(e) => setSelectedCategory(e.target.value)}>
-                            {category.length > 0  ?
-                                <option value={selectedCategory}>kategoriya tanlang</option>
-                                :
-                                <option value="0">yangi kategoriya qoshing !</option>
-                            }
+                            <option value={category[0].id}>{category[0].name}</option>
                             {category ?
                                 category.map((item, index) => {
                                     return (
@@ -127,28 +124,17 @@ const Courses = () => {
                     <div className="input-group">
                         <label htmlFor="title">Kurs nomi</label>
                         <input type="text" name="title" id="title" placeholder="kurs nomi" required
-                             value={name}  onChange={(e) => setName(e.target.value)}/>
+                               value={name}  onChange={(e) => setName(e.target.value)}/>
                     </div>
                     <div className="input-group">
                         <label htmlFor="description">Kurs haqida malumot</label>
-<<<<<<< HEAD
-                        <textarea name="description" id="description" placeholder="kurs haqida malumot" required
-                                  onChange={(event) => handleImage(event)}/>
-                    </div>
-                    <div className="input-group">
-                        <label htmlFor="image">Kurs chun rasim</label>
-                        <input accept="image/*" className="image" type="file" name="image" id="image" placeholder="kurs uchun rasim"
-                               required onChange={(e) => setImage(e.target.files)}/>
-                        {image && (<img src={URL.createObjectURL(image[0])} alt='' width={300}/> )}
-=======
                         <textarea name="description" id="description" placeholder="kurs haqida malumot"
-                             value={descriptions}     onChange={(e) => setDescriptions(e.target.value)}/>
+                                  value={descriptions}     onChange={(e) => setDescriptions(e.target.value)}/>
                     </div>
                     <div className="input-group">
                         <label htmlFor="image">Kurs chun rasim</label>
                         <input className="image" type="file" name="image" id="image" placeholder="kurs uchun rasim"
-                                onChange={(e) => setImage(e.target.files)}/>
->>>>>>> main
+                               onChange={(e) => setImage(e.target.files)}/>
                     </div>
                     <div className="input-group">
                         <div className="btn">
@@ -157,43 +143,8 @@ const Courses = () => {
                     </div>
                 </form>
             </div>
-            <h1 className="courses-title">Qo'shilgan Kurslar</h1>
-            <div className="card-wrapper">
-                {
-                    courses ?
-                        courses.map((item, index) => {
-                            return (
-                                <div key={index} className="card-wrapper_card">
-
-                                    <div className="card-wrapper_card-image" style={{background: 'url(' + item.img + ') center / cover' }}> </div>
-
-                                    <div className="card-wrapper_card-text">
-                                        <div className="card-wrapper_card-text_title">
-                                            {item.title}
-                                        </div>
-                                        <div className="card-wrapper_card-text_des">
-                                            {item.description.slice(0,150) + "...."}
-                                        </div>
-                                    </div>
-
-                                    <div className="card-wrapper_card-btns">
-                                        <NavLink className="NavLink" to={"/courses-edit/" + item.id + "/" + item.title.replace(/\s+/g, '-')}>
-                                            Tahrirlash
-                                        </NavLink>
-
-                                        <div onClick={() => deleteCourses(item.id)}>
-                                            O'chirish
-                                        </div>
-                                    </div>
-                                </div>
-                            )
-                        })
-                        : ""
-                }
-            </div>
-
         </div>
     );
 };
 
-export default Courses;
+export default UpdateCourses;

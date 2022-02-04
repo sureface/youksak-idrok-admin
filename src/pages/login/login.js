@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory} from "react-router-dom";
-import "../login/login.scss";
+import "../../App.scss";
 import axios from "axios";
 
 

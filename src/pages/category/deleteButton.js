@@ -14,10 +14,9 @@ const DeleteButton = ({fetchCategories, id}) => {
   }
 
   return (
-    <div disabled={delLoading ? true : false}>
-        <AiFillDelete className="delete" onClick={() => deleteCategories(id)} />
-    </div>
-
+      <div disabled={delLoading ? true : false} onClick={() => deleteCategories(id)} >
+        O'chirish
+      </div>
   )};
 
 export default DeleteButton;

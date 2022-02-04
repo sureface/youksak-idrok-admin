@@ -1,5 +1,251 @@
 .container {
   display: flex;
 }
+.container .login-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  height: 100vh;
+}
+.container .login-wrapper h1 {
+  font-family: sans-serif;
+  padding-bottom: 20px;
+}
+.container .login-wrapper_form {
+  width: 500px;
+  padding: 50px 30px;
+  border: 1px solid #787878;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.container .login-wrapper_form input {
+  padding: 10px;
+  margin-bottom: 15px;
+}
+.container .login-wrapper_form .btn {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-top: 15px;
+}
+.container .login-wrapper_form .btn button {
+  padding: 7px 20px;
+  background: #ffffff;
+  border: 1px solid #787878;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+.container .login-wrapper_form .btn button:hover {
+  background: #222222;
+  color: #ffffff;
+}
+.container .category, .container .certifications, .container .about, .container .courses, .container .news, .container .teachers {
+  flex: 7;
+  padding: 50px;
+}
+.container .category .btn .lds-spinner, .container .certifications .btn .lds-spinner, .container .about .btn .lds-spinner, .container .courses .btn .lds-spinner, .container .news .btn .lds-spinner, .container .teachers .btn .lds-spinner {
+  color: #3B82F6;
+  display: inline-block;
+  position: relative;
+  width: 100px;
+  height: 80px;
+}
+.container .category .btn .lds-spinner div, .container .certifications .btn .lds-spinner div, .container .about .btn .lds-spinner div, .container .courses .btn .lds-spinner div, .container .news .btn .lds-spinner div, .container .teachers .btn .lds-spinner div {
+  transform-origin: 40px 40px;
+  animation: lds-spinner 1.2s linear infinite;
+}
+.container .category .btn .lds-spinner div:after, .container .certifications .btn .lds-spinner div:after, .container .about .btn .lds-spinner div:after, .container .courses .btn .lds-spinner div:after, .container .news .btn .lds-spinner div:after, .container .teachers .btn .lds-spinner div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 25px;
+  left: 40px;
+  width: 3px;
+  height: 8px;
+  border-radius: 20%;
+  background: #3B82F6;
+}
+.container .category .btn .lds-spinner div:nth-child(1), .container .certifications .btn .lds-spinner div:nth-child(1), .container .about .btn .lds-spinner div:nth-child(1), .container .courses .btn .lds-spinner div:nth-child(1), .container .news .btn .lds-spinner div:nth-child(1), .container .teachers .btn .lds-spinner div:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -1.1s;
+}
+.container .category .btn .lds-spinner div:nth-child(2), .container .certifications .btn .lds-spinner div:nth-child(2), .container .about .btn .lds-spinner div:nth-child(2), .container .courses .btn .lds-spinner div:nth-child(2), .container .news .btn .lds-spinner div:nth-child(2), .container .teachers .btn .lds-spinner div:nth-child(2) {
+  transform: rotate(30deg);
+  animation-delay: -1s;
+}
+.container .category .btn .lds-spinner div:nth-child(3), .container .certifications .btn .lds-spinner div:nth-child(3), .container .about .btn .lds-spinner div:nth-child(3), .container .courses .btn .lds-spinner div:nth-child(3), .container .news .btn .lds-spinner div:nth-child(3), .container .teachers .btn .lds-spinner div:nth-child(3) {
+  transform: rotate(60deg);
+  animation-delay: -0.9s;
+}
+.container .category .btn .lds-spinner div:nth-child(4), .container .certifications .btn .lds-spinner div:nth-child(4), .container .about .btn .lds-spinner div:nth-child(4), .container .courses .btn .lds-spinner div:nth-child(4), .container .news .btn .lds-spinner div:nth-child(4), .container .teachers .btn .lds-spinner div:nth-child(4) {
+  transform: rotate(90deg);
+  animation-delay: -0.8s;
+}
+.container .category .btn .lds-spinner div:nth-child(5), .container .certifications .btn .lds-spinner div:nth-child(5), .container .about .btn .lds-spinner div:nth-child(5), .container .courses .btn .lds-spinner div:nth-child(5), .container .news .btn .lds-spinner div:nth-child(5), .container .teachers .btn .lds-spinner div:nth-child(5) {
+  transform: rotate(120deg);
+  animation-delay: -0.7s;
+}
+.container .category .btn .lds-spinner div:nth-child(6), .container .certifications .btn .lds-spinner div:nth-child(6), .container .about .btn .lds-spinner div:nth-child(6), .container .courses .btn .lds-spinner div:nth-child(6), .container .news .btn .lds-spinner div:nth-child(6), .container .teachers .btn .lds-spinner div:nth-child(6) {
+  transform: rotate(150deg);
+  animation-delay: -0.6s;
+}
+.container .category .btn .lds-spinner div:nth-child(7), .container .certifications .btn .lds-spinner div:nth-child(7), .container .about .btn .lds-spinner div:nth-child(7), .container .courses .btn .lds-spinner div:nth-child(7), .container .news .btn .lds-spinner div:nth-child(7), .container .teachers .btn .lds-spinner div:nth-child(7) {
+  transform: rotate(180deg);
+  animation-delay: -0.5s;
+}
+.container .category .btn .lds-spinner div:nth-child(8), .container .certifications .btn .lds-spinner div:nth-child(8), .container .about .btn .lds-spinner div:nth-child(8), .container .courses .btn .lds-spinner div:nth-child(8), .container .news .btn .lds-spinner div:nth-child(8), .container .teachers .btn .lds-spinner div:nth-child(8) {
+  transform: rotate(210deg);
+  animation-delay: -0.4s;
+}
+.container .category .btn .lds-spinner div:nth-child(9), .container .certifications .btn .lds-spinner div:nth-child(9), .container .about .btn .lds-spinner div:nth-child(9), .container .courses .btn .lds-spinner div:nth-child(9), .container .news .btn .lds-spinner div:nth-child(9), .container .teachers .btn .lds-spinner div:nth-child(9) {
+  transform: rotate(240deg);
+  animation-delay: -0.3s;
+}
+.container .category .btn .lds-spinner div:nth-child(10), .container .certifications .btn .lds-spinner div:nth-child(10), .container .about .btn .lds-spinner div:nth-child(10), .container .courses .btn .lds-spinner div:nth-child(10), .container .news .btn .lds-spinner div:nth-child(10), .container .teachers .btn .lds-spinner div:nth-child(10) {
+  transform: rotate(270deg);
+  animation-delay: -0.2s;
+}
+.container .category .btn .lds-spinner div:nth-child(11), .container .certifications .btn .lds-spinner div:nth-child(11), .container .about .btn .lds-spinner div:nth-child(11), .container .courses .btn .lds-spinner div:nth-child(11), .container .news .btn .lds-spinner div:nth-child(11), .container .teachers .btn .lds-spinner div:nth-child(11) {
+  transform: rotate(300deg);
+  animation-delay: -0.1s;
+}
+.container .category .btn .lds-spinner div:nth-child(12), .container .certifications .btn .lds-spinner div:nth-child(12), .container .about .btn .lds-spinner div:nth-child(12), .container .courses .btn .lds-spinner div:nth-child(12), .container .news .btn .lds-spinner div:nth-child(12), .container .teachers .btn .lds-spinner div:nth-child(12) {
+  transform: rotate(330deg);
+  animation-delay: 0s;
+}
+@keyframes lds-spinner {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.container .category .card-wrapper, .container .certifications .card-wrapper, .container .about .card-wrapper, .container .courses .card-wrapper, .container .news .card-wrapper, .container .teachers .card-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 32px;
+  padding: 30px 0;
+}
+.container .category .card-wrapper_card, .container .certifications .card-wrapper_card, .container .about .card-wrapper_card, .container .courses .card-wrapper_card, .container .news .card-wrapper_card, .container .teachers .card-wrapper_card {
+  width: 23rem;
+  height: auto;
+  border: 1px solid #767676;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.container .category .card-wrapper_card-image, .container .certifications .card-wrapper_card-image, .container .about .card-wrapper_card-image, .container .courses .card-wrapper_card-image, .container .news .card-wrapper_card-image, .container .teachers .card-wrapper_card-image {
+  height: 12rem;
+}
+.container .category .card-wrapper_card-text, .container .certifications .card-wrapper_card-text, .container .about .card-wrapper_card-text, .container .courses .card-wrapper_card-text, .container .news .card-wrapper_card-text, .container .teachers .card-wrapper_card-text {
+  padding: 7px 10px;
+}
+.container .category .card-wrapper_card-text_title, .container .certifications .card-wrapper_card-text_title, .container .about .card-wrapper_card-text_title, .container .courses .card-wrapper_card-text_title, .container .news .card-wrapper_card-text_title, .container .teachers .card-wrapper_card-text_title {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 20px;
+  text-transform: capitalize;
+  font-family: sans-serif;
+  text-align: center;
+  color: #3B82F6;
+}
+.container .category .card-wrapper_card-text_des, .container .certifications .card-wrapper_card-text_des, .container .about .card-wrapper_card-text_des, .container .courses .card-wrapper_card-text_des, .container .news .card-wrapper_card-text_des, .container .teachers .card-wrapper_card-text_des {
+  font-family: sans-serif;
+  text-align: justify;
+}
+.container .category .card-wrapper_card-btns, .container .certifications .card-wrapper_card-btns, .container .about .card-wrapper_card-btns, .container .courses .card-wrapper_card-btns, .container .news .card-wrapper_card-btns, .container .teachers .card-wrapper_card-btns {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container .category .card-wrapper_card-btns div, .container .certifications .card-wrapper_card-btns div, .container .about .card-wrapper_card-btns div, .container .courses .card-wrapper_card-btns div, .container .news .card-wrapper_card-btns div, .container .teachers .card-wrapper_card-btns div {
+  text-decoration: none;
+  border: none;
+  padding: 5px 10px;
+  background: #ce0202;
+  font-size: 15px;
+  font-family: sans-serif;
+  color: #ffffff;
+  cursor: pointer;
+}
+.container .category .card-wrapper_card-btns .NavLink, .container .certifications .card-wrapper_card-btns .NavLink, .container .about .card-wrapper_card-btns .NavLink, .container .courses .card-wrapper_card-btns .NavLink, .container .news .card-wrapper_card-btns .NavLink, .container .teachers .card-wrapper_card-btns .NavLink {
+  text-decoration: none;
+  border: none;
+  padding: 5px 10px;
+  background: #4fa800;
+  font-size: 15px;
+  font-family: sans-serif;
+  color: #ffffff;
+}
+.container .category-title, .container .certifications-title, .container .about-title, .container .courses-title, .container .news-title, .container .teachers-title {
+  text-align: center;
+  font-family: sans-serif;
+  color: #3B82F6;
+  padding: 0;
+  margin: 0;
+}
+.container .category-wrapper, .container .certifications-wrapper, .container .about-wrapper, .container .courses-wrapper, .container .news-wrapper, .container .teachers-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .category-wrapper_form, .container .certifications-wrapper_form, .container .about-wrapper_form, .container .courses-wrapper_form, .container .news-wrapper_form, .container .teachers-wrapper_form {
+  width: 100%;
+}
+.container .category-wrapper_form .input-group, .container .certifications-wrapper_form .input-group, .container .about-wrapper_form .input-group, .container .courses-wrapper_form .input-group, .container .news-wrapper_form .input-group, .container .teachers-wrapper_form .input-group {
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+.container .category-wrapper_form .input-group label, .container .certifications-wrapper_form .input-group label, .container .about-wrapper_form .input-group label, .container .courses-wrapper_form .input-group label, .container .news-wrapper_form .input-group label, .container .teachers-wrapper_form .input-group label {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+.container .category-wrapper_form .input-group input, .container .category-wrapper_form .input-group select, .container .certifications-wrapper_form .input-group input, .container .certifications-wrapper_form .input-group select, .container .about-wrapper_form .input-group input, .container .about-wrapper_form .input-group select, .container .courses-wrapper_form .input-group input, .container .courses-wrapper_form .input-group select, .container .news-wrapper_form .input-group input, .container .news-wrapper_form .input-group select, .container .teachers-wrapper_form .input-group input, .container .teachers-wrapper_form .input-group select {
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.container .category-wrapper_form .input-group textarea, .container .certifications-wrapper_form .input-group textarea, .container .about-wrapper_form .input-group textarea, .container .courses-wrapper_form .input-group textarea, .container .news-wrapper_form .input-group textarea, .container .teachers-wrapper_form .input-group textarea {
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.container .category-wrapper_form .input-group .image, .container .certifications-wrapper_form .input-group .image, .container .about-wrapper_form .input-group .image, .container .courses-wrapper_form .input-group .image, .container .news-wrapper_form .input-group .image, .container .teachers-wrapper_form .input-group .image {
+  border: 1px solid #767676;
+  cursor: pointer;
+}
+.container .category-wrapper_form .input-group .btn, .container .certifications-wrapper_form .input-group .btn, .container .about-wrapper_form .input-group .btn, .container .courses-wrapper_form .input-group .btn, .container .news-wrapper_form .input-group .btn, .container .teachers-wrapper_form .input-group .btn {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-top: 15px;
+}
+.container .category-wrapper_form .input-group .btn button, .container .certifications-wrapper_form .input-group .btn button, .container .about-wrapper_form .input-group .btn button, .container .courses-wrapper_form .input-group .btn button, .container .news-wrapper_form .input-group .btn button, .container .teachers-wrapper_form .input-group .btn button {
+  padding: 7px 20px;
+  background: #ffffff;
+  border: 1px solid #787878;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+.container .category-wrapper_form .input-group .btn button:hover, .container .certifications-wrapper_form .input-group .btn button:hover, .container .about-wrapper_form .input-group .btn button:hover, .container .courses-wrapper_form .input-group .btn button:hover, .container .news-wrapper_form .input-group .btn button:hover, .container .teachers-wrapper_form .input-group .btn button:hover {
+  background: #222222;
+  color: #ffffff;
+}
 
 /*# sourceMappingURL=App.css.map */
