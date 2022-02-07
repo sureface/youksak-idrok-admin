@@ -3,6 +3,7 @@ import "../../App.scss";
 import axios from "axios";
 import {API_URL, getToken} from "../../utils/axios";
 import {useHistory, useParams} from "react-router-dom";
+import {fetchTeacher} from "./query";
 
 const UpdateTeachers = () => {
 
@@ -11,39 +12,38 @@ const UpdateTeachers = () => {
 
 
     const [name, setName] = useState("");
+    const [surName, setSurName] = useState("");
     const [descriptions, setDescriptions] = useState("");
     const [image, setImage] = useState(null);
     const [isChange1, setIsChange1] = useState(false);
     const [isChange2, setIsChange2] = useState(false);
     const [isChange3, setIsChange3] = useState(false);
+    const [isChange4, setIsChange4] = useState(false);
 
 
     // kurslani ob kelish
-    const fetchTeacher = async () => {
-        try {
-            const res = await axios.get(`${API_URL}/teachers/${id}`)
-            console.log(res, "*****************************")
-            let title = res.data.teachers[0].title
-            let des = res.data.teachers[0].description
-            let img =  res.data.teachers[0].image
-            setName(title)
-            setDescriptions(des)
-            setImage(img)
-        } catch (e) {
-            if (e.response.status === 401){
-                localStorage.clear();
-                history.push("/");
-            }else console.log(e)
+    const fetchTeachers = async () => {
+        const {names, surNames, des, error} = await fetchTeacher(id);
+        let uName = names
+        setName(uName);
+        setSurName(surNames);
+        setDescriptions(des);
+        if (error){
+            console.log(error)
         }
     }
 
     useEffect(() => {
-        fetchTeacher();
+        fetchTeachers();
     }, [])
 
     const onChangeTitle = (e) => {
         setName(e.target.value);
         setIsChange1(true);
+    }
+    const onChangeSurTitle = (e) => {
+        setSurName(e.target.value);
+        setIsChange4(true);
     }
     const onChangeDes = (e) => {
         setDescriptions(e.target.value);
@@ -61,7 +61,10 @@ const UpdateTeachers = () => {
         const data = new FormData();
 
         if (isChange1 === true){
-            data.append('title', name);
+            data.append('first_name', name);
+        }
+        if (isChange4 === true){
+            data.append('last_name', surName);
         }
         if (isChange2 === true){
             data.append('description', descriptions);
@@ -69,6 +72,7 @@ const UpdateTeachers = () => {
         if (isChange3 === true){
             data.append('image', image[0]);
         }
+
 
         const config = {
             headers: {
@@ -78,12 +82,13 @@ const UpdateTeachers = () => {
 
         await axios.patch(`${API_URL}/teachers/${id}?token=${getToken()}`, data, config)
             .then((res) => {
-                console.log(res, "post qo'yildi");
+                console.log(res, "ustozlar ozgardi !");
                 setName("");
+                setSurName("");
                 setDescriptions("");
                 setImage(null);
 
-                history.push("/courses");
+                history.push("/teachers");
             })
             .catch(err => {
                 console.log(err.response.data.message, "my message +++")
@@ -95,22 +100,25 @@ const UpdateTeachers = () => {
     }
 
     return (
-        <div className="courses">
+        <div className="teachers">
             <h1 className="courses-title">Kurslar</h1>
             <div className="courses-wrapper">
                 <form className="courses-wrapper_form" onSubmit={onSubmit}>
                     <div className="input-group">
-                        <label htmlFor="title">Kurs nomi</label>
-                        <input type="text" name="title" id="title" placeholder="kurs nomi" required
-                               value={name} onChange={onChangeTitle}/>
+                        <label htmlFor="first_name">O'qituvchi nomi</label>
+                        <input type="text" name="first_name" id="first_name" placeholder="o'qituvchi nomi" required value={name} onChange={onChangeTitle}/>
                     </div>
                     <div className="input-group">
-                        <label htmlFor="description">Kurs haqida malumot</label>
+                        <label htmlFor="familya">O'qituvchi familyasi</label>
+                        <input type="text" name="last_name" id="familya" placeholder="Ustozning familyasi" value={surName} onChange={onChangeSurTitle}/>
+                    </div>
+                    <div className="input-group">
+                        <label htmlFor="description">O'qituvchi haqida malumot</label>
                         <textarea name="description" id="description" placeholder="kurs haqida malumot"
                                   value={descriptions} onChange={onChangeDes}/>
                     </div>
                     <div className="input-group">
-                        <label htmlFor="image">Kurs chun rasim</label>
+                        <label htmlFor="image">O'qituvchining  rasimi</label>
                         <input className="image" type="file" name="image" id="image" placeholder="kurs uchun rasim"
                                onChange={onChangeImg}/>
                     </div>

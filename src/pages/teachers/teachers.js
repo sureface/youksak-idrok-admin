@@ -129,7 +129,7 @@ const Teachers = () => {
                                     </div>
 
                                     <div className="card-wrapper_card-btns">
-                                        <NavLink className="NavLink" to={"/courses-edit/" + item.id + "/" + item.first_name + "-" + item.last_name.replace(/\s+/g, '-')}>
+                                        <NavLink className="NavLink" to={"/teachers-edit/" + item.id + "/" + item.first_name + "-" + item.last_name.replace(/\s+/g, '-')}>
                                             Tahrirlash
                                         </NavLink>
 

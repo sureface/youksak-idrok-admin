@@ -101,9 +101,9 @@ const Courses = () => {
                         <label htmlFor="category">Kurs yo'nalishi</label>
                         <select name="category" id="category" onChange={(e) => setSelectedCategory(e.target.value)}>
                             {category.length > 0  ?
-                                <option disabled value={selectedCategory}>kategoriya tanlang</option>
+                                <option disabled value="0">kategoriya tanlang</option>
                                 :
-                                <option disabled value="0">yangi kategoriya qoshing !</option>
+                                <option value="0">yangi kategoriya qoshing !</option>
                             }
                             {category ?
                                 category.map((item, index) => {

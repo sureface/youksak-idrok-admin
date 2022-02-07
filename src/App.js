@@ -13,6 +13,7 @@ import Login from "./pages/login/login";
 import Category from "./pages/category/category";
 import UpdateCategories from "./pages/category/updateCategories";
 import UpdateCourses from "./pages/courses/updateCourses";
+import UpdateTeachers from "./pages/teachers/updateTeachers";
 
 function App() {
 
@@ -63,8 +64,8 @@ function App() {
                           <Route path="/teachers">
                               <Teachers />
                           </Route>
-                          <Route path="/teachers/:id">
-                              <Teachers />
+                          <Route path="/teachers-edit/:id">
+                              <UpdateTeachers />
                           </Route>
                       </PrivateRoute>
                   </Switch>
