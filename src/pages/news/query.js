@@ -12,7 +12,6 @@ const config = {
 export const postNews = async (dataObj) => {
 
   let news, error;
-  console.log(dataObj);
   const token = getToken()
   try {
     const res = await axios.post(`${API_URL}/news?token=${token}`, dataObj, config);

@@ -13,13 +13,16 @@ const Courses = () => {
     const [name, setName] = useState("");
     const [descriptions, setDescriptions] = useState("");
     const [image, setImage] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [fetchLoading, setFetchLoading] = useState(false);
 
     // categoriyani  selectni ichiga ob kelish
     const fetchCategoriesForCourses = async () => {
+        setFetchLoading(true);
         const {categoriesForCourses, error} = await getCategoriesForCourses();
-        console.log(categoriesForCourses, " ****  category come ****")
         if (categoriesForCourses){
             setCategory(categoriesForCourses)
+            setFetchLoading(false);
         }else console.log(error)
     }
 
@@ -41,6 +44,8 @@ const Courses = () => {
     const onSubmit = async (e) => {
         e.preventDefault();
 
+        setIsLoading(true);
+
         const data = new FormData();
 
         data.append('category', selectedCategory);
@@ -56,13 +61,14 @@ const Courses = () => {
 
         await axios.post(`${API_URL}/courses?token=${getToken()}`, data, config)
             .then((res) => {
-                console.log(res, "++++++++++++++");
+                setIsLoading(false);
             })
             .catch(err => {
                 if (err.response.status === 401){
                     localStorage.clear();
                     history.push("/");
                 }
+                setIsLoading(false);
             })
 
         setCourses("");
@@ -77,10 +83,8 @@ const Courses = () => {
 
     // delete courses
     const deleteCourses = async (index) => {
-        console.log(index, "index here")
         await axios.delete(`${API_URL}/courses/${index}?token=${getToken()}`)
             .then(res => {
-                console.log(res)
             })
             .catch(err => {
                 if (err.response.status === 401){
@@ -132,46 +136,67 @@ const Courses = () => {
                     </div>
                     <div className="input-group">
                         <div className="btn">
-                            <button type="submit">Joylashtirish</button>
+                            {
+                                isLoading ?
+                                    <div className="lds-ellipsis">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                    :
+                                    <button type="submit">Joylashtirish</button>
+                            }
                         </div>
                     </div>
                 </form>
             </div>
             <h1 className="courses-title">Qo'shilgan Kurslar</h1>
-            <div className="card-wrapper">
-                {
-                    courses ?
-                        courses.map((item, index) => {
-                            return (
-                                <div key={index} className="card-wrapper_card">
+            {
+                fetchLoading ?
+                    <div className="btn">
+                        <div className="lds-ellipsis">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    :
+                    <div className="card-wrapper">
+                        {
+                            courses ?
+                                courses.map((item, index) => {
+                                    return (
+                                        <div key={index} className="card-wrapper_card">
 
-                                    <div className="card-wrapper_card-image" style={{background: 'url(' + item.img + ') center / cover' }}> </div>
+                                            <div className="card-wrapper_card-image" style={{background: 'url(' + item.img + ') center / cover' }}> </div>
 
-                                    <div className="card-wrapper_card-text">
-                                        <div className="card-wrapper_card-text_title">
-                                            {item.title}
+                                            <div className="card-wrapper_card-text">
+                                                <div className="card-wrapper_card-text_title">
+                                                    {item.title}
+                                                </div>
+                                                <div className="card-wrapper_card-text_des">
+                                                    {item.description.slice(0,150) + "...."}
+                                                </div>
+                                            </div>
+
+                                            <div className="card-wrapper_card-btns">
+                                                <NavLink className="NavLink" to={"/courses-edit/" + item.id + "/" + item.title.replace(/\s+/g, '-')}>
+                                                    Tahrirlash
+                                                </NavLink>
+
+                                                <div onClick={() => deleteCourses(item.id)}>
+                                                    O'chirish
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="card-wrapper_card-text_des">
-                                            {item.description.slice(0,150) + "...."}
-                                        </div>
-                                    </div>
-
-                                    <div className="card-wrapper_card-btns">
-                                        <NavLink className="NavLink" to={"/courses-edit/" + item.id + "/" + item.title.replace(/\s+/g, '-')}>
-                                            Tahrirlash
-                                        </NavLink>
-
-                                        <div onClick={() => deleteCourses(item.id)}>
-                                            O'chirish
-                                        </div>
-                                    </div>
-                                </div>
-                            )
-                        })
-                        : ""
-                }
-            </div>
-
+                                    )
+                                })
+                                : ""
+                        }
+                    </div>
+            }
         </div>
     );
 };

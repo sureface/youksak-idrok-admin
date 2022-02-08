@@ -46,7 +46,6 @@ const NewsEdit = () => {
         if (date) {
             const {data, error} = await patchNews(date, id)
         }
-        console.log(...date, "Formdata")
 
 
         setTitle("")

@@ -46,10 +46,8 @@ const Teachers = () => {
 
         await axios.post(`${API_URL}/teachers?token=${getToken()}`, data, config)
             .then((res) => {
-                console.log(res, "teacher posted");
             })
             .catch(err => {
-                console.log(err.response.data.message)
                 if (err.response.status === 401){
                     localStorage.clear();
                     history.push("/");
@@ -65,10 +63,8 @@ const Teachers = () => {
 
     // delete teachers
     const deleteTeachers = async (index) => {
-        console.log(index, "index here")
         await axios.delete(`${API_URL}/teachers/${index}?token=${getToken()}`)
             .then(res => {
-                console.log(res)
             })
             .catch(err => {
                 if (err.response.status === 401){

@@ -82,7 +82,6 @@ const UpdateTeachers = () => {
 
         await axios.patch(`${API_URL}/teachers/${id}?token=${getToken()}`, data, config)
             .then((res) => {
-                console.log(res, "ustozlar ozgardi !");
                 setName("");
                 setSurName("");
                 setDescriptions("");
@@ -91,7 +90,6 @@ const UpdateTeachers = () => {
                 history.push("/teachers");
             })
             .catch(err => {
-                console.log(err.response.data.message, "my message +++")
                 if (err.response.status === 401){
                     localStorage.clear();
                     history.push("/");

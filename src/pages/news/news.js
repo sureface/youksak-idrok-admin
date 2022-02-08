@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import "../../App.css";
 import { deleteNews, getNews, postNews } from './query';
 
 const News = () => {
-    const [news, setNews] = useState([])
-    const [title, setTitle] = useState('')
-    const [name, setName] = useState('')
-    const [image, setImage] = useState(null)
+    const [news, setNews] = useState([]);
+    const [title, setTitle] = useState('');
+    const [name, setName] = useState('');
+    const [image, setImage] = useState(null);
+    const [testImage, setTestImage] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [fetchLoading, setFetchLoading] = useState(false);
 
     const handleImage = (event) => {
+        setTestImage(true);
         if(event.target.files && event.target.files.length > 0) {
             setImage(event.target.files)
         }
     }
+
     const fetchNews = async () => {
         const {news, error} = await getNews()
         setNews(news)
@@ -23,16 +28,25 @@ const News = () => {
         fetchNews()
     }, [])
 
-    const onSubmit = async (evt) => {
-        evt.preventDefault();
+    const onSubmit = async (e) => {
+        e.preventDefault();
+
+        setIsLoading(true);
+
         const data = new FormData();
 
         data.append('title', title);
         data.append('subtitle', name);
-        data.append('image', image[0]);
+        if (testImage) {
+            data.append('image', image[0]);
+        }else{
+            data.append('image', image)
+        }
+
 
             if (data) {
-                const {news, error} = await postNews(data)
+                const {news, error} = await postNews(data);
+                setIsLoading(false);
             }
 
         setTitle("")
@@ -40,7 +54,6 @@ const News = () => {
         setImage(null)
 
         await fetchNews()
-
     }
 
     const deleteNew = async (id) => {
@@ -58,20 +71,33 @@ const News = () => {
                         <input type="text" name="title" id="title" placeholder="Kurs nomi" required
                                value={title}  onChange={(e) => setTitle(e.target.value)}/>
                     </div>
+
                     <div className="input-group">
                         <label htmlFor="description">Yangilik haqida</label>
                         <textarea name="description" id="description" placeholder="kurs haqida malumot"
-                                  value={name}     onChange={(e) => setName(e.target.value)}/>
+                                  value={name} onChange={(e) => setName(e.target.value)}/>
                     </div>
+
                     <div className="input-group">
                         <label htmlFor="image">Yangilik uchun rasim</label>
                         <input className="image" type="file" name="image" id="image" placeholder="kurs uchun rasim"
                                onChange={(event) => handleImage(event)}/>
                         {/*{image && (<img src={URL.createObjectURL(image[0])} alt='' width={300}/> )}*/}
                     </div>
+
                     <div className="input-group">
                         <div className="btn">
-                            <button onClick={onSubmit} type="submit">Joylashtirish</button>
+                            {
+                                isLoading ?
+                                    <div className="lds-ellipsis">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                    :
+                                    <button type="submit">Joylashtirish</button>
+                            }
                         </div>
                     </div>
                 </form>

@@ -32,8 +32,6 @@ const UpdateCourses = () => {
         try {
             const res = await axios.get(`${API_URL}/courses/${id}`)
             const re2 = await axios.get(`${API_URL}/categories/${res.data.course[0].category_id}`)
-            console.log(re2, "cat by id")
-            console.log(res, "*****************************")
             let defcategory = re2.data.name
             let title = res.data.course[0].title
             let des = res.data.course[0].description
@@ -99,7 +97,6 @@ const UpdateCourses = () => {
 
         await axios.patch(`${API_URL}/courses/${id}?token=${getToken()}`, data, config)
             .then((res) => {
-                console.log(res, "post qo'yildi");
                 setName("");
                 setDescriptions("");
                 setImage(null);
@@ -107,7 +104,6 @@ const UpdateCourses = () => {
                 history.push("/courses");
             })
             .catch(err => {
-                console.log(err.response.data.message, "my message +++")
                 if (err.response.status === 401){
                     localStorage.clear();
                     history.push("/");
