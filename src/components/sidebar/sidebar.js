@@ -37,18 +37,6 @@ const Sidebar = () => {
                                 Ustozlar
                             </NavLink>
                         </li>
-                        <li className="sidebar-list-item">
-                            <NavLink to="/certifications" className="sidebar-list-item_link">
-                                <AiOutlineSafetyCertificate className="sidebar-list-item_icon" />
-                                Sertifikatlar
-                            </NavLink>
-                        </li>
-                        <li className="sidebar-list-item">
-                            <NavLink to="/about" className="sidebar-list-item_link">
-                                <BsInfoCircle className="sidebar-list-item_icon" />
-                                Biz Haqimizda
-                            </NavLink>
-                        </li>
                     </ul>
                 </div>
             </div>

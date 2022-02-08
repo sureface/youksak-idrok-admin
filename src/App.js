@@ -1,12 +1,9 @@
 import React from "react";
 import './App.scss';
-import {BrowserRouter as Router, Switch, Route, Redirect, useHistory} from "react-router-dom";
-import axios from "axios";
+import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 import Topbar from "./components/topbar/topbar";
 import Sidebar from "./components/sidebar/sidebar";
-import About from "./pages/about/about";
 import Courses from "./pages/courses/courses";
-import Certifications from "./pages/certifications/certifications";
 import News from "./pages/news/news";
 import Teachers from "./pages/teachers/teachers";
 import Login from "./pages/login/login";
@@ -14,10 +11,9 @@ import Category from "./pages/category/category";
 import UpdateCategories from "./pages/category/updateCategories";
 import UpdateCourses from "./pages/courses/updateCourses";
 import UpdateTeachers from "./pages/teachers/updateTeachers";
+import NewsEdit from "./pages/news/newsEdit";
 
 function App() {
-
-    const history = useHistory();
 
     function PrivateRoute ({ children, ...rest}) {
         return(
@@ -52,14 +48,11 @@ function App() {
                           <Route path="/courses-edit/:id">
                               <UpdateCourses />
                           </Route>
-                          <Route path="/about">
-                              <About />
-                          </Route>
-                          <Route path="/certifications">
-                              <Certifications />
-                          </Route>
                           <Route path="/news">
                               <News />
+                          </Route>
+                          <Route path="/news-edit/:id">
+                              <NewsEdit />
                           </Route>
                           <Route path="/teachers">
                               <Teachers />
