@@ -22,3 +22,14 @@ export const getCourses = async () => {
     }
     return {fetchCourses, error}
 }
+
+export const fetchCourseById = async (id) => {
+    let fetchCourses, error;
+    try {
+        const res = await axios.get(`${API_URL}/courses/${id}`);
+        fetchCourses = res.data.course
+    } catch (err) {
+        error = error ? error.message : 'Oops kurslarni olib kelishda xatolik yuz berdi !';
+    }
+    return {fetchCourses, error}
+}

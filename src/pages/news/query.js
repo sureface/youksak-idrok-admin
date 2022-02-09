@@ -10,7 +10,6 @@ const config = {
 
 
 export const postNews = async (dataObj) => {
-
   let news, error;
   const token = getToken()
   try {

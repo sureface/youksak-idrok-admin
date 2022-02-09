@@ -186,6 +186,10 @@ const Courses = () => {
                                                     Tahrirlash
                                                 </NavLink>
 
+                                                <NavLink className="more" to={'courses-more/' + item.id + '/' + item.title.replace(/\s+/g, '-')}>
+                                                    Batafsil
+                                                </NavLink>
+
                                                 <div onClick={() => deleteCourses(item.id)}>
                                                     O'chirish
                                                 </div>

@@ -1,11 +1,10 @@
 import React from 'react';
-import {FaThList, FaUserGraduate} from "react-icons/fa"
+import {FaThList, FaUserGraduate, FaUserAlt} from "react-icons/fa"
 import {RiStackFill} from "react-icons/ri";
-import {AiOutlineSafetyCertificate} from "react-icons/ai";
-import {BsInfoCircle} from "react-icons/bs";
+import {HiUserGroup} from "react-icons/hi";
 import {MdCategory} from "react-icons/md";
 import "../sidebar/sidebar.scss";
-import {Link, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const Sidebar = () => {
     return (
@@ -35,6 +34,18 @@ const Sidebar = () => {
                             <NavLink to="/teachers" className="sidebar-list-item_link">
                                 <FaUserGraduate className="sidebar-list-item_icon" />
                                 Ustozlar
+                            </NavLink>
+                        </li>
+                        <li className="sidebar-list-item">
+                            <NavLink to="/group" className="sidebar-list-item_link">
+                                <HiUserGroup className="sidebar-list-item_icon" />
+                                Guruhlar
+                            </NavLink>
+                        </li>
+                        <li className="sidebar-list-item">
+                            <NavLink to="/individual" className="sidebar-list-item_link">
+                                <FaUserAlt className="sidebar-list-item_icon" />
+                                Individual
                             </NavLink>
                         </li>
                     </ul>
