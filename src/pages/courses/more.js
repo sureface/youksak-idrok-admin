@@ -60,7 +60,7 @@ const More = () => {
                         }
 
                         <div className="res-btns">
-                            <NavLink className="res-btns_gr" to={{pathname: '/group', state: id}}>Guruh</NavLink>
+                            <NavLink className="res-btns_gr" to={{pathname: '/add-to-group', state: {courseId: id}}}>Guruh</NavLink>
                             <NavLink className="res-btns_in" to="/individual">Individual</NavLink>
                             <NavLink className="res-btns_back" to="/courses">Orqaga qaytish</NavLink>
                         </div>

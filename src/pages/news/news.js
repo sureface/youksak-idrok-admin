@@ -40,7 +40,7 @@ const News = () => {
         if (testImage) {
             data.append('image', image[0]);
         }else{
-            data.append('image', image)
+            data.append('image', image);
         }
 
 
@@ -68,19 +68,19 @@ const News = () => {
                 <form className="courses-wrapper_form" onSubmit={onSubmit}>
                     <div className="input-group">
                         <label htmlFor="title">Yangilik nomi</label>
-                        <input type="text" name="title" id="title" placeholder="Kurs nomi" required
+                        <input type="text" name="title" id="title" placeholder="Yangilik nomi" required
                                value={title}  onChange={(e) => setTitle(e.target.value)}/>
                     </div>
 
                     <div className="input-group">
                         <label htmlFor="description">Yangilik haqida</label>
-                        <textarea name="description" id="description" placeholder="kurs haqida malumot"
+                        <textarea name="description" id="description" placeholder="Yangilik haqida malumot"
                                   value={name} onChange={(e) => setName(e.target.value)}/>
                     </div>
 
                     <div className="input-group">
                         <label htmlFor="image">Yangilik uchun rasim</label>
-                        <input className="image" type="file" name="image" id="image" placeholder="kurs uchun rasim"
+                        <input className="image" type="file" name="image" id="image" placeholder="yangilik uchun rasim"
                                onChange={(event) => handleImage(event)}/>
                         {/*{image && (<img src={URL.createObjectURL(image[0])} alt='' width={300}/> )}*/}
                     </div>

@@ -12,8 +12,10 @@ import UpdateCategories from "./pages/category/updateCategories";
 import UpdateCourses from "./pages/courses/updateCourses";
 import UpdateTeachers from "./pages/teachers/updateTeachers";
 import NewsEdit from "./pages/news/newsEdit";
-import Group from "./pages/postCourses/group/group";
-import Individual from "./pages/postCourses/individual/individual";
+import Group from "./pages/postCourses/group/result/group";
+import Individual from "./pages/postCourses/individual/result/individual";
+import AddToGroup from "./pages/postCourses/group/group";
+import AddToIndividual from "./pages/postCourses/individual/individual";
 import More from "./pages/courses/more";
 
 function App() {
@@ -65,6 +67,12 @@ function App() {
                           </Route>
                           <Route path="/group">
                               <Group />
+                          </Route>
+                          <Route path="/add-to-group">
+                              <AddToGroup />
+                          </Route>
+                          <Route path="/add-to-individual">
+                              <AddToIndividual />
                           </Route>
                           <Route path="/individual">
                               <Individual />

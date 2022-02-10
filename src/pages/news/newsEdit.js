@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { getNewsById, patchNews } from './query';
 
 const NewsEdit = () => {
+
+    const history = useHistory();
 
     const [news, setNews] = useState(null)
     const [title, setTitle] = useState('')
@@ -44,7 +46,8 @@ const NewsEdit = () => {
         date.append('image', image[0]);
 
         if (date) {
-            const {data, error} = await patchNews(date, id)
+            const {data, error} = await patchNews(date, id);
+            history.push('/news');
         }
 
 

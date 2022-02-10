@@ -170,6 +170,11 @@
   gap: 32px;
   padding: 30px 0;
 }
+.container .category .card-wrapper .res-group, .container .certifications .card-wrapper .res-group, .container .about .card-wrapper .res-group, .container .courses .card-wrapper .res-group, .container .news .card-wrapper .res-group, .container .teachers .card-wrapper .res-group, .container .login-wrapper .card-wrapper .res-group, .container .individual .card-wrapper .res-group, .container .group .card-wrapper .res-group {
+  width: 23rem;
+  height: auto;
+  border: 1px solid #767676;
+}
 .container .category .card-wrapper_card, .container .certifications .card-wrapper_card, .container .about .card-wrapper_card, .container .courses .card-wrapper_card, .container .news .card-wrapper_card, .container .teachers .card-wrapper_card, .container .login-wrapper .card-wrapper_card, .container .individual .card-wrapper_card, .container .group .card-wrapper_card {
   width: 23rem;
   height: auto;

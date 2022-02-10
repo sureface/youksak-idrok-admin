@@ -1,8 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {getTeachersForGr, postGroup} from "./query";
+import {useLocation, useHistory} from "react-router-dom";
 
 const Group = () => {
 
+    const location = useLocation();
+    const history = useHistory();
+    const {courseId} = location.state
 
     const [getTeach, setGetTeach] = useState(null);
     const [selectedTeacher, setSelectedTeacher] = useState(null);
@@ -33,6 +37,16 @@ const Group = () => {
         getTeachers();
     },[])
 
+    // const handleKeyPress = (e) => {
+    //     console.log(e.charCode)
+    //     const pressed = e.charCode
+    //
+    //     if (pressed === 32){
+    //         // pressed.replace(/\s/g, "");
+    //     }
+    //     return pressed
+    // }
+
     const onSubmitGroup = (e) => {
         e.preventDefault();
 
@@ -48,11 +62,12 @@ const Group = () => {
             active: isActive
         }
 
-        const {pGroup, error} = postGroup({data});
-        if (pGroup) {
-            console.log(pGroup)
+        const {pGroup, error} = postGroup({data, courseId});
+        if (data) {
+            console.log(pGroup);
+            history.push('/courses');
         }else {
-            console.log(error)
+            console.log(error);
         }
     }
 
@@ -112,6 +127,7 @@ const Group = () => {
                         <input type="text" name="days" id="days" placeholder="Kurs kunlari"
                                onChange={(e) => setDurationByDay(e.target.value)}/>
                     </div>
+                    {/* onKeyPress={(e) => handleKeyPress(e)}  top*/}
                     <div className="input-group">
                         <label htmlFor="in_month">1 oylik kurslar soni</label>
                         <input type="number" name="in_month" id="in_month" placeholder="1 oylik kurslar soni"
