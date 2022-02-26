@@ -1,113 +1,208 @@
 .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 .container .login-wrapper {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: #ffffff;
   height: 100vh;
 }
+
 .container .login-wrapper h1 {
   font-family: sans-serif;
   padding-bottom: 20px;
 }
+
 .container .login-wrapper_form {
   width: 500px;
   padding: 50px 30px;
   border: 1px solid #787878;
   font-family: sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
+
 .container .login-wrapper_form input {
   padding: 10px;
   margin-bottom: 15px;
 }
+
 .container .login-wrapper_form .btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
   margin-top: 15px;
 }
+
 .container .login-wrapper_form .btn button {
   padding: 7px 20px;
   background: #ffffff;
   border: 1px solid #787878;
   text-transform: uppercase;
   font-weight: 600;
-  transition: all 0.5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
   cursor: pointer;
 }
+
 .container .login-wrapper_form .btn button:hover {
   background: #222222;
   color: #ffffff;
 }
+ 
 .container .category, .container .certifications, .container .about, .container .courses, .container .news, .container .teachers, .container .login-wrapper, .container .individual, .container .group {
   flex: 7;
   padding: 50px;
 }
-.container .category .btn .lds-ellipsis, .container .certifications .btn .lds-ellipsis, .container .about .btn .lds-ellipsis, .container .courses .btn .lds-ellipsis, .container .news .btn .lds-ellipsis, .container .teachers .btn .lds-ellipsis, .container .login-wrapper .btn .lds-ellipsis, .container .individual .btn .lds-ellipsis, .container .group .btn .lds-ellipsis {
+ 
+ 
+.container .category, .container .certifications, .container .about, .container .courses, .container .news, .container .teachers, .container .login-wrapper {
+  -webkit-box-flex: 7;
+      -ms-flex: 7;
+          flex: 7;
+  padding: 50px;
+}
+
+.container .category .btn .lds-ellipsis, .container .certifications .btn .lds-ellipsis, .container .about .btn .lds-ellipsis, .container .courses .btn .lds-ellipsis, .container .news .btn .lds-ellipsis, .container .teachers .btn .lds-ellipsis, .container .login-wrapper .btn .lds-ellipsis {
+ 
   display: inline-block;
   position: relative;
   width: 120px;
   height: 30px;
 }
+ 
 .container .category .btn .lds-ellipsis div, .container .certifications .btn .lds-ellipsis div, .container .about .btn .lds-ellipsis div, .container .courses .btn .lds-ellipsis div, .container .news .btn .lds-ellipsis div, .container .teachers .btn .lds-ellipsis div, .container .login-wrapper .btn .lds-ellipsis div, .container .individual .btn .lds-ellipsis div, .container .group .btn .lds-ellipsis div {
+ 
   position: absolute;
   top: 6px;
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background: #3B82F6;
-  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);
+          animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
+ 
 .container .category .btn .lds-ellipsis div:nth-child(1), .container .certifications .btn .lds-ellipsis div:nth-child(1), .container .about .btn .lds-ellipsis div:nth-child(1), .container .courses .btn .lds-ellipsis div:nth-child(1), .container .news .btn .lds-ellipsis div:nth-child(1), .container .teachers .btn .lds-ellipsis div:nth-child(1), .container .login-wrapper .btn .lds-ellipsis div:nth-child(1), .container .individual .btn .lds-ellipsis div:nth-child(1), .container .group .btn .lds-ellipsis div:nth-child(1) {
+ 
   left: 8px;
-  animation: lds-ellipsis1 0.6s infinite;
-}
+  -webkit-animation: lds-ellipsis1 0.6s infinite;
+          animation: lds-ellipsis1 0.6s infinite;
+} 
 .container .category .btn .lds-ellipsis div:nth-child(2), .container .certifications .btn .lds-ellipsis div:nth-child(2), .container .about .btn .lds-ellipsis div:nth-child(2), .container .courses .btn .lds-ellipsis div:nth-child(2), .container .news .btn .lds-ellipsis div:nth-child(2), .container .teachers .btn .lds-ellipsis div:nth-child(2), .container .login-wrapper .btn .lds-ellipsis div:nth-child(2), .container .individual .btn .lds-ellipsis div:nth-child(2), .container .group .btn .lds-ellipsis div:nth-child(2) {
+ 
   left: 8px;
-  animation: lds-ellipsis2 0.6s infinite;
-}
+  -webkit-animation: lds-ellipsis2 0.6s infinite;
+          animation: lds-ellipsis2 0.6s infinite;
+} 
 .container .category .btn .lds-ellipsis div:nth-child(3), .container .certifications .btn .lds-ellipsis div:nth-child(3), .container .about .btn .lds-ellipsis div:nth-child(3), .container .courses .btn .lds-ellipsis div:nth-child(3), .container .news .btn .lds-ellipsis div:nth-child(3), .container .teachers .btn .lds-ellipsis div:nth-child(3), .container .login-wrapper .btn .lds-ellipsis div:nth-child(3), .container .individual .btn .lds-ellipsis div:nth-child(3), .container .group .btn .lds-ellipsis div:nth-child(3) {
+ 
   left: 32px;
-  animation: lds-ellipsis2 0.6s infinite;
-}
+  -webkit-animation: lds-ellipsis2 0.6s infinite;
+          animation: lds-ellipsis2 0.6s infinite;
+} 
 .container .category .btn .lds-ellipsis div:nth-child(4), .container .certifications .btn .lds-ellipsis div:nth-child(4), .container .about .btn .lds-ellipsis div:nth-child(4), .container .courses .btn .lds-ellipsis div:nth-child(4), .container .news .btn .lds-ellipsis div:nth-child(4), .container .teachers .btn .lds-ellipsis div:nth-child(4), .container .login-wrapper .btn .lds-ellipsis div:nth-child(4), .container .individual .btn .lds-ellipsis div:nth-child(4), .container .group .btn .lds-ellipsis div:nth-child(4) {
+ 
   left: 56px;
-  animation: lds-ellipsis3 0.6s infinite;
+  -webkit-animation: lds-ellipsis3 0.6s infinite;
+          animation: lds-ellipsis3 0.6s infinite;
 }
+
+@-webkit-keyframes lds-ellipsis1 {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
 @keyframes lds-ellipsis1 {
   0% {
-    transform: scale(0);
+    -webkit-transform: scale(0);
+            transform: scale(0);
   }
   100% {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
+
+@-webkit-keyframes lds-ellipsis3 {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
 @keyframes lds-ellipsis3 {
   0% {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
   100% {
-    transform: scale(0);
+    -webkit-transform: scale(0);
+            transform: scale(0);
   }
 }
+
+@-webkit-keyframes lds-ellipsis2 {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(24px, 0);
+            transform: translate(24px, 0);
+  }
+}
+
 @keyframes lds-ellipsis2 {
   0% {
-    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
   }
   100% {
-    transform: translate(24px, 0);
+    -webkit-transform: translate(24px, 0);
+            transform: translate(24px, 0);
   }
-}
+} 
 .container .category .res-more, .container .certifications .res-more, .container .about .res-more, .container .courses .res-more, .container .news .res-more, .container .teachers .res-more, .container .login-wrapper .res-more, .container .individual .res-more, .container .group .res-more {
   margin-bottom: 15px;
 }
@@ -163,26 +258,42 @@
   margin-right: 20px;
 }
 .container .category .card-wrapper, .container .certifications .card-wrapper, .container .about .card-wrapper, .container .courses .card-wrapper, .container .news .card-wrapper, .container .teachers .card-wrapper, .container .login-wrapper .card-wrapper, .container .individual .card-wrapper, .container .group .card-wrapper {
+ 
+ 
+ 
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   gap: 32px;
   padding: 30px 0;
-}
+} 
 .container .category .card-wrapper .res-group, .container .certifications .card-wrapper .res-group, .container .about .card-wrapper .res-group, .container .courses .card-wrapper .res-group, .container .news .card-wrapper .res-group, .container .teachers .card-wrapper .res-group, .container .login-wrapper .card-wrapper .res-group, .container .individual .card-wrapper .res-group, .container .group .card-wrapper .res-group {
   width: 23rem;
   height: auto;
   border: 1px solid #767676;
 }
 .container .category .card-wrapper_card, .container .certifications .card-wrapper_card, .container .about .card-wrapper_card, .container .courses .card-wrapper_card, .container .news .card-wrapper_card, .container .teachers .card-wrapper_card, .container .login-wrapper .card-wrapper_card, .container .individual .card-wrapper_card, .container .group .card-wrapper_card {
+ 
   width: 23rem;
   height: auto;
   border: 1px solid #767676;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+} 
 .container .category .card-wrapper_card-image, .container .certifications .card-wrapper_card-image, .container .about .card-wrapper_card-image, .container .courses .card-wrapper_card-image, .container .news .card-wrapper_card-image, .container .teachers .card-wrapper_card-image, .container .login-wrapper .card-wrapper_card-image, .container .individual .card-wrapper_card-image, .container .group .card-wrapper_card-image {
   height: 12rem;
 }
@@ -190,6 +301,16 @@
   padding: 7px 10px;
 }
 .container .category .card-wrapper_card-text_title, .container .certifications .card-wrapper_card-text_title, .container .about .card-wrapper_card-text_title, .container .courses .card-wrapper_card-text_title, .container .news .card-wrapper_card-text_title, .container .teachers .card-wrapper_card-text_title, .container .login-wrapper .card-wrapper_card-text_title, .container .individual .card-wrapper_card-text_title, .container .group .card-wrapper_card-text_title {
+ 
+  height: 12rem;
+}
+
+.container .category .card-wrapper_card-text, .container .certifications .card-wrapper_card-text, .container .about .card-wrapper_card-text, .container .courses .card-wrapper_card-text, .container .news .card-wrapper_card-text, .container .teachers .card-wrapper_card-text, .container .login-wrapper .card-wrapper_card-text {
+  padding: 7px 10px;
+}
+
+.container .category .card-wrapper_card-text_title, .container .certifications .card-wrapper_card-text_title, .container .about .card-wrapper_card-text_title, .container .courses .card-wrapper_card-text_title, .container .news .card-wrapper_card-text_title, .container .teachers .card-wrapper_card-text_title, .container .login-wrapper .card-wrapper_card-text_title {
+ 
   margin-bottom: 10px;
   margin-top: 10px;
   font-size: 20px;
@@ -197,17 +318,29 @@
   font-family: sans-serif;
   text-align: center;
   color: #3B82F6;
-}
+} 
 .container .category .card-wrapper_card-text_des, .container .certifications .card-wrapper_card-text_des, .container .about .card-wrapper_card-text_des, .container .courses .card-wrapper_card-text_des, .container .news .card-wrapper_card-text_des, .container .teachers .card-wrapper_card-text_des, .container .login-wrapper .card-wrapper_card-text_des, .container .individual .card-wrapper_card-text_des, .container .group .card-wrapper_card-text_des {
   font-family: sans-serif;
   text-align: justify;
 }
-.container .category .card-wrapper_card-btns, .container .certifications .card-wrapper_card-btns, .container .about .card-wrapper_card-btns, .container .courses .card-wrapper_card-btns, .container .news .card-wrapper_card-btns, .container .teachers .card-wrapper_card-btns, .container .login-wrapper .card-wrapper_card-btns, .container .individual .card-wrapper_card-btns, .container .group .card-wrapper_card-btns {
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.container .category .card-wrapper_card-btns, .container .certifications .card-wrapper_card-btns, .container .about .card-wrapper_card-btns, .container .courses .card-wrapper_card-btns, .container .news .card-wrapper_card-btns, .container .teachers .card-wrapper_card-btns, .container .login-wrapper .card-wrapper_card-btns, .container .individual .card-wrapper_card-btns, .container .group .card-wrapper_card-btns { 
+  font-family: sans-serif;
+  text-align: justify;
 }
+
+.container .category .card-wrapper_card-btns, .container .certifications .card-wrapper_card-btns, .container .about .card-wrapper_card-btns, .container .courses .card-wrapper_card-btns, .container .news .card-wrapper_card-btns, .container .teachers .card-wrapper_card-btns, .container .login-wrapper .card-wrapper_card-btns {
+ 
+  padding: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+} 
 .container .category .card-wrapper_card-btns .more, .container .certifications .card-wrapper_card-btns .more, .container .about .card-wrapper_card-btns .more, .container .courses .card-wrapper_card-btns .more, .container .news .card-wrapper_card-btns .more, .container .teachers .card-wrapper_card-btns .more, .container .login-wrapper .card-wrapper_card-btns .more, .container .individual .card-wrapper_card-btns .more, .container .group .card-wrapper_card-btns .more {
   text-decoration: none;
   border: none;
@@ -218,7 +351,8 @@
   color: #ffffff;
   cursor: pointer;
 }
-.container .category .card-wrapper_card-btns div, .container .certifications .card-wrapper_card-btns div, .container .about .card-wrapper_card-btns div, .container .courses .card-wrapper_card-btns div, .container .news .card-wrapper_card-btns div, .container .teachers .card-wrapper_card-btns div, .container .login-wrapper .card-wrapper_card-btns div, .container .individual .card-wrapper_card-btns div, .container .group .card-wrapper_card-btns div {
+.container .category .card-wrapper_card-btns div, .container .certifications .card-wrapper_card-btns div, .container .about .card-wrapper_card-btns div, .container .courses .card-wrapper_card-btns div, .container .news .card-wrapper_card-btns div, .container .teachers .card-wrapper_card-btns div, .container .login-wrapper .card-wrapper_card-btns div, .container .individual .card-wrapper_card-btns div, .container .group .card-wrapper_card-btns div { 
+ 
   text-decoration: none;
   border: none;
   padding: 5px 10px;
@@ -227,8 +361,8 @@
   font-family: sans-serif;
   color: #ffffff;
   cursor: pointer;
-}
-.container .category .card-wrapper_card-btns .NavLink, .container .certifications .card-wrapper_card-btns .NavLink, .container .about .card-wrapper_card-btns .NavLink, .container .courses .card-wrapper_card-btns .NavLink, .container .news .card-wrapper_card-btns .NavLink, .container .teachers .card-wrapper_card-btns .NavLink, .container .login-wrapper .card-wrapper_card-btns .NavLink, .container .individual .card-wrapper_card-btns .NavLink, .container .group .card-wrapper_card-btns .NavLink {
+} 
+.container .category .card-wrapper_card-btns .NavLink, .container .certifications .card-wrapper_card-btns .NavLink, .container .about .card-wrapper_card-btns .NavLink, .container .courses .card-wrapper_card-btns .NavLink, .container .news .card-wrapper_card-btns .NavLink, .container .teachers .card-wrapper_card-btns .NavLink, .container .login-wrapper .card-wrapper_card-btns .NavLink, .container .individual .card-wrapper_card-btns .NavLink, .container .group .card-wrapper_card-btns .NavLink {  
   text-decoration: none;
   border: none;
   padding: 5px 10px;
@@ -237,27 +371,51 @@
   font-family: sans-serif;
   color: #ffffff;
 }
-.container .category-title, .container .certifications-title, .container .about-title, .container .courses-title, .container .news-title, .container .teachers-title, .container .login-wrapper-title, .container .individual-title, .container .group-title {
+ 
+ 
+
+.container .category-title, .container .certifications-title, .container .about-title, .container .courses-title, .container .news-title, .container .teachers-title, .container .login-wrapper-title {
+ 
   text-align: center;
   font-family: sans-serif;
   color: #3B82F6;
   padding: 0;
   margin: 0;
 }
-.container .category-wrapper, .container .certifications-wrapper, .container .about-wrapper, .container .courses-wrapper, .container .news-wrapper, .container .teachers-wrapper, .container .login-wrapper-wrapper, .container .individual-wrapper, .container .group-wrapper {
+ 
+
+.container .category-wrapper, .container .certifications-wrapper, .container .about-wrapper, .container .courses-wrapper, .container .news-wrapper, .container .teachers-wrapper, .container .login-wrapper-wrapper { 
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+} 
 .container .category-wrapper_form, .container .certifications-wrapper_form, .container .about-wrapper_form, .container .courses-wrapper_form, .container .news-wrapper_form, .container .teachers-wrapper_form, .container .login-wrapper-wrapper_form, .container .individual-wrapper_form, .container .group-wrapper_form {
   width: 100%;
 }
-.container .category-wrapper_form .input-group, .container .certifications-wrapper_form .input-group, .container .about-wrapper_form .input-group, .container .courses-wrapper_form .input-group, .container .news-wrapper_form .input-group, .container .teachers-wrapper_form .input-group, .container .login-wrapper-wrapper_form .input-group, .container .individual-wrapper_form .input-group, .container .group-wrapper_form .input-group {
+ 
+
+.container .category-wrapper_form, .container .certifications-wrapper_form, .container .about-wrapper_form, .container .courses-wrapper_form, .container .news-wrapper_form, .container .teachers-wrapper_form, .container .login-wrapper-wrapper_form {
+  width: 100%;
+}
+
+.container .category-wrapper_form .input-group, .container .certifications-wrapper_form .input-group, .container .about-wrapper_form .input-group, .container .courses-wrapper_form .input-group, .container .news-wrapper_form .input-group, .container .teachers-wrapper_form .input-group, .container .login-wrapper-wrapper_form .input-group {
+  display: -webkit-box;
+  display: -ms-flexbox; 
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   font-family: sans-serif;
 }
+ 
 .container .category-wrapper_form .input-group .switch, .container .certifications-wrapper_form .input-group .switch, .container .about-wrapper_form .input-group .switch, .container .courses-wrapper_form .input-group .switch, .container .news-wrapper_form .input-group .switch, .container .teachers-wrapper_form .input-group .switch, .container .login-wrapper-wrapper_form .input-group .switch, .container .individual-wrapper_form .input-group .switch, .container .group-wrapper_form .input-group .switch {
   display: inline-block;
   height: 34px;
@@ -300,39 +458,93 @@
   border-radius: 50%;
 }
 .container .category-wrapper_form .input-group label, .container .certifications-wrapper_form .input-group label, .container .about-wrapper_form .input-group label, .container .courses-wrapper_form .input-group label, .container .news-wrapper_form .input-group label, .container .teachers-wrapper_form .input-group label, .container .login-wrapper-wrapper_form .input-group label, .container .individual-wrapper_form .input-group label, .container .group-wrapper_form .input-group label {
+ 
   font-size: 20px;
   margin-bottom: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
-.container .category-wrapper_form .input-group input, .container .category-wrapper_form .input-group select, .container .certifications-wrapper_form .input-group input, .container .certifications-wrapper_form .input-group select, .container .about-wrapper_form .input-group input, .container .about-wrapper_form .input-group select, .container .courses-wrapper_form .input-group input, .container .courses-wrapper_form .input-group select, .container .news-wrapper_form .input-group input, .container .news-wrapper_form .input-group select, .container .teachers-wrapper_form .input-group input, .container .teachers-wrapper_form .input-group select, .container .login-wrapper-wrapper_form .input-group input, .container .login-wrapper-wrapper_form .input-group select, .container .individual-wrapper_form .input-group input, .container .individual-wrapper_form .input-group select, .container .group-wrapper_form .input-group input, .container .group-wrapper_form .input-group select {
+ 
+ 
+
+.container .category-wrapper_form .input-group input, .container .category-wrapper_form .input-group select, .container .certifications-wrapper_form .input-group input, .container .certifications-wrapper_form .input-group select, .container .about-wrapper_form .input-group input, .container .about-wrapper_form .input-group select, .container .courses-wrapper_form .input-group input, .container .courses-wrapper_form .input-group select, .container .news-wrapper_form .input-group input, .container .news-wrapper_form .input-group select, .container .teachers-wrapper_form .input-group input, .container .teachers-wrapper_form .input-group select, .container .login-wrapper-wrapper_form .input-group input, .container .login-wrapper-wrapper_form .input-group select {
+ 
   margin-bottom: 20px;
   padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
-.container .category-wrapper_form .input-group textarea, .container .certifications-wrapper_form .input-group textarea, .container .about-wrapper_form .input-group textarea, .container .courses-wrapper_form .input-group textarea, .container .news-wrapper_form .input-group textarea, .container .teachers-wrapper_form .input-group textarea, .container .login-wrapper-wrapper_form .input-group textarea, .container .individual-wrapper_form .input-group textarea, .container .group-wrapper_form .input-group textarea {
+ 
+
+.container .category-wrapper_form .input-group textarea, .container .certifications-wrapper_form .input-group textarea, .container .about-wrapper_form .input-group textarea, .container .courses-wrapper_form .input-group textarea, .container .news-wrapper_form .input-group textarea, .container .teachers-wrapper_form .input-group textarea, .container .login-wrapper-wrapper_form .input-group textarea { 
   margin-bottom: 20px;
   padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
+ 
 .container .category-wrapper_form .input-group .image, .container .certifications-wrapper_form .input-group .image, .container .about-wrapper_form .input-group .image, .container .courses-wrapper_form .input-group .image, .container .news-wrapper_form .input-group .image, .container .teachers-wrapper_form .input-group .image, .container .login-wrapper-wrapper_form .input-group .image, .container .individual-wrapper_form .input-group .image, .container .group-wrapper_form .input-group .image {
   border: 1px solid #767676;
   cursor: pointer;
 }
-.container .category-wrapper_form .input-group .btn, .container .certifications-wrapper_form .input-group .btn, .container .about-wrapper_form .input-group .btn, .container .courses-wrapper_form .input-group .btn, .container .news-wrapper_form .input-group .btn, .container .teachers-wrapper_form .input-group .btn, .container .login-wrapper-wrapper_form .input-group .btn, .container .individual-wrapper_form .input-group .btn, .container .group-wrapper_form .input-group .btn {
+ 
+
+.container .category-wrapper_form .input-group .image, .container .certifications-wrapper_form .input-group .image, .container .about-wrapper_form .input-group .image, .container .courses-wrapper_form .input-group .image, .container .news-wrapper_form .input-group .image, .container .teachers-wrapper_form .input-group .image, .container .login-wrapper-wrapper_form .input-group .image {
+  border: 1px solid #767676;
+  cursor: pointer;
+}
+
+.container .category-wrapper_form .input-group .btn, .container .certifications-wrapper_form .input-group .btn, .container .about-wrapper_form .input-group .btn, .container .courses-wrapper_form .input-group .btn, .container .news-wrapper_form .input-group .btn, .container .teachers-wrapper_form .input-group .btn, .container .login-wrapper-wrapper_form .input-group .btn {
+  display: -webkit-box;
+  display: -ms-flexbox; 
   display: flex;
-  align-items: center;
-  justify-content: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
   margin-top: 15px;
 }
-.container .category-wrapper_form .input-group .btn button, .container .certifications-wrapper_form .input-group .btn button, .container .about-wrapper_form .input-group .btn button, .container .courses-wrapper_form .input-group .btn button, .container .news-wrapper_form .input-group .btn button, .container .teachers-wrapper_form .input-group .btn button, .container .login-wrapper-wrapper_form .input-group .btn button, .container .individual-wrapper_form .input-group .btn button, .container .group-wrapper_form .input-group .btn button {
+ 
+
+.container .category-wrapper_form .input-group .btn button, .container .certifications-wrapper_form .input-group .btn button, .container .about-wrapper_form .input-group .btn button, .container .courses-wrapper_form .input-group .btn button, .container .news-wrapper_form .input-group .btn button, .container .teachers-wrapper_form .input-group .btn button, .container .login-wrapper-wrapper_form .input-group .btn button { 
   padding: 7px 20px;
   background: #ffffff;
   border: 1px solid #787878;
   text-transform: uppercase;
   font-weight: 600;
-  transition: all 0.5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
   cursor: pointer;
 }
-.container .category-wrapper_form .input-group .btn button:hover, .container .certifications-wrapper_form .input-group .btn button:hover, .container .about-wrapper_form .input-group .btn button:hover, .container .courses-wrapper_form .input-group .btn button:hover, .container .news-wrapper_form .input-group .btn button:hover, .container .teachers-wrapper_form .input-group .btn button:hover, .container .login-wrapper-wrapper_form .input-group .btn button:hover, .container .individual-wrapper_form .input-group .btn button:hover, .container .group-wrapper_form .input-group .btn button:hover {
+ 
+ 
+
+.container .category-wrapper_form .input-group .btn button:hover, .container .certifications-wrapper_form .input-group .btn button:hover, .container .about-wrapper_form .input-group .btn button:hover, .container .courses-wrapper_form .input-group .btn button:hover, .container .news-wrapper_form .input-group .btn button:hover, .container .teachers-wrapper_form .input-group .btn button:hover, .container .login-wrapper-wrapper_form .input-group .btn button:hover {
+ 
   background: #222222;
   color: #ffffff;
 }
 
+@media only screen and (max-width: 640px) {
+  .category, .certifications, .about, .courses, .news, .teachers, .login-wrapper {
+    padding: 20px 15px !important;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .category, .certifications, .about, .courses, .news, .teachers, .login-wrapper {
+    padding: 20px 5px !important;
+  }
+  .card-wrapper_card {
+    width: 100% !important;
+  }
+  .courses-title {
+    font-size: 25px;
+    margin-top: 20px !important;
+  }
+}
 /*# sourceMappingURL=App.css.map */
