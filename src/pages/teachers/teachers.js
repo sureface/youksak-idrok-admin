@@ -48,10 +48,7 @@ const Teachers = () => {
             .then((res) => {
             })
             .catch(err => {
-                if (err.response.status === 401){
-                    localStorage.clear();
-                    history.push("/");
-                }
+                console.log(err)
             })
         setName("");
         setSurName("");

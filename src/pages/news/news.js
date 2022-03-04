@@ -132,7 +132,7 @@ const News = () => {
                                     </div>
                                 </div>
                             )
-                    })) : <p>Not found</p>
+                    })) : <p>Yangiliklar topilmadi.!</p>
                 }
             </div>
         </div>

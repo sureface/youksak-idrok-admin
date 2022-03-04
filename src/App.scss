@@ -191,7 +191,49 @@
       .res-group{
         width: 23rem;
         height: auto;
-        border: 1px solid #767676;
+        padding: 15px;
+        border: 1px solid #3B82F6;
+        font-size: 18px;
+        font-family: sans-serif;
+        *{
+          margin-bottom: 10px;
+        }
+        span{
+          color: blue;
+        }
+        &_name{
+          text-align: center;
+        }
+        .btn{
+          padding-top: 10px;
+          padding-bottom: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 0;
+
+          .del{
+            text-decoration: none;
+            border: none;
+            padding: 5px 10px;
+            background: #ce0202;
+            font-size: 15px;
+            font-family: sans-serif;
+            color: #ffffff;
+            cursor: pointer;
+            margin-bottom: 0;
+          }
+          .change{
+            text-decoration: none;
+            border: none;
+            padding: 5px 10px;
+            background: #4fa800;
+            font-size: 15px;
+            font-family: sans-serif;
+            color: #ffffff;
+            margin-bottom: 0;
+          }
+        }
       }
       // result-card style
 

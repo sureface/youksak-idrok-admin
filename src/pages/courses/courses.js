@@ -4,6 +4,7 @@ import axios from "axios";
 import {API_URL, getToken} from "../../utils/axios";
 import {NavLink, useHistory} from "react-router-dom";
 import {getCategoriesForCourses, getCourses} from "./query";
+import {toast} from "react-toastify";
 
 const Courses = () => {
     const history = useHistory();
@@ -62,11 +63,13 @@ const Courses = () => {
         await axios.post(`${API_URL}/courses?token=${getToken()}`, data, config)
             .then((res) => {
                 setIsLoading(false);
+                if (res) {
+                    toast.success("Kurs muvaffaqiyatli qo'shildi..!", {icon: '🥳'})
+                }
             })
             .catch(err => {
-                if (err.response.status === 401){
-                    localStorage.clear();
-                    history.push("/");
+                if (err){
+                    toast.error("xatolik yuz berdi,", {icon: '😔'})
                 }
                 setIsLoading(false);
             })
@@ -85,6 +88,7 @@ const Courses = () => {
     const deleteCourses = async (index) => {
         await axios.delete(`${API_URL}/courses/${index}?token=${getToken()}`)
             .then(res => {
+                toast.success("Kurs muvaffaqiyatli o'chirildi..!", {icon: '🥳'})
             })
             .catch(err => {
                 if (err.response.status === 401){

@@ -1,14 +1,15 @@
 import React, {useState, useEffect} from 'react';
-import {getGroups, getTeachersForGr, postGroup} from "./query";
-import {useLocation, useHistory} from "react-router-dom";
+import {getGroupsById, postGroup} from "./query";
+import {useHistory, useParams} from "react-router-dom";
+import {toast} from "react-toastify";
 
-const Group = () => {
+const EditGroups = () => {
 
-    const location = useLocation();
     const history = useHistory();
-    const {courseId} = location.state
+    const {id} = useParams();
 
-    const [getTeach, setGetTeach] = useState(null);
+
+    const [groupsData, setGroupsData] = useState([]);
     const [selectedTeacher, setSelectedTeacher] = useState(null);
     const [members, setMembers] = useState(null);
     const [price, setPrice] = useState(null);
@@ -18,28 +19,20 @@ const Group = () => {
     const [durationByDay, setDurationByDay] = useState("");
     const [durationByMonthByDay, setDurationByMonthByDay] = useState(null);
     const [isActive, setIsActive] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-    const [getLoading, setGetLoading] = useState(false);
 
-    const getTeachers = async () => {
-        setGetLoading(true);
-        const {teachersForGr, error} = await getTeachersForGr()
-        if (teachersForGr) {
-            setGetTeach(teachersForGr);
-            setGetLoading(false);
-        } else {
-            console.log(error);
-            setGetLoading(false);
+    useEffect(() => {
+        const getGroupsEdit = async () => {
+            const {data, error} = await getGroupsById(id);
+            console.log(data)
+            if (data) {
+                setGroupsData(data);
+                setMembers(data.members)
+            }else if (error){
+                toast.error("texnik xatolik... iltimos qaytatdan urinib  koring");
+            }
         }
-    }
-
-    useEffect(() => {
-        getTeachers();
+        getGroupsEdit();
     },[])
-
-    useEffect(() => {
-        getGroups();
-    },[getGroups()])
 
     const handleKeyPress = (e) => {
         if (e.charCode === 32){
@@ -62,8 +55,7 @@ const Group = () => {
             active: isActive
         }
 
-        const {pGroup, error} = postGroup({data, courseId});
-
+        const {pGroup, error} = await postGroup({data});
         if (data) {
             console.log(pGroup);
             history.push('/card-group');
@@ -82,14 +74,14 @@ const Group = () => {
                         <select name="teacher_id" id="teachers" required
                                 onChange={(e) => setSelectedTeacher(e.target.value)}>
                             <option value="0">Ustozni tanlang</option>
-                            {getTeach ?
-                                getTeach.map((item, index) => {
-                                    return (
-                                        <option key={index} value={item.id}>{item.first_name}</option>
-                                    )
-                                })
-                                : ""
-                            }
+                            {/*{getTeach ?*/}
+                            {/*    getTeach.map((item, index) => {*/}
+                            {/*        return (*/}
+                            {/*            <option key={index} value={item.id}>{item.first_name}</option>*/}
+                            {/*        )*/}
+                            {/*    })*/}
+                            {/*    : ""*/}
+                            {/*}*/}
                         </select>
                     </div>
 
@@ -153,4 +145,4 @@ const Group = () => {
     );
 };
 
-export default Group;
+export default EditGroups;

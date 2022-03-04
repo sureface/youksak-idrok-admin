@@ -37,7 +37,7 @@ const Sidebar = () => {
                             </NavLink>
                         </li>
                         <li className="sidebar-list-item">
-                            <NavLink to="/group" className="sidebar-list-item_link">
+                            <NavLink to="/card-group" className="sidebar-list-item_link">
                                 <HiUserGroup className="sidebar-list-item_icon" />
                                 Guruhlar
                             </NavLink>

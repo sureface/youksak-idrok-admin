@@ -3,6 +3,7 @@ import "../../App.scss"
 import {NavLink} from "react-router-dom";
 import { getCategories, postCategory } from './query';
 import DeleteButton from './deleteButton';
+import {toast} from "react-toastify";
 
 
 const Category = () => {
@@ -31,6 +32,11 @@ const Category = () => {
         e.preventDefault();
         setIsLoading(true);
         const {data, err} = await postCategory(name);
+        if (data){
+            toast.success("kategoriya muvaffaqiyatli qo'shildi..!", {icon: '🥳'})
+        }else if (err){
+            toast.error("xatolik yuz berdi,", {icon: '😔'})
+        }
         await fetchCategories()
         setIsLoading(false)
         setName("")

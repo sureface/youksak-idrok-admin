@@ -1,6 +1,9 @@
 import React from "react";
 import './App.scss';
 import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 import Topbar from "./components/topbar/topbar";
 import Sidebar from "./components/sidebar/sidebar";
 import Courses from "./pages/courses/courses";
@@ -12,11 +15,12 @@ import UpdateCategories from "./pages/category/updateCategories";
 import UpdateCourses from "./pages/courses/updateCourses";
 import UpdateTeachers from "./pages/teachers/updateTeachers";
 import NewsEdit from "./pages/news/newsEdit";
-import Group from "./pages/postCourses/group/result/group";
 import Individual from "./pages/postCourses/individual/result/individual";
-import AddToGroup from "./pages/postCourses/group/group";
+import Group from "./pages/postCourses/group/group";
 import AddToIndividual from "./pages/postCourses/individual/individual";
 import More from "./pages/courses/more";
+import CardGroup from "./pages/postCourses/group/cardGroup";
+import EditGroups from "./pages/postCourses/group/editGroups";
 
 function App() {
 
@@ -32,6 +36,7 @@ function App() {
 
   return (
       <div>
+          <ToastContainer style={{zIndex: "99999999"}}/>
           <Router>
               <Topbar />
               <div className="container">
@@ -65,11 +70,14 @@ function App() {
                           <Route path="/teachers">
                               <Teachers />
                           </Route>
-                          <Route path="/group">
+                          <Route path="/add-to-group">
                               <Group />
                           </Route>
-                          <Route path="/add-to-group">
-                              <AddToGroup />
+                          <Route path="/card-group">
+                              <CardGroup />
+                          </Route>
+                          <Route path="/groups-edit/:id/">
+                              <EditGroups />
                           </Route>
                           <Route path="/add-to-individual">
                               <AddToIndividual />

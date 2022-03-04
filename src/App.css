@@ -173,7 +173,48 @@
 .container .category .card-wrapper .res-group, .container .certifications .card-wrapper .res-group, .container .about .card-wrapper .res-group, .container .courses .card-wrapper .res-group, .container .news .card-wrapper .res-group, .container .teachers .card-wrapper .res-group, .container .login-wrapper .card-wrapper .res-group, .container .individual .card-wrapper .res-group, .container .group .card-wrapper .res-group {
   width: 23rem;
   height: auto;
-  border: 1px solid #767676;
+  padding: 15px;
+  border: 1px solid #3B82F6;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+.container .category .card-wrapper .res-group *, .container .certifications .card-wrapper .res-group *, .container .about .card-wrapper .res-group *, .container .courses .card-wrapper .res-group *, .container .news .card-wrapper .res-group *, .container .teachers .card-wrapper .res-group *, .container .login-wrapper .card-wrapper .res-group *, .container .individual .card-wrapper .res-group *, .container .group .card-wrapper .res-group * {
+  margin-bottom: 10px;
+}
+.container .category .card-wrapper .res-group span, .container .certifications .card-wrapper .res-group span, .container .about .card-wrapper .res-group span, .container .courses .card-wrapper .res-group span, .container .news .card-wrapper .res-group span, .container .teachers .card-wrapper .res-group span, .container .login-wrapper .card-wrapper .res-group span, .container .individual .card-wrapper .res-group span, .container .group .card-wrapper .res-group span {
+  color: blue;
+}
+.container .category .card-wrapper .res-group_name, .container .certifications .card-wrapper .res-group_name, .container .about .card-wrapper .res-group_name, .container .courses .card-wrapper .res-group_name, .container .news .card-wrapper .res-group_name, .container .teachers .card-wrapper .res-group_name, .container .login-wrapper .card-wrapper .res-group_name, .container .individual .card-wrapper .res-group_name, .container .group .card-wrapper .res-group_name {
+  text-align: center;
+}
+.container .category .card-wrapper .res-group .btn, .container .certifications .card-wrapper .res-group .btn, .container .about .card-wrapper .res-group .btn, .container .courses .card-wrapper .res-group .btn, .container .news .card-wrapper .res-group .btn, .container .teachers .card-wrapper .res-group .btn, .container .login-wrapper .card-wrapper .res-group .btn, .container .individual .card-wrapper .res-group .btn, .container .group .card-wrapper .res-group .btn {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+.container .category .card-wrapper .res-group .btn .del, .container .certifications .card-wrapper .res-group .btn .del, .container .about .card-wrapper .res-group .btn .del, .container .courses .card-wrapper .res-group .btn .del, .container .news .card-wrapper .res-group .btn .del, .container .teachers .card-wrapper .res-group .btn .del, .container .login-wrapper .card-wrapper .res-group .btn .del, .container .individual .card-wrapper .res-group .btn .del, .container .group .card-wrapper .res-group .btn .del {
+  text-decoration: none;
+  border: none;
+  padding: 5px 10px;
+  background: #ce0202;
+  font-size: 15px;
+  font-family: sans-serif;
+  color: #ffffff;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+.container .category .card-wrapper .res-group .btn .change, .container .certifications .card-wrapper .res-group .btn .change, .container .about .card-wrapper .res-group .btn .change, .container .courses .card-wrapper .res-group .btn .change, .container .news .card-wrapper .res-group .btn .change, .container .teachers .card-wrapper .res-group .btn .change, .container .login-wrapper .card-wrapper .res-group .btn .change, .container .individual .card-wrapper .res-group .btn .change, .container .group .card-wrapper .res-group .btn .change {
+  text-decoration: none;
+  border: none;
+  padding: 5px 10px;
+  background: #4fa800;
+  font-size: 15px;
+  font-family: sans-serif;
+  color: #ffffff;
+  margin-bottom: 0;
 }
 .container .category .card-wrapper_card, .container .certifications .card-wrapper_card, .container .about .card-wrapper_card, .container .courses .card-wrapper_card, .container .news .card-wrapper_card, .container .teachers .card-wrapper_card, .container .login-wrapper .card-wrapper_card, .container .individual .card-wrapper_card, .container .group .card-wrapper_card {
   width: 23rem;
