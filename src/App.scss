@@ -360,11 +360,17 @@
             width: 26px;
           }
 
-          input:checked + .slider {
+          //input:checked + .slider {
+          //  background-color: #3B82F6;
+          //}
+          //
+          //input:checked + .slider:before {
+          //  transform: translateX(26px);
+          //}
+          .active{
             background-color: #3B82F6;
           }
-
-          input:checked + .slider:before {
+          .active:before{
             transform: translateX(26px);
           }
 
