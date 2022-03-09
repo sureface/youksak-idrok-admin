@@ -43,7 +43,7 @@ const Sidebar = () => {
                             </NavLink>
                         </li>
                         <li className="sidebar-list-item">
-                            <NavLink to="/individual" className="sidebar-list-item_link">
+                            <NavLink to="/card-individuals" className="sidebar-list-item_link">
                                 <FaUserAlt className="sidebar-list-item_icon" />
                                 Individual
                             </NavLink>

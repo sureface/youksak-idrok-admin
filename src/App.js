@@ -15,12 +15,13 @@ import UpdateCategories from "./pages/category/updateCategories";
 import UpdateCourses from "./pages/courses/updateCourses";
 import UpdateTeachers from "./pages/teachers/updateTeachers";
 import NewsEdit from "./pages/news/newsEdit";
-import Individual from "./pages/postCourses/individual/result/individual";
+import Individual from "./pages/postCourses/individual/individuals";
 import Group from "./pages/postCourses/group/group";
-import AddToIndividual from "./pages/postCourses/individual/individual";
 import More from "./pages/courses/more";
 import CardGroup from "./pages/postCourses/group/cardGroup";
 import EditGroups from "./pages/postCourses/group/editGroups";
+import EditIndividuals from "./pages/postCourses/individual/editIndividuals";
+import CardIndividuals from "./pages/postCourses/individual/cardIndividuals";
 
 function App() {
 
@@ -79,11 +80,14 @@ function App() {
                           <Route path="/groups-edit/:id/">
                               <EditGroups />
                           </Route>
-                          <Route path="/add-to-individual">
-                              <AddToIndividual />
+                          <Route path="/individual-edit/:id">
+                              <EditIndividuals />
                           </Route>
                           <Route path="/individual">
                               <Individual />
+                          </Route>
+                          <Route path="/card-individuals">
+                              <CardIndividuals />
                           </Route>
                           <Route path="/teachers-edit/:id">
                               <UpdateTeachers />
