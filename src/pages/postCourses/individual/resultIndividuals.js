@@ -31,7 +31,7 @@ const ResultIndividuals = (props) => {
             })
             .catch(error => console.log(error))
 
-    }, [props.courseId])
+    }, [props.courseId]);
 
     const delIndividuals = async (index) => {
         setDelLoading(true);
@@ -46,9 +46,6 @@ const ResultIndividuals = (props) => {
         await getIndividuals();
         setDelLoading(false)
     }
-    useEffect(() => {
-        getIndividuals()
-    },[])
 
     return (
         <div className="res-group">
