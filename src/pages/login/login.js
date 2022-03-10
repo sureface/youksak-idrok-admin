@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {useHistory} from "react-router-dom";
 import "../../App.scss";
 import axios from "axios";
+import {toast} from "react-toastify";
 
 
 
@@ -29,7 +30,10 @@ const Login = () => {
                 setLogin("");
                 setPassword("");
             })
-            .catch(err => console.log(err, "iam err"))
+            .catch(err => {
+                console.log(err)
+                toast.error('xotolik yuz berdi..!', err)
+            })
 
     }
 

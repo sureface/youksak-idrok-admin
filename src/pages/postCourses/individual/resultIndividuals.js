@@ -33,20 +33,22 @@ const ResultIndividuals = (props) => {
 
     }, [props.courseId])
 
-
-    const delGroup = async (index) => {
+    const delIndividuals = async (index) => {
         setDelLoading(true);
         const {data, error} = await deleteIndividuals(index)
         if (data) {
             toast.success("Guruh mofaqiyatli o'chirildi..!")
         }else if (error){
-          toast.error("kusr o'chirishda xatolik yuz berdi..!")
+            toast.error("kusr o'chirishda xatolik yuz berdi..!")
         } else{
             toast.warning("oops, tehik xatolik yuz berdi..")
         }
         await getIndividuals();
         setDelLoading(false)
     }
+    useEffect(() => {
+        getIndividuals()
+    },[])
 
     return (
         <div className="res-group">
@@ -63,7 +65,7 @@ const ResultIndividuals = (props) => {
             <div className="btn">
                 {delLoading ?
                     "O'chirilmoqda"
-                    :  <button className="del" onClick={() => delGroup(props.id)}>O'chirish</button>
+                    :  <button className="del" onClick={() => delIndividuals(props.id)}>O'chirish</button>
                 }
 
                 <NavLink to={`/individual-edit/` + props.id} className="change">Tahrirlash</NavLink>

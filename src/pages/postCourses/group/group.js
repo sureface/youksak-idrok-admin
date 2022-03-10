@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {getGroups, getTeachersForGr, postGroup} from "./query";
 import {useLocation, useHistory} from "react-router-dom";
+import {wait} from "@testing-library/user-event/dist/utils";
+import {toast} from "react-toastify";
 
 const Group = () => {
 
@@ -62,12 +64,13 @@ const Group = () => {
             active: isActive
         }
 
-        const {pGroup, error} = postGroup({data, courseId});
+        const {pGroup, error} = await postGroup({data, courseId});
 
-        if (data) {
-            console.log(pGroup);
+        if (pGroup) {
+            toast.success("Guruh mofaqiyatli qo'shildi..! 😊")
             history.push('/card-group');
         }else {
+            toast.error("Guruhni qo'shishda xatolik yuz berdi..! 😡");
             console.log(error);
         }
     }

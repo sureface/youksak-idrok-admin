@@ -59,12 +59,14 @@ const Individuals = () => {
             active: isActive
         }
 
-        const {pIndividuals, error} = postIndividuals({data, courseId});
+        const {pIndividuals, error} = await postIndividuals({data, courseId});
 
+        console.log(pIndividuals, "individuals....!")
         if (pIndividuals) {
+            toast.success("Individual guruh mofaqiyatli qo'shildi..! 😊")
             history.push('/card-individuals');
         }else {
-            toast.error("Individual kurslarni qo'shishda xatolik yuz berdi..!");
+            toast.error("Individual kurslarni qo'shishda xatolik yuz berdi..! 😡");
             console.log(error);
         }
         await getIndividuals();

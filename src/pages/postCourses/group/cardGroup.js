@@ -20,7 +20,7 @@ const CardGroup = () => {
 
     useEffect(() => {
         getResGroups();
-    }, [])
+    }, [resGroup])
 
     return (
         <div className="group">

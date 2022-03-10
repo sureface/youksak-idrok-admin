@@ -13,14 +13,14 @@ const CardIndividuals = () => {
         if (data){
             setResGroup(data);
         }else if (error){
-            toast.error("xatolik  yuz berdi..!")
+            toast.error("Individual kurslarni olib kelishda xatolik yuz berdi..! 😡");
         }
 
     }
 
     useEffect(() => {
         getResIndividuals();
-    }, [])
+    }, [resGroup])
 
     return (
         <div className="group">
