@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef } from 'react';
 import "../../App.scss";
 import axios from "axios";
 import {API_URL, getToken} from "../../utils/axios";
@@ -16,6 +16,12 @@ const Courses = () => {
     const [image, setImage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [fetchLoading, setFetchLoading] = useState(false);
+
+    const ref = useRef();
+
+    const reset = () => {
+        ref.current.value = "";
+    };
 
     // categoriyani  selectni ichiga ob kelish
     const fetchCategoriesForCourses = async () => {
@@ -40,6 +46,12 @@ const Courses = () => {
         fetchCourses();
     }, [])
 
+
+    const resetCategory = () => {
+        return  (
+            <option value="0">kategoriya tanlang</option>
+        )
+    }
 
     // kurs qoshish
     const onSubmit = async (e) => {
@@ -73,13 +85,10 @@ const Courses = () => {
                 }
                 setIsLoading(false);
             })
-
-        setCourses("");
         setName("");
         setDescriptions("");
-        setImage(null);
-        setSelectedCategory("");
 
+        reset();
 
         await fetchCourses();
     }
@@ -108,11 +117,7 @@ const Courses = () => {
                     <div className="input-group">
                         <label htmlFor="category">Kurs yo'nalishi</label>
                         <select name="category" id="category" onChange={(e) => setSelectedCategory(e.target.value)}>
-                            {category.length > 0  ?
-                                <option disabled value="0">kategoriya tanlang</option>
-                                :
-                                <option value="0">yangi kategoriya qoshing !</option>
-                            }
+                            {resetCategory()}
                             {category ?
                                 category.map((item, index) => {
                                     return (
@@ -126,17 +131,17 @@ const Courses = () => {
                     <div className="input-group">
                         <label htmlFor="title">Kurs nomi</label>
                         <input type="text" name="title" id="title" placeholder="kurs nomi" required
-                             value={name}  onChange={(e) => setName(e.target.value)}/>
+                               value={name} onChange={(e) => setName(e.target.value)}/>
                     </div>
                     <div className="input-group">
                         <label htmlFor="description">Kurs haqida malumot</label>
                         <textarea name="description" id="description" placeholder="kurs haqida malumot"
-                             value={descriptions}     onChange={(e) => setDescriptions(e.target.value)}/>
+                                  value={descriptions} onChange={(e) => setDescriptions(e.target.value)}/>
                     </div>
                     <div className="input-group">
                         <label htmlFor="image">Kurs chun rasim</label>
                         <input className="image" type="file" name="image" id="image" placeholder="kurs uchun rasim"
-                                onChange={(e) => setImage(e.target.files)}/>
+                               ref={ref} onChange={(e) => setImage(e.target.files)}/>
                     </div>
                     <div className="input-group">
                         <div className="btn">
@@ -174,23 +179,26 @@ const Courses = () => {
                                     return (
                                         <div key={index} className="card-wrapper_card">
 
-                                            <div className="card-wrapper_card-image" style={{background: 'url(' + item.img + ') center / cover' }}> </div>
+                                            <div className="card-wrapper_card-image"
+                                                 style={{background: 'url(' + item.img + ') center / cover'}}></div>
 
                                             <div className="card-wrapper_card-text">
                                                 <div className="card-wrapper_card-text_title">
                                                     {item.title}
                                                 </div>
                                                 <div className="card-wrapper_card-text_des">
-                                                    {item.description.slice(0,150) + "...."}
+                                                    {item.description.slice(0, 150) + "...."}
                                                 </div>
                                             </div>
 
                                             <div className="card-wrapper_card-btns">
-                                                <NavLink className="NavLink" to={"/courses-edit/" + item.id + "/" + item.title.replace(/\s+/g, '-')}>
+                                                <NavLink className="NavLink"
+                                                         to={"/courses-edit/" + item.id + "/" + item.title.replace(/\s+/g, '-')}>
                                                     Tahrirlash
                                                 </NavLink>
 
-                                                <NavLink className="more" to={'courses-more/' + item.id + '/' + item.title.replace(/\s+/g, '-')}>
+                                                <NavLink className="more"
+                                                         to={'courses-more/' + item.id + '/' + item.title.replace(/\s+/g, '-')}>
                                                     Batafsil
                                                 </NavLink>
 

@@ -1,13 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import "../../App.scss";
 import {getTeachers} from "./query";
-import {NavLink, useHistory} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import axios from "axios";
 import {API_URL, getToken} from "../../utils/axios";
+import {toast} from "react-toastify";
 
 const Teachers = () => {
 
-    const history = useHistory();
+    const ref = useRef();
+
+    const reset = () => {
+        ref.current.value = "";
+    };
 
     const [teachers, setTeachers] = useState("");
     const [name, setName] = useState("");
@@ -46,14 +51,19 @@ const Teachers = () => {
 
         await axios.post(`${API_URL}/teachers?token=${getToken()}`, data, config)
             .then((res) => {
+                if(res) {
+                    toast.success("😌 O'qituvchi Mofaqiyatli Qo'shildi..!")
+                }
             })
             .catch(err => {
                 console.log(err)
+                toast.error("😩 xatolik yuz berdi..");
             })
         setName("");
         setSurName("");
         setDescriptions("");
-        setImage(null);
+
+        reset();
 
         await fetchTeachers();
     }
@@ -62,12 +72,13 @@ const Teachers = () => {
     const deleteTeachers = async (index) => {
         await axios.delete(`${API_URL}/teachers/${index}?token=${getToken()}`)
             .then(res => {
+                if(res) {
+                    toast.success("😌 bo'lim mofaqiyatli o'chirildi..!")
+                }
             })
             .catch(err => {
-                if (err.response.status === 401){
-                    localStorage.clear();
-                    history.push("/");
-                }
+                console.log(err)
+                toast.error("😩 xatolik yuz berdi..");
             })
 
         await fetchTeachers();
@@ -92,7 +103,7 @@ const Teachers = () => {
                     </div>
                     <div className="input-group">
                         <label htmlFor="image">Kurs uchun rasim</label>
-                        <input className="image" type="file" name="image" id="image" placeholder="kurs uchun rasim" onChange={(e) => setImage(e.target.files[0])}/>
+                        <input className="image" type="file" name="image" id="image" placeholder="kurs uchun rasim"  ref={ref} onChange={(e) => setImage(e.target.files[0])}/>
                     </div>
                     <div className="input-group">
                         <div className="btn">

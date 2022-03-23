@@ -54,7 +54,7 @@ const ResultGroup = (props) => {
             <div>O'qituvchi: {name} </div>
             <div>Kurs nomi: {courseName} </div>
             <div>kurs {props.members} kishiga mojalangan</div>
-            <div>Kurs: <span>{props.days.substring(1, props.days.length - 1)}</span> kinlari bo'ladi</div>
+            <div>Kurs: {props.days} kunlari bo'ladi</div>
             <div>kurs kar kuni soat {props.start} boshlanib soat {props.end} da tugaydi</div>
             <div>Kurs: {props.duration} oy davom etadi</div>
             <div>1 oyda {props.in_month} dars boladi</div>

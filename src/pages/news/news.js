@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import "../../App.css";
 import { deleteNews, getNews, postNews } from './query';
+import {toast} from "react-toastify";
 
 const News = () => {
     const [news, setNews] = useState([]);
@@ -11,6 +12,12 @@ const News = () => {
     const [testImage, setTestImage] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [fetchLoading, setFetchLoading] = useState(false);
+
+    const ref = useRef();
+
+    const reset = () => {
+        ref.current.value = "";
+    };
 
     const handleImage = (event) => {
         setTestImage(true);
@@ -44,20 +51,33 @@ const News = () => {
         }
 
 
-            if (data) {
-                const {news, error} = await postNews(data);
-                setIsLoading(false);
+        if (data) {
+            const {news, error} = await postNews(data);
+            if(news) {
+                toast.success("Yangilik Mofaqiyatli Qo'shildi..!", {icon: '🥳'})
+            }else if(error){
+                console.log(error);
+                toast.error("😩 xatolik yuz berdi..");
             }
+            setIsLoading(false);
+        }
 
-        setTitle("")
-        setName("")
-        setImage(null)
+        setTitle("");
+        setName("");
 
-        await fetchNews()
+        reset();
+
+        await fetchNews();
     }
 
     const deleteNew = async (id) => {
-        const {data, error} = await deleteNews(id)
+        const {data, error} = await deleteNews(id);
+        if(data) {
+            toast.success("Yangilik Mofaqiyatli O'chirildi..!", {icon: '🥳'})
+        }else if(error){
+            console.log(error);
+            toast.error("😩 Xatolik Yuz Berdi..");
+        }
         await fetchNews()
     }
 
@@ -81,8 +101,7 @@ const News = () => {
                     <div className="input-group">
                         <label htmlFor="image">Yangilik uchun rasim</label>
                         <input className="image" type="file" name="image" id="image" placeholder="yangilik uchun rasim"
-                               onChange={(event) => handleImage(event)}/>
-                        {/*{image && (<img src={URL.createObjectURL(image[0])} alt='' width={300}/> )}*/}
+                               ref={ref}  onChange={(event) => handleImage(event)}/>
                     </div>
 
                     <div className="input-group">

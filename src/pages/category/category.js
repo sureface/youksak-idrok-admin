@@ -12,20 +12,22 @@ const Category = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [fetchLoading, setFetchLoading] = useState(false);
 
-
-
     const fetchCategories = async () => {
-        setFetchLoading(true)
+        setFetchLoading(true);
         const {categories, error} = await getCategories();
         if(categories) {
-            setData(categories)
+            setData(categories);
             setFetchLoading(false);
+            toast.success("bo'lim mofaqiyatli olib kelindi..!", {icon: '🥳'})
+        }else if(error){
+            console.log(error);
+            toast.error("😩 xatolik yuz berdi..");
         }
     }
 
     useEffect(() => {
-        fetchCategories()
-    }, [])
+        fetchCategories();
+    }, []);
 
 
     const onSubmitHandler = async (e) => {

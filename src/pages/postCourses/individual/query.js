@@ -1,6 +1,5 @@
 import axios from "axios";
 import {API_URL, getToken} from "../../../utils/axios";
-import {toast} from "react-toastify";
 
 
 export const getTeachersForIn = async () => {
@@ -44,11 +43,7 @@ export const PatchIndividuals = async ({individualsData, id}) => {
     try {
         const res = await axios.patch(`${API_URL}/individuals/${id}?token=${token}`, individualsData);
         data = res
-        if (res.status === 200){
-            toast.success("Guruh mofaqiyatli O'zgartirildi..!")
-        }
     } catch (err) {
-        toast.error("xatolik yuz berdi..!")
         console.log(err)
     }
     return {data}
@@ -81,13 +76,14 @@ export const getIndividualsById = async (id) => {
     let data, error;
     try {
         const res = await axios.get(`${API_URL}/individuals/${id}`);
-        data = res.data.group[0]
+        data = res.data.individual[0]
 
         const getTeach = await axios.get(`${API_URL}/teachers/${data.teacher_id}`);
         data.teacherName = getTeach.data.teacher[0].first_name + " " + getTeach.data.teacher[0].last_name
 
     } catch (err) {
-        error = error ? error.message : 'Oops something went wrong';
+        console.log(err)
+        error = err
     }
     return {data, error}
 }

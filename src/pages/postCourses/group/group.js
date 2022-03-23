@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {getGroups, getTeachersForGr, postGroup} from "./query";
 import {useLocation, useHistory} from "react-router-dom";
-import {wait} from "@testing-library/user-event/dist/utils";
 import {toast} from "react-toastify";
 
 const Group = () => {
@@ -20,18 +19,13 @@ const Group = () => {
     const [durationByDay, setDurationByDay] = useState("");
     const [durationByMonthByDay, setDurationByMonthByDay] = useState(null);
     const [isActive, setIsActive] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-    const [getLoading, setGetLoading] = useState(false);
 
     const getTeachers = async () => {
-        setGetLoading(true);
         const {teachersForGr, error} = await getTeachersForGr()
         if (teachersForGr) {
             setGetTeach(teachersForGr);
-            setGetLoading(false);
         } else {
             console.log(error);
-            setGetLoading(false);
         }
     }
 
@@ -141,7 +135,7 @@ const Group = () => {
                         <label htmlFor="checkbox">Kurs faolmi ?</label>
                         <label className="switch" htmlFor="checkbox">
                             <input type="checkbox" id="checkbox" name="active" onClick={() => setIsActive(!isActive)}/>
-                            <div className="slider round"></div>
+                            <div className={`${isActive === true ? 'slider round active' : "slider round"}`}></div>
                         </label>
                     </div>
 

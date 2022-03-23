@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {PatchGroup, getAllTeachers, getIndividualsById, PatchIndividuals} from "./query";
+import { getAllTeachers, getIndividualsById, PatchIndividuals} from "./query";
 import {useHistory, useParams} from "react-router-dom";
 import {toast} from "react-toastify";
 
@@ -23,7 +23,7 @@ const EditIndividuals = () => {
     const [isActive, setIsActive] = useState(false);
 
     useEffect(() => {
-        const getGroupsEdit = async () => {
+        const getIndividualsEdit = async () => {
             const {data, error} = await getIndividualsById(id);
             if (data) {
                 setGroupsData(data);
@@ -37,10 +37,10 @@ const EditIndividuals = () => {
                 setDurationByMonthByDay(data.in_month);
                 setIsActive(data.active)
             }else if (error){
-                toast.error("texnik xatolik... iltimos qaytatdan urinib  koring");
+                toast.error("xatolik yuz berdi..!");
             }
         }
-        getGroupsEdit();
+        getIndividualsEdit();
     },[])
 
     useEffect(() => {
@@ -49,7 +49,7 @@ const EditIndividuals = () => {
             if (data) {
                 setAllTeachers(data);
             }else if (error){
-                toast.error("texnik xatolik... iltimos qaytatdan urinib  koring");
+                toast.error("O'qituvchilarni olib kelishda xatolik yuz berdi..!");
             }
         }
         fetchTeachers();
@@ -76,10 +76,12 @@ const EditIndividuals = () => {
             active: isActive
         }
 
-        const {data} = await PatchIndividuals({individualsData, id});
+        const {data, error} = await PatchIndividuals({individualsData, id});
         if (data) {
-            console.log(data, "individuals changed..!");
+            toast.success("Indivual guruh qo'shildi..!");
             history.push('/card-individuals');
+        }else if(error){
+            toast.error("Xatolik yuz berdi..!");
         }
     }
 
@@ -90,8 +92,7 @@ const EditIndividuals = () => {
                 <form className="courses-wrapper_form" onSubmit={onSubmitIndividuals}>
                     <div className="input-group">
                         <label htmlFor="teachers">Kurs uchun ustozni tanlang</label>
-                        <select name="teacher_id" id="teachers" required
-                                onChange={(e) => setSelectedTeacher(e.target.value)}>
+                        <select name="teacher_id" id="teachers" required onChange={(e) => setSelectedTeacher(e.target.value)}>
                             {
                                 defaultTeacher ?
                                     <option value={groupsData.teacher_id}>{defaultTeacher}</option>

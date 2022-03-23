@@ -4,6 +4,7 @@ import axios from "axios";
 import {API_URL, getToken} from "../../utils/axios";
 import {useHistory, useParams} from "react-router-dom";
 import {fetchTeacher} from "./query";
+import {toast} from "react-toastify";
 
 const UpdateTeachers = () => {
 
@@ -82,6 +83,9 @@ const UpdateTeachers = () => {
 
         await axios.patch(`${API_URL}/teachers/${id}?token=${getToken()}`, data, config)
             .then((res) => {
+                if(res) {
+                    toast.success("😌 O'qituvchi Mofaqiyatli Taxrirlandi..!")
+                }
                 setName("");
                 setSurName("");
                 setDescriptions("");
@@ -90,10 +94,8 @@ const UpdateTeachers = () => {
                 history.push("/teachers");
             })
             .catch(err => {
-                if (err.response.status === 401){
-                    localStorage.clear();
-                    history.push("/");
-                }
+                console.log(err)
+                toast.error("😩 xatolik yuz berdi..");
             })
     }
 
