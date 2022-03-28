@@ -15,7 +15,7 @@ export const getCategoriesForCourses = async () => {
 export const getCourses = async () => {
     let fetchCourses, error;
     try {
-        const res = await axios.get(`${API_URL}/courses`);
+        const res = await axios.get(`${API_URL}/courses?limit=9999`);
         fetchCourses = res.data.courses
     } catch (err) {
         error = error ? error.message : 'Oops kurslarni olib kelishda xatolik yuz berdi !';
