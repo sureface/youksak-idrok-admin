@@ -66,13 +66,29 @@
     }
   }
 }
+@media only screen and (max-width:640px){
+  .topbar_wrapper-top_left .logo {
+    margin-left: 40px;
+  }
+}
 
-@media only screen and (max-width: 450px){
+@media only screen and (max-width: 540px){
   .topbar_wrapper-top_left .logo {
     font-size: 20px;
+
   }
   .topbar_wrapper-top_right .logOut {
     margin-left: 20px;
     padding: 5px 10px;
 }
+}
+
+@media only screen and (max-width:450px){
+  .topbar_wrapper-top_right_container{
+    display: none;
+  }
+  .topbar_wrapper-top_left .logo {
+    margin-left: 0;
+    font-size: 18px;
+  }
 }

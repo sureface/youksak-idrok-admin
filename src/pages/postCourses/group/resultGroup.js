@@ -54,11 +54,11 @@ const ResultGroup = (props) => {
             <div className="res-group_name">{props.id} Guruh</div>
             <div className='res-group_text'><h3>O'qituvchi: </h3>{name} </div>
             <div className='res-group_text'><h3>Kurs nomi:</h3> {courseName} </div>
-            <div className='res-group_text'>Kurs {props.members} kishiga mojalangan</div>
+            <div className='res-group_text'><h3>Kurs:</h3> {props.members} kishiga mojalangan</div>
             <div className='res-group_text'><h3>Kurs:</h3> {props.days} kunlari bo'ladi</div>
-            <div className='res-group_text'>kurs kar kuni soat {props.start} boshlanib soat {props.end} da tugaydi</div>
+            <div className='res-group_text'><h3>Kurs:</h3> har kuni soat {props.start} boshlanib soat {props.end} da tugaydi</div>
             <div className='res-group_text'><h3>Kurs:</h3> {props.duration} oy davom etadi</div>
-            <div className='res-group_text'>1 oyda {props.in_month} dars boladi</div>
+            <div className='res-group_text'><h3>1 oyda: </h3> {props.in_month} dars boladi</div>
             <div className='res-group_text'><h3>Kurs narxi:</h3> {props.price} </div>
             <div className="btn">
                 {delLoading ?
