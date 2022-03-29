@@ -28,6 +28,7 @@ const ResultIndividuals = (props) => {
             .then(res => {
                 const course_name = res.data.course[0].title
                 setCourseName(course_name)
+                console.log(res.data.course)
             })
             .catch(error => console.log(error))
 
@@ -48,16 +49,17 @@ const ResultIndividuals = (props) => {
     }
 
     return (
-        <div className="res-group">
+        <div className={props.active ? "res-group active" : "res-group noActive"}>
+            <div className="res-group_isActive">{props.active ? "Faol" : "Faol emas"}</div>
             <div className="res-group_name">{props.id} Guruh</div>
-            <div>O'qituvchi: {name} </div>
-            <div>Kurs nomi: {courseName} </div>
-            <div>kurs {props.members} kishiga mojalangan</div>
-            <div>Kurs: <span>{props.days.substring(1, props.days.length - 1)}</span> kinlari bo'ladi</div>
-            <div>kurs kar kuni soat {props.start} boshlanib soat {props.end} da tugaydi</div>
-            <div>Kurs: {props.duration} oy davom etadi</div>
-            <div>1 oyda {props.in_month} dars boladi</div>
-            <div>kurs narxi: {props.price} </div>
+            <div className='res-group_text'><h3>O'qituvchi:</h3> {name} </div>
+            <div className='res-group_text'><h3>Kurs nomi:</h3> {courseName} </div>
+            <div className='res-group_text'>kurs {props.members} kishiga mojalangan</div>
+            <div className='res-group_text'><h3>Kurs: </h3> <span>{props.days.substring(1, props.days.length - 1)}</span> kunlari bo'ladi</div>
+            <div className='res-group_text'>Kurs har kuni soat {props.start} boshlanib soat {props.end} da tugaydi</div>
+            <div className='res-group_text'><h3>Kurs: </h3> {props.duration} oy davom etadi</div>
+            <div className='res-group_text'>1 oyda {props.in_month} dars boladi</div>
+            <div className='res-group_text'><h3>Kurs narxi:</h3> {props.price} </div>
 
             <div className="btn">
                 {delLoading ?

@@ -49,17 +49,17 @@ const ResultGroup = (props) => {
     }
 
     return (
-        <div className="res-group">
+        <div className={props.active ? "res-group active" : "res-group noActive"}>
+            <div className="res-group_isActive">{props.active ? "Faol" : "Faol emas"}</div>
             <div className="res-group_name">{props.id} Guruh</div>
-            <div>O'qituvchi: {name} </div>
-            <div>Kurs nomi: {courseName} </div>
-            <div>kurs {props.members} kishiga mojalangan</div>
-            <div>Kurs: {props.days} kunlari bo'ladi</div>
-            <div>kurs kar kuni soat {props.start} boshlanib soat {props.end} da tugaydi</div>
-            <div>Kurs: {props.duration} oy davom etadi</div>
-            <div>1 oyda {props.in_month} dars boladi</div>
-            <div>kurs narxi: {props.price} </div>
-
+            <div className='res-group_text'><h3>O'qituvchi: </h3>{name} </div>
+            <div className='res-group_text'><h3>Kurs nomi:</h3> {courseName} </div>
+            <div className='res-group_text'>Kurs {props.members} kishiga mojalangan</div>
+            <div className='res-group_text'><h3>Kurs:</h3> {props.days} kunlari bo'ladi</div>
+            <div className='res-group_text'>kurs kar kuni soat {props.start} boshlanib soat {props.end} da tugaydi</div>
+            <div className='res-group_text'><h3>Kurs:</h3> {props.duration} oy davom etadi</div>
+            <div className='res-group_text'>1 oyda {props.in_month} dars boladi</div>
+            <div className='res-group_text'><h3>Kurs narxi:</h3> {props.price} </div>
             <div className="btn">
                 {delLoading ?
                     "O'chirilmoqda"
