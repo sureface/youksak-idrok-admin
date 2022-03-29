@@ -137,6 +137,10 @@
           display: flex;
           justify-content: space-between;
           margin-top: 20px;
+          @media only screen and (max-width: 860px){
+            flex-direction: column;
+             
+          }
 
           &-image{
             width: 50%;
@@ -150,6 +154,13 @@
             font-size: 18px;
             text-align: justify;
             line-height: 1.4;
+            @media only screen and (max-width: 860px){
+              width: 100%!important;
+              padding: 0!important;
+            }
+            &_des{
+              font-size: 16px;
+            }
           }
         }
 
@@ -157,6 +168,11 @@
       &-btns{
         display: flex;
         justify-content: end;
+        @media only screen and (max-width: 360px){
+          display: grid!important;
+          grid-template-columns: repeat(2, 1fr)!important;
+          gap: 10px!important;
+        }
         &_gr{
           text-decoration: none;
           border: none;
@@ -166,6 +182,9 @@
           font-family: sans-serif;
           color: #ffffff;
           margin-right: 20px;
+          @media only screen and (max-width: 360px){
+            margin-right: 0!important;
+          }
         }
         &_in{
           text-decoration: none;
@@ -176,6 +195,9 @@
           font-family: sans-serif;
           color: #ffffff;
           margin-right: 20px;
+          @media only screen and (max-width: 360px){
+            margin-right: 0!important;
+          }
         }
         &_back{
           text-decoration: none;
@@ -186,6 +208,9 @@
           font-family: sans-serif;
           color: #ffffff;
           margin-right: 20px;
+          @media only screen and (max-width: 360px){
+            margin-right: 0!important;
+          }
         }
       }
     }
@@ -199,12 +224,17 @@
       padding: 30px 0;
 
       // result-card style
-      .res-group.active{
-        background-color: #4fa80070;
-      }
       .res-group.noActive{
-        background-color: #ce020250;
+        .res-group_isActive{
+          background-color: #ce020280;
+        }
       }
+      .res-group.active{
+        .res-group_isActive{
+          background-color: #3B82F6;
+        }
+      }
+      
       .res-group{
         width: 23rem;
         height: auto;
@@ -213,12 +243,23 @@
         border: 1px solid #3B82F6;
         font-size: 18px;
         font-family: sans-serif;
+        position: relative;
+        overflow: hidden; 
+        z-index: 0;
         *{
           margin-bottom: 10px;
         }
         &_isActive{
           color: #222222;
           letter-spacing: 1px;
+          position: absolute;
+          top:35px;
+          right: -35px;
+          transform: rotate(45deg); 
+          padding: 0 30px;
+          width: 100px;
+          text-align: center;
+          color: #fff;
         }
         span{
           color: blue;
