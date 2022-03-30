@@ -244,8 +244,7 @@
         font-size: 18px;
         font-family: sans-serif;
         position: relative;
-        overflow: hidden; 
-        z-index: 0;
+        overflow: hidden;  
         *{
           margin-bottom: 10px;
         }
@@ -265,7 +264,7 @@
           color: blue;
         }
         &_name{
-          text-align: center;
+          text-align: center; 
         }
         &_text{
           display: flex; 
@@ -300,6 +299,7 @@
             color: #ffffff;
             cursor: pointer;
             margin-bottom: 0;
+            z-index: 1;
           }
           .change{
             text-decoration: none;
