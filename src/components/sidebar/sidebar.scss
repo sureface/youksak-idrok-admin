@@ -3,8 +3,7 @@
   height: calc(100vh - 70px);
   background: #3B82F6;
   position: sticky;
-  top: 70px;
-  z-index: 5;
+  top: 70px;  
  .bars{
    display: none;
  }
@@ -79,7 +78,7 @@
 @media only screen and (max-width:768px){
 
   .sidebar{
-     
+
     
     .bars{
       display: flex;
@@ -121,6 +120,10 @@
 @media only screen and (max-width:640px){
   .sidebar{
     position: fixed;
+    z-index: 3;
+  }
+  .sidebar-wrapper .sidebar-menu .sidebar-list-item_link.active:after{
+    display: none;
   }
   .sidebar.active{
     left: -60px; 
