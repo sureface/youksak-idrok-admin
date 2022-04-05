@@ -1,14 +1,48 @@
 .sidebar{
-  flex: 1;
-  height: calc(100vh - 70px);
+  position: fixed;
+  width: 250px;
+  height: 100%;
   background: #3B82F6;
-  position: sticky;
-  top: 70px;  
- .bars{
-   display: none;
- }
+  overflow-y: auto;
+  transition: all .3s ease-in-out;
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+
+  }
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(transparent, #3B82F6);
+    border-radius: 10px;
+
+    &:hover{
+      background: linear-gradient(transparent, #2cbaff)
+    }
+  }
+  .bars{
+    display: none;
+  }
+
+  &-heading{
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 600;
+    font-family: sans-serif;
+    text-transform: capitalize;
+    padding: 20px 0 0 20px;
+
+    &_icon{
+      margin-right: 10px;
+      font-size: 20px;
+    }
+  }
   &-wrapper{
-    padding: 20px;
+    padding: 22px 20px 20px 20px;
 
     .sidebar-menu{
       .sidebar-title{
@@ -35,7 +69,13 @@
             color: #ffffff;
             display: flex;
             align-items: center;
-             
+
+            &.active{
+              &:before{
+                height: 80%;
+              }
+            }
+
             &:before {
               content: '';
               position: absolute;
@@ -45,24 +85,11 @@
               right: 0;
               height: 0;
               margin: auto 0;
-              width: 3px;
+              width: 4px;
               background-color: white;
               transition: all 0.4s linear;
             }
-            &.active{
-              &:after{
-                content: '';
-                display: block;
-                position: absolute;
-                right: -21px;
-                top: 8px;
-                border-bottom: 20px solid #ffffff;
-                border-left: 10px solid transparent;
-                border-right: 10px solid transparent;
-                background-color: #3B82F6;
-                transform: rotate(270deg);
-              }
-            }
+
             &:hover{
               &:before{
                 height: 80%;
@@ -75,44 +102,64 @@
 
   }
 }
-@media only screen and (max-width:768px){
 
-  .sidebar{
+.mobile_bar{
+  position: fixed;
+  top: 11px;
+  left: 9px;
+  display: none;
 
-    
-    .bars{
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding: 0 20px;
-      &-icon{
-        font-size: 20px;
-        color: #ffffff;
-        cursor: pointer;
-      }
-    }
+  .close{
+    display: none;
   }
 
-  .sidebar.active{
-    width: 60px; 
-    .bars{
-      justify-content: center;
-    }
-    .sidebar-list{
-      display: flex;
-      flex-direction: column;
-    }
-    .sidebar-list-item_link{
-      justify-content: center;
-    }
-    .sidebar-list-item_icon{
-      font-size: 20px;
-      margin-right: 0;
-    }
-    .sidebar-list-item_text{
-      display: none;
-    }
+  @media only screen and (max-width: 640px){
+    display: block;
 
+    background: #3B82F6;
+    width: 40px;
+    height: 40px;
+    z-index: 9999;
+    border-radius: 50%;
+    font-size: 24px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+}
+
+@media only screen and (max-width:768px){
+  .sidebar.active{
+      width: 60px;
+      transition: all .3s ease-in-out;
+
+      .sidebar-heading{
+        display: none;
+      }
+
+      .bars{
+        display: block;
+        color: #ffffff;
+        font-size: 20px;
+        padding: 20px 20px 0 20px;
+      }
+
+      .sidebar-list{
+        display: flex;
+        flex-direction: column;
+      }
+      .sidebar-list-item_link{
+        justify-content: start;
+      }
+      .sidebar-list-item_icon{
+        font-size: 20px;
+        margin-right: 0;
+      }
+      .sidebar-list-item_text{
+        display: none;
+      }
     }
   }
 
@@ -121,23 +168,16 @@
   .sidebar{
     position: fixed;
     z-index: 3;
+    transition: all .3s ease-in-out;
   }
   .sidebar-wrapper .sidebar-menu .sidebar-list-item_link.active:after{
-    display: none;
+    opacity: 0;
+    transition: all .3s ease-in-out;
   }
   .sidebar.active{
-    left: -60px; 
-    .bars{
-      justify-content: center;
-      .bars-icon{
-        color: #3B82F6;
-        font-size: 25px;
-        position: relative;
-        top: 5px;
-        right: -55px;
-        z-index: 999;
-      }
-    }
+    left: -250px;
+    transition: all .3s ease-in-out;
+
     .sidebar-list{
       display: flex;
       flex-direction: column;
@@ -149,8 +189,9 @@
       font-size: 20px;
       margin-right: 0;
     }
-    .sidebar-list-item_text{
-      display: none;
+    .sidebar-list-item_text {
+      opacity: 0;
+      transition: all .3s ease-in-out;
     }
 
     }

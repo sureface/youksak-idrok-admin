@@ -1,10 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import './App.scss';
 import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-toastify/dist/ReactToastify.min.css';
-import Topbar from "./components/topbar/topbar";
 import Sidebar from "./components/sidebar/sidebar";
 import Courses from "./pages/courses/courses";
 import News from "./pages/news/news";
@@ -35,69 +34,74 @@ function App() {
         )
     }
 
-  return (
-      <div>
-          <ToastContainer style={{zIndex: "99999999"}}/>
-          <Router>
-              <Topbar />
-              <div className="container">
-                  <Sidebar />
-                  <Switch>
-                      <Route exact path="/">
-                          <Login />
-                      </Route>
-                      <PrivateRoute>
-                          <Route path="/category">
-                              <Category />
-                          </Route>
-                          <Route path="/category-edit/:id">
-                              <UpdateCategories />
-                          </Route>
-                          <Route path="/courses">
-                              <Courses />
-                          </Route>
-                          <Route path="/courses-edit/:id">
-                              <UpdateCourses />
-                          </Route>
-                          <Route path="/courses-more/:id">
-                              <More />
-                          </Route>
-                          <Route path="/news">
-                              <News />
-                          </Route>
-                          <Route path="/news-edit/:id">
-                              <NewsEdit />
-                          </Route>
-                          <Route path="/teachers">
-                              <Teachers />
-                          </Route>
-                          <Route path="/add-to-group">
-                              <Group />
-                          </Route>
-                          <Route path="/card-group">
-                              <CardGroup />
-                          </Route>
-                          <Route path="/groups-edit/:id/">
-                              <EditGroups />
-                          </Route>
-                          <Route path="/individual-edit/:id">
-                              <EditIndividuals />
-                          </Route>
-                          <Route path="/individual">
-                              <Individual />
-                          </Route>
-                          <Route path="/card-individuals">
-                              <CardIndividuals />
-                          </Route>
-                          <Route path="/teachers-edit/:id">
-                              <UpdateTeachers />
-                          </Route>
-                      </PrivateRoute>
-                  </Switch>
-              </div>
-          </Router>
-      </div>
-  );
+    const pull_data = (data) => {
+        console.log(data); // LOGS DATA FROM CHILD (boolean value)
+    }
+
+    return (
+        <div>
+            <ToastContainer style={{zIndex: "99999999"}}/>
+            <Router>
+                <div className="container">
+                    <Sidebar func={pull_data}/>
+                    <div className="right_side">
+                        <Switch>
+                            <Route exact path="/">
+                                <Login/>
+                            </Route>
+                            <PrivateRoute>
+                                <Route path="/category">
+                                    <Category/>
+                                </Route>
+                                <Route path="/category-edit/:id">
+                                    <UpdateCategories/>
+                                </Route>
+                                <Route path="/courses">
+                                    <Courses/>
+                                </Route>
+                                <Route path="/courses-edit/:id">
+                                    <UpdateCourses/>
+                                </Route>
+                                <Route path="/courses-more/:id">
+                                    <More/>
+                                </Route>
+                                <Route path="/news">
+                                    <News/>
+                                </Route>
+                                <Route path="/news-edit/:id">
+                                    <NewsEdit/>
+                                </Route>
+                                <Route path="/teachers">
+                                    <Teachers/>
+                                </Route>
+                                <Route path="/add-to-group">
+                                    <Group/>
+                                </Route>
+                                <Route path="/card-group">
+                                    <CardGroup/>
+                                </Route>
+                                <Route path="/groups-edit/:id/">
+                                    <EditGroups/>
+                                </Route>
+                                <Route path="/individual-edit/:id">
+                                    <EditIndividuals/>
+                                </Route>
+                                <Route path="/individual">
+                                    <Individual/>
+                                </Route>
+                                <Route path="/card-individuals">
+                                    <CardIndividuals/>
+                                </Route>
+                                <Route path="/teachers-edit/:id">
+                                    <UpdateTeachers/>
+                                </Route>
+                            </PrivateRoute>
+                        </Switch>
+                    </div>
+                </div>
+            </Router>
+        </div>
+    );
 }
 
 export default App;
