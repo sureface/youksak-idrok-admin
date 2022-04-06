@@ -52,6 +52,7 @@
   position: relative;
   padding: 10px 0;
   font-size: 18px;
+  cursor: pointer;
 }
 .sidebar-wrapper .sidebar-menu .sidebar-list-item_icon {
   margin-right: 15px;
@@ -59,6 +60,7 @@
 }
 .sidebar-wrapper .sidebar-menu .sidebar-list-item_text {
   margin: 0;
+  font-family: sans-serif;
 }
 .sidebar-wrapper .sidebar-menu .sidebar-list-item_link {
   text-decoration: none;
@@ -143,7 +145,7 @@
 @media only screen and (max-width: 640px) {
   .sidebar {
     position: fixed;
-    z-index: 3;
+    z-index: 99999;
     transition: all 0.3s ease-in-out;
   }
 

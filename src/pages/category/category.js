@@ -11,14 +11,15 @@ const Category = () => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [fetchLoading, setFetchLoading] = useState(false);
+    const [totalCategories, setTotalCategories] = useState(0);
 
     const fetchCategories = async () => {
         setFetchLoading(true);
-        const {categories, error} = await getCategories();
+        const {categories, error, count} = await getCategories();
         if(categories) {
             setData(categories);
             setFetchLoading(false);
-            toast.success("bo'lim mofaqiyatli olib kelindi..!", {icon: '🥳'})
+            setTotalCategories(count);
         }else if(error){
             console.log(error);
             toast.error("😩 xatolik yuz berdi..");
@@ -35,7 +36,7 @@ const Category = () => {
         setIsLoading(true);
         const {data, err} = await postCategory(name);
         if (data){
-            toast.success("kategoriya muvaffaqiyatli qo'shildi..!", {icon: '🥳'})
+            toast.success("Yo'nalish muvaffaqiyatli qo'shildi..!", {icon: '🥳'})
         }else if (err){
             toast.error("xatolik yuz berdi,", {icon: '😔'})
         }
@@ -48,7 +49,7 @@ const Category = () => {
 
     return (
         <div className="category">
-            <h1 className="courses-title">Kurslar</h1>
+            <h1 className="courses-title">Yo'nalishlar</h1>
             <div className="courses-wrapper">
                 <form className="courses-wrapper_form" onSubmit={onSubmitHandler}>
                     <div className="input-group">
@@ -72,7 +73,7 @@ const Category = () => {
                     </div>
                 </form>
             </div>
-            <h1 className="courses-title">Qo'shilgan Yo'nalishlar</h1>
+            <h1 className="courses-title">{totalCategories === 0 ? "hali yo'nalish qo'shilmagan" : `jami ${totalCategories} ta to'nalish qo'shilgan`}</h1>
             {
                 fetchLoading ?
                     <div className="btn">
@@ -86,7 +87,7 @@ const Category = () => {
                     :
                     <div className="card-wrapper">
                         {
-                            data ?
+                            data.length ?
                                 data.map((item, index) => {
                                     return (
                                         <div key={index} className="card-wrapper_card">
@@ -109,7 +110,7 @@ const Category = () => {
                                         </div>
                                     )
                                 })
-                                : ""
+                                : "Yonalishlar topilmadi..!"
                         }
                     </div>
             }

@@ -27,6 +27,7 @@
   justify-content: center;
   background-color: #ffffff;
   height: 100vh;
+  z-index: 9999;
 }
 @media only screen and (max-width: 660px) {
   .container .right_side .login-wrapper {
@@ -146,14 +147,18 @@
   justify-content: space-between;
   margin-top: 20px;
 }
-@media only screen and (max-width: 860px) {
-  .container .right_side .category .res-more_body, .container .right_side .certifications .res-more_body, .container .right_side .about .res-more_body, .container .right_side .courses .res-more_body, .container .right_side .news .res-more_body, .container .right_side .teachers .res-more_body, .container .right_side .login-wrapper .res-more_body, .container .right_side .individual .res-more_body, .container .right_side .group .res-more_body {
-    flex-direction: column;
-  }
-}
 .container .right_side .category .res-more_body-image, .container .right_side .certifications .res-more_body-image, .container .right_side .about .res-more_body-image, .container .right_side .courses .res-more_body-image, .container .right_side .news .res-more_body-image, .container .right_side .teachers .res-more_body-image, .container .right_side .login-wrapper .res-more_body-image, .container .right_side .individual .res-more_body-image, .container .right_side .group .res-more_body-image {
   width: 50%;
   height: 30rem;
+}
+@media only screen and (max-width: 1020px) {
+  .container .right_side .category .res-more_body, .container .right_side .certifications .res-more_body, .container .right_side .about .res-more_body, .container .right_side .courses .res-more_body, .container .right_side .news .res-more_body, .container .right_side .teachers .res-more_body, .container .right_side .login-wrapper .res-more_body, .container .right_side .individual .res-more_body, .container .right_side .group .res-more_body {
+    flex-direction: column;
+  }
+  .container .right_side .category .res-more_body-image, .container .right_side .certifications .res-more_body-image, .container .right_side .about .res-more_body-image, .container .right_side .courses .res-more_body-image, .container .right_side .news .res-more_body-image, .container .right_side .teachers .res-more_body-image, .container .right_side .login-wrapper .res-more_body-image, .container .right_side .individual .res-more_body-image, .container .right_side .group .res-more_body-image {
+    width: 100%;
+    margin-bottom: 15px;
+  }
 }
 .container .right_side .category .res-more_body-item, .container .right_side .certifications .res-more_body-item, .container .right_side .about .res-more_body-item, .container .right_side .courses .res-more_body-item, .container .right_side .news .res-more_body-item, .container .right_side .teachers .res-more_body-item, .container .right_side .login-wrapper .res-more_body-item, .container .right_side .individual .res-more_body-item, .container .right_side .group .res-more_body-item {
   width: 50%;
@@ -163,14 +168,11 @@
   text-align: justify;
   line-height: 1.4;
 }
-@media only screen and (max-width: 860px) {
+@media only screen and (max-width: 1020px) {
   .container .right_side .category .res-more_body-item, .container .right_side .certifications .res-more_body-item, .container .right_side .about .res-more_body-item, .container .right_side .courses .res-more_body-item, .container .right_side .news .res-more_body-item, .container .right_side .teachers .res-more_body-item, .container .right_side .login-wrapper .res-more_body-item, .container .right_side .individual .res-more_body-item, .container .right_side .group .res-more_body-item {
-    width: 100% !important;
-    padding: 0 !important;
+    padding: 0;
+    width: 100%;
   }
-}
-.container .right_side .category .res-more_body-item_des, .container .right_side .certifications .res-more_body-item_des, .container .right_side .about .res-more_body-item_des, .container .right_side .courses .res-more_body-item_des, .container .right_side .news .res-more_body-item_des, .container .right_side .teachers .res-more_body-item_des, .container .right_side .login-wrapper .res-more_body-item_des, .container .right_side .individual .res-more_body-item_des, .container .right_side .group .res-more_body-item_des {
-  font-size: 16px;
 }
 .container .right_side .category .res-btns, .container .right_side .certifications .res-btns, .container .right_side .about .res-btns, .container .right_side .courses .res-btns, .container .right_side .news .res-btns, .container .right_side .teachers .res-btns, .container .right_side .login-wrapper .res-btns, .container .right_side .individual .res-btns, .container .right_side .group .res-btns {
   display: flex;
@@ -184,6 +186,9 @@
   }
 }
 .container .right_side .category .res-btns_gr, .container .right_side .certifications .res-btns_gr, .container .right_side .about .res-btns_gr, .container .right_side .courses .res-btns_gr, .container .right_side .news .res-btns_gr, .container .right_side .teachers .res-btns_gr, .container .right_side .login-wrapper .res-btns_gr, .container .right_side .individual .res-btns_gr, .container .right_side .group .res-btns_gr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   border: none;
   padding: 5px 10px;
@@ -192,6 +197,11 @@
   font-family: sans-serif;
   color: #ffffff;
   margin-right: 20px;
+}
+.container .right_side .category .res-btns_gr .icon, .container .right_side .certifications .res-btns_gr .icon, .container .right_side .about .res-btns_gr .icon, .container .right_side .courses .res-btns_gr .icon, .container .right_side .news .res-btns_gr .icon, .container .right_side .teachers .res-btns_gr .icon, .container .right_side .login-wrapper .res-btns_gr .icon, .container .right_side .individual .res-btns_gr .icon, .container .right_side .group .res-btns_gr .icon {
+  color: white;
+  font-size: 18px;
+  margin-left: 5px;
 }
 @media only screen and (max-width: 360px) {
   .container .right_side .category .res-btns_gr, .container .right_side .certifications .res-btns_gr, .container .right_side .about .res-btns_gr, .container .right_side .courses .res-btns_gr, .container .right_side .news .res-btns_gr, .container .right_side .teachers .res-btns_gr, .container .right_side .login-wrapper .res-btns_gr, .container .right_side .individual .res-btns_gr, .container .right_side .group .res-btns_gr {
@@ -199,6 +209,9 @@
   }
 }
 .container .right_side .category .res-btns_in, .container .right_side .certifications .res-btns_in, .container .right_side .about .res-btns_in, .container .right_side .courses .res-btns_in, .container .right_side .news .res-btns_in, .container .right_side .teachers .res-btns_in, .container .right_side .login-wrapper .res-btns_in, .container .right_side .individual .res-btns_in, .container .right_side .group .res-btns_in {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   border: none;
   padding: 5px 10px;
@@ -208,12 +221,20 @@
   color: #ffffff;
   margin-right: 20px;
 }
+.container .right_side .category .res-btns_in .icon, .container .right_side .certifications .res-btns_in .icon, .container .right_side .about .res-btns_in .icon, .container .right_side .courses .res-btns_in .icon, .container .right_side .news .res-btns_in .icon, .container .right_side .teachers .res-btns_in .icon, .container .right_side .login-wrapper .res-btns_in .icon, .container .right_side .individual .res-btns_in .icon, .container .right_side .group .res-btns_in .icon {
+  color: white;
+  font-size: 18px;
+  margin-left: 5px;
+}
 @media only screen and (max-width: 360px) {
   .container .right_side .category .res-btns_in, .container .right_side .certifications .res-btns_in, .container .right_side .about .res-btns_in, .container .right_side .courses .res-btns_in, .container .right_side .news .res-btns_in, .container .right_side .teachers .res-btns_in, .container .right_side .login-wrapper .res-btns_in, .container .right_side .individual .res-btns_in, .container .right_side .group .res-btns_in {
     margin-right: 0 !important;
   }
 }
 .container .right_side .category .res-btns_back, .container .right_side .certifications .res-btns_back, .container .right_side .about .res-btns_back, .container .right_side .courses .res-btns_back, .container .right_side .news .res-btns_back, .container .right_side .teachers .res-btns_back, .container .right_side .login-wrapper .res-btns_back, .container .right_side .individual .res-btns_back, .container .right_side .group .res-btns_back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   border: none;
   padding: 5px 10px;
@@ -222,6 +243,11 @@
   font-family: sans-serif;
   color: #ffffff;
   margin-right: 20px;
+}
+.container .right_side .category .res-btns_back .icon, .container .right_side .certifications .res-btns_back .icon, .container .right_side .about .res-btns_back .icon, .container .right_side .courses .res-btns_back .icon, .container .right_side .news .res-btns_back .icon, .container .right_side .teachers .res-btns_back .icon, .container .right_side .login-wrapper .res-btns_back .icon, .container .right_side .individual .res-btns_back .icon, .container .right_side .group .res-btns_back .icon {
+  color: white;
+  font-size: 18px;
+  margin-left: 5px;
 }
 @media only screen and (max-width: 360px) {
   .container .right_side .category .res-btns_back, .container .right_side .certifications .res-btns_back, .container .right_side .about .res-btns_back, .container .right_side .courses .res-btns_back, .container .right_side .news .res-btns_back, .container .right_side .teachers .res-btns_back, .container .right_side .login-wrapper .res-btns_back, .container .right_side .individual .res-btns_back, .container .right_side .group .res-btns_back {
@@ -239,6 +265,7 @@
 @media (max-width: 640px) {
   .container .right_side .category .card-wrapper, .container .right_side .certifications .card-wrapper, .container .right_side .about .card-wrapper, .container .right_side .courses .card-wrapper, .container .right_side .news .card-wrapper, .container .right_side .teachers .card-wrapper, .container .right_side .login-wrapper .card-wrapper, .container .right_side .individual .card-wrapper, .container .right_side .group .card-wrapper {
     flex-direction: column;
+    padding: 0;
   }
 }
 .container .right_side .category .card-wrapper .res-group.noActive .res-group_isActive, .container .right_side .certifications .card-wrapper .res-group.noActive .res-group_isActive, .container .right_side .about .card-wrapper .res-group.noActive .res-group_isActive, .container .right_side .courses .card-wrapper .res-group.noActive .res-group_isActive, .container .right_side .news .card-wrapper .res-group.noActive .res-group_isActive, .container .right_side .teachers .card-wrapper .res-group.noActive .res-group_isActive, .container .right_side .login-wrapper .card-wrapper .res-group.noActive .res-group_isActive, .container .right_side .individual .card-wrapper .res-group.noActive .res-group_isActive, .container .right_side .group .card-wrapper .res-group.noActive .res-group_isActive {
@@ -250,6 +277,7 @@
 .container .right_side .category .card-wrapper .res-group, .container .right_side .certifications .card-wrapper .res-group, .container .right_side .about .card-wrapper .res-group, .container .right_side .courses .card-wrapper .res-group, .container .right_side .news .card-wrapper .res-group, .container .right_side .teachers .card-wrapper .res-group, .container .right_side .login-wrapper .card-wrapper .res-group, .container .right_side .individual .card-wrapper .res-group, .container .right_side .group .card-wrapper .res-group {
   width: 23rem;
   height: auto;
+  background: #ffffff;
   padding: 15px;
   flex-wrap: wrap;
   border: 1px solid #3B82F6;
@@ -327,7 +355,8 @@
 .container .right_side .category .card-wrapper_card, .container .right_side .certifications .card-wrapper_card, .container .right_side .about .card-wrapper_card, .container .right_side .courses .card-wrapper_card, .container .right_side .news .card-wrapper_card, .container .right_side .teachers .card-wrapper_card, .container .right_side .login-wrapper .card-wrapper_card, .container .right_side .individual .card-wrapper_card, .container .right_side .group .card-wrapper_card {
   width: 23rem;
   height: auto;
-  border: 1px solid #767676;
+  box-shadow: 0 2px 5px 0 #a5a5a5;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -390,8 +419,13 @@
   text-align: center;
   font-family: sans-serif;
   color: #3B82F6;
-  padding: 0;
-  margin: 0;
+  font-size: 24px;
+  text-transform: capitalize;
+}
+@media (max-width: 1020px) {
+  .container .right_side .category-title, .container .right_side .certifications-title, .container .right_side .about-title, .container .right_side .courses-title, .container .right_side .news-title, .container .right_side .teachers-title, .container .right_side .login-wrapper-title, .container .right_side .individual-title, .container .right_side .group-title {
+    font-size: 20px;
+  }
 }
 .container .right_side .category-wrapper, .container .right_side .certifications-wrapper, .container .right_side .about-wrapper, .container .right_side .courses-wrapper, .container .right_side .news-wrapper, .container .right_side .teachers-wrapper, .container .right_side .login-wrapper-wrapper, .container .right_side .individual-wrapper, .container .right_side .group-wrapper {
   width: 100%;
@@ -452,9 +486,16 @@
   font-size: 20px;
   margin-bottom: 15px;
 }
+@media (max-width: 640px) {
+  .container .right_side .category-wrapper_form .input-group label, .container .right_side .certifications-wrapper_form .input-group label, .container .right_side .about-wrapper_form .input-group label, .container .right_side .courses-wrapper_form .input-group label, .container .right_side .news-wrapper_form .input-group label, .container .right_side .teachers-wrapper_form .input-group label, .container .right_side .login-wrapper-wrapper_form .input-group label, .container .right_side .individual-wrapper_form .input-group label, .container .right_side .group-wrapper_form .input-group label {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+}
 .container .right_side .category-wrapper_form .input-group input, .container .right_side .category-wrapper_form .input-group select, .container .right_side .certifications-wrapper_form .input-group input, .container .right_side .certifications-wrapper_form .input-group select, .container .right_side .about-wrapper_form .input-group input, .container .right_side .about-wrapper_form .input-group select, .container .right_side .courses-wrapper_form .input-group input, .container .right_side .courses-wrapper_form .input-group select, .container .right_side .news-wrapper_form .input-group input, .container .right_side .news-wrapper_form .input-group select, .container .right_side .teachers-wrapper_form .input-group input, .container .right_side .teachers-wrapper_form .input-group select, .container .right_side .login-wrapper-wrapper_form .input-group input, .container .right_side .login-wrapper-wrapper_form .input-group select, .container .right_side .individual-wrapper_form .input-group input, .container .right_side .individual-wrapper_form .input-group select, .container .right_side .group-wrapper_form .input-group input, .container .right_side .group-wrapper_form .input-group select {
   margin-bottom: 20px;
   padding: 10px;
+  background: #ffffff;
 }
 .container .right_side .category-wrapper_form .input-group textarea, .container .right_side .certifications-wrapper_form .input-group textarea, .container .right_side .about-wrapper_form .input-group textarea, .container .right_side .courses-wrapper_form .input-group textarea, .container .right_side .news-wrapper_form .input-group textarea, .container .right_side .teachers-wrapper_form .input-group textarea, .container .right_side .login-wrapper-wrapper_form .input-group textarea, .container .right_side .individual-wrapper_form .input-group textarea, .container .right_side .group-wrapper_form .input-group textarea {
   margin-bottom: 20px;
@@ -468,7 +509,6 @@
   display: flex;
   align-items: center;
   justify-content: end;
-  margin-top: 15px;
 }
 .container .right_side .category-wrapper_form .input-group .btn button, .container .right_side .certifications-wrapper_form .input-group .btn button, .container .right_side .about-wrapper_form .input-group .btn button, .container .right_side .courses-wrapper_form .input-group .btn button, .container .right_side .news-wrapper_form .input-group .btn button, .container .right_side .teachers-wrapper_form .input-group .btn button, .container .right_side .login-wrapper-wrapper_form .input-group .btn button, .container .right_side .individual-wrapper_form .input-group .btn button, .container .right_side .group-wrapper_form .input-group .btn button {
   padding: 7px 20px;
@@ -492,7 +532,7 @@
 }
 @media only screen and (max-width: 450px) {
   .category, .certifications, .about, .courses, .news, .teachers, .group, .individual, .login-wrapper {
-    padding: 20px 5px !important;
+    padding: 20px 15px !important;
   }
 
   .card-wrapper_card {
@@ -506,8 +546,12 @@
 
   .courses-title {
     font-size: 25px;
-    margin-top: 20px !important;
+    margin: 20px 0;
   }
+}
+body {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("./images/bodyBackground-5.png") center/cover no-repeat;
+  background-attachment: fixed;
 }
 body::-webkit-scrollbar {
   width: 12px;

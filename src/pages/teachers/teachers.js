@@ -19,13 +19,17 @@ const Teachers = () => {
     const [surName, setSurName] = useState("");
     const [descriptions, setDescriptions] = useState("");
     const [image, setImage] = useState(null);
+    const [totalTeachers, setTotalTeachers] = useState(0);
 
     // qoshilgan teacherslani obkelish
     const fetchTeachers = async () => {
-        const {getTeach, error} = await getTeachers();
+        const {getTeach, error, count} = await getTeachers();
         if (getTeach){
-            setTeachers(getTeach)
-        }else console.log(error)
+            setTeachers(getTeach);
+            setTotalTeachers(count);
+        }else if (error){
+            console.log(error)
+        }
     }
 
     useEffect(() => {
@@ -73,7 +77,7 @@ const Teachers = () => {
         await axios.delete(`${API_URL}/teachers/${index}?token=${getToken()}`)
             .then(res => {
                 if(res) {
-                    toast.success("😌 bo'lim mofaqiyatli o'chirildi..!")
+                    toast.success("😌 O'qituvchi mofaqiyatli o'chirildi..!")
                 }
             })
             .catch(err => {
@@ -113,10 +117,10 @@ const Teachers = () => {
                 </form>
             </div>
 
-            <h1 className="courses-title">Qo'shilgan Ustozlar</h1>
+            <h1 className="courses-title">{totalTeachers === 0 ? "hali ustoz qo'shilmagan" : `jami ${totalTeachers} ta ustoz qo'shildi`}</h1>
             <div className="card-wrapper">
                 {
-                    teachers ?
+                    teachers.length ?
                         teachers.map((item, index) => {
                             return (
                                 <div key={index} className="card-wrapper_card">
@@ -134,7 +138,7 @@ const Teachers = () => {
 
                                     <div className="card-wrapper_card-btns">
                                         <NavLink className="NavLink" to={"/teachers-edit/" + item.id + "/" + item.first_name + "-" + item.last_name.replace(/\s+/g, '-')}>
-                                            Tahrirlash
+                                            O'zgartirish
                                         </NavLink>
 
                                         <div onClick={() => deleteTeachers(item.id)}>
@@ -144,7 +148,7 @@ const Teachers = () => {
                                 </div>
                             )
                         })
-                        : ""
+                        : "Ustozlar topilmadi..!"
                 }
             </div>
 

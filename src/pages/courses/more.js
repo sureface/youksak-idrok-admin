@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {fetchCourseById, getCourses} from "./query";
+import {fetchCourseById} from "./query";
 import {NavLink, useParams} from "react-router-dom";
+import {HiPlusSm} from "react-icons/hi"
+import {BiLogOut} from "react-icons/bi"
 
 const More = () => {
 
@@ -60,9 +62,18 @@ const More = () => {
                         }
 
                         <div className="res-btns">
-                            <NavLink className="res-btns_gr" to={{pathname: '/add-to-group', state: {courseId: id}}}>Guruh</NavLink>
-                            <NavLink className="res-btns_in" to={{pathname: '/individual', state: {courseId: id}}}>Individual</NavLink>
-                            <NavLink className="res-btns_back" to="/courses">Orqaga qaytish</NavLink>
+                            <NavLink className="res-btns_gr" to={{pathname: '/add-to-group', state: {courseId: id}}}>
+                                Guruh
+                                <HiPlusSm  className="icon"/>
+                            </NavLink>
+                            <NavLink className="res-btns_in" to={{pathname: '/individual', state: {courseId: id}}}>
+                                Individual
+                                <HiPlusSm  className="icon"/>
+                            </NavLink>
+                            <NavLink className="res-btns_back" to="/courses">
+                                Orqaga qaytish
+                                <BiLogOut className="icon"/>
+                            </NavLink>
                         </div>
 
                     </div>

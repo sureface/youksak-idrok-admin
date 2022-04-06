@@ -8,11 +8,9 @@ import { AiFillSetting } from "react-icons/ai";
 import "../sidebar/sidebar.scss";
 import {NavLink, useHistory} from "react-router-dom";
 
-const Sidebar = (props) => {
+const Sidebar = () => {
 
     const [isOpen, setIsOpen] = useState(true);
-
-    props.func(isOpen);
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
@@ -49,13 +47,13 @@ const Sidebar = (props) => {
                             <li className="sidebar-list-item">
                                 <NavLink exact={true} to="/category" className="sidebar-list-item_link">
                                     <MdCategory className="sidebar-list-item_icon" />
-                                    <p className="sidebar-list-item_text"> Bo'limlar</p>
+                                    <p className="sidebar-list-item_text"> Bo'limlar </p>
                                 </NavLink>
                             </li>
                             <li className="sidebar-list-item">
                                 <NavLink to="/courses" className="sidebar-list-item_link">
                                     <FaThList className="sidebar-list-item_icon" />
-                                    <p className="sidebar-list-item_text"> Kurslar</p>
+                                    <p className="sidebar-list-item_text"> Kurslar </p>
                                 </NavLink>
                             </li>
                             <li className="sidebar-list-item">

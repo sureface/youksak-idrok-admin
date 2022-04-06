@@ -11,7 +11,7 @@ const News = () => {
     const [image, setImage] = useState(null);
     const [testImage, setTestImage] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-    const [fetchLoading, setFetchLoading] = useState(false);
+    const [totalNews, setTotalNews] = useState(0);
 
     const ref = useRef();
 
@@ -27,8 +27,13 @@ const News = () => {
     }
 
     const fetchNews = async () => {
-        const {news, error} = await getNews()
-        setNews(news)
+        const {news, error, count} = await getNews();
+        if (news) {
+            setNews(news);
+            setTotalNews(count);
+        } else if (error){
+            console.log(error);
+        }
     }
 
     useEffect( () => {
@@ -122,7 +127,7 @@ const News = () => {
                 </form>
             </div>
 
-            <h1 className="courses-title">Qo'shilgan yangiliklar</h1>
+            <h1 className="courses-title">{totalNews === 0 ? "hali yangilik qo'shilmagan" : `jami ${totalNews} ta yangilik qo'shilgan`}</h1>
 
             <div className="card-wrapper">
                 {news.length ? (

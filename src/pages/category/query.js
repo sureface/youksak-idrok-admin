@@ -26,6 +26,7 @@ export const deleteCategory = async (index) => {
   }
   return {data, error}
 }
+
 export const patchCategory = async (name, index) => {
   let data, error;
   const token = getToken()
@@ -42,14 +43,15 @@ export const patchCategory = async (name, index) => {
 
 
 export const getCategories = async () => {
-  let categories, error;
+  let categories, error, count;
   try {
     const res = await axios.get(`${API_URL}/categories`);
-    categories = res.data.categories
+    categories = res.data.categories;
+    count = res.data.count;
   } catch (err) {
     error = error ? error.message : 'Oops something went wrong';
   }
-  return {categories, error}
+  return {categories, error, count}
 }
 
 export const getCategoriesById = async (id) => {

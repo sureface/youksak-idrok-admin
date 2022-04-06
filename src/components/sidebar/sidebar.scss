@@ -57,12 +57,14 @@
           position: relative;
           padding: 10px 0;
           font-size: 18px;
+          cursor: pointer;
           &_icon{
             margin-right: 15px;
             color: #ffffff;
           }
           &_text{
             margin: 0;
+            font-family: sans-serif;
           }
           &_link{
             text-decoration: none;
@@ -131,43 +133,46 @@
 }
 
 @media only screen and (max-width:768px){
-  .sidebar.active{
-      width: 60px;
-      transition: all .3s ease-in-out;
+  .sidebar.active {
+    width: 60px;
+    transition: all .3s ease-in-out;
 
-      .sidebar-heading{
-        display: none;
-      }
-
-      .bars{
-        display: block;
-        color: #ffffff;
-        font-size: 20px;
-        padding: 20px 20px 0 20px;
-      }
-
-      .sidebar-list{
-        display: flex;
-        flex-direction: column;
-      }
-      .sidebar-list-item_link{
-        justify-content: start;
-      }
-      .sidebar-list-item_icon{
-        font-size: 20px;
-        margin-right: 0;
-      }
-      .sidebar-list-item_text{
-        display: none;
-      }
+    .sidebar-heading {
+      display: none;
     }
+
+    .bars {
+      display: block;
+      color: #ffffff;
+      font-size: 20px;
+      padding: 20px 20px 0 20px;
+    }
+
+    .sidebar-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-list-item_link {
+      justify-content: start;
+    }
+
+    .sidebar-list-item_icon {
+      font-size: 20px;
+      margin-right: 0;
+    }
+
+    .sidebar-list-item_text {
+      display: none;
+    }
+  }
   }
 
 
 @media only screen and (max-width:640px){
   .sidebar{
     position: fixed;
-    z-index: 3;
+    z-index: 99999;
     transition: all .3s ease-in-out;
   }
   .sidebar-wrapper .sidebar-menu .sidebar-list-item_link.active:after{

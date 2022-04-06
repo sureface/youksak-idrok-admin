@@ -46,6 +46,8 @@ const Group = () => {
     const onSubmitGroup = async (e) => {
         e.preventDefault();
 
+        const days = durationByDay.split(",");
+
         const data = {
             teacher_id: selectedTeacher,
             members: members,
@@ -53,7 +55,7 @@ const Group = () => {
             start: timeStart,
             end: timeEnd,
             duration: durationByMonth,
-            days: durationByDay,
+            days: days,
             in_month: durationByMonthByDay,
             active: isActive
         }

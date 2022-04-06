@@ -7,7 +7,7 @@ import {NavLink} from "react-router-dom";
 
 const ResultGroup = (props) => {
 
-    const [name, setName] = useState("")
+    const [name, setName] = useState("");
     const [courseName, setCourseName] = useState("");
     const [delLoading, setDelLoading] = useState(false);
 
@@ -36,16 +36,16 @@ const ResultGroup = (props) => {
 
     const delGroup = async (index) => {
         setDelLoading(true);
-        const {data, error} = await deleteGroups(index)
+        const {data, error} = await deleteGroups(index);
         if (data) {
-            toast.success("Guruh mofaqiyatli o'chirildi..!")
+            toast.success("Guruh mofaqiyatli o'chirildi..!");
         }else if (error){
-          toast.error("kusr o'chirishda xatolik yuz berdi..!")
+            toast.error("kusr o'chirishda xatolik yuz berdi..!");
         } else{
-            toast.warning("oops, tehik xatolik yuz berdi..")
+            toast.warning("oops, tehik xatolik yuz berdi..");
         }
         await getGroups();
-        setDelLoading(false)
+        setDelLoading(false);
     }
 
     return (

@@ -35,7 +35,7 @@ const CardIndividuals = () => {
                                     <ResultIndividuals active={item.active} price={item.price} start={item.start} end={item.end} members={item.members} in_month={item.in_month} days={item.days} duration={item.duration} id={item.id} teacher_id={item.teacher_id} courseId={item.course_id}/>
                                 </div>
                             )
-                        }): <p>Guruh topilmadi  iltimos Guruh qo'shing..!</p>
+                        }): <p>Individual guruh topilmadi..!</p>
                 }
             </div>
         </div>

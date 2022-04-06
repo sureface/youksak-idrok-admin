@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import './App.scss';
 import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
@@ -34,16 +34,12 @@ function App() {
         )
     }
 
-    const pull_data = (data) => {
-        console.log(data); // LOGS DATA FROM CHILD (boolean value)
-    }
-
     return (
         <div>
             <ToastContainer style={{zIndex: "99999999"}}/>
             <Router>
                 <div className="container">
-                    <Sidebar func={pull_data}/>
+                    <Sidebar />
                     <div className="right_side">
                         <Switch>
                             <Route exact path="/">

@@ -16,6 +16,7 @@ const Courses = () => {
     const [image, setImage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [fetchLoading, setFetchLoading] = useState(false);
+    const [totalCourses, setTotalCourses] = useState(0);
 
     const ref = useRef();
 
@@ -35,9 +36,10 @@ const Courses = () => {
 
     // kurslani ob kelish
     const fetchCourses = async () => {
-        const {fetchCourses, error} = await getCourses();
+        const {fetchCourses, error, count} = await getCourses();
         if (fetchCourses){
-            setCourses(fetchCourses)
+            setCourses(fetchCourses);
+            setTotalCourses(count);
         }else console.log(error)
     }
 
@@ -141,7 +143,7 @@ const Courses = () => {
                     <div className="input-group">
                         <label htmlFor="image">Kurs chun rasim</label>
                         <input className="image" type="file" name="image" id="image" placeholder="kurs uchun rasim"
-                               ref={ref} onChange={(e) => setImage(e.target.files)}/>
+                               ref={ref} required onChange={(e) => setImage(e.target.files)}/>
                     </div>
                     <div className="input-group">
                         <div className="btn">
@@ -160,7 +162,7 @@ const Courses = () => {
                     </div>
                 </form>
             </div>
-            <h1 className="courses-title">Qo'shilgan Kurslar</h1>
+            <h1 className="courses-title">{totalCourses === 0 ? "hali kurs qo'shilmagan" : `jami ${totalCourses} ta kurs qo'shilgan`}</h1>
             {
                 fetchLoading ?
                     <div className="btn">
@@ -174,13 +176,13 @@ const Courses = () => {
                     :
                     <div className="card-wrapper">
                         {
-                            courses ?
+                            courses.length ?
                                 courses.map((item, index) => {
                                     return (
                                         <div key={index} className="card-wrapper_card">
 
                                             <div className="card-wrapper_card-image"
-                                                 style={{background: 'url(' + item.img + ') center / cover'}}></div>
+                                                 style={{background: 'url(' + item.img + ') center / cover'}}> </div>
 
                                             <div className="card-wrapper_card-text">
                                                 <div className="card-wrapper_card-text_title">
@@ -209,7 +211,7 @@ const Courses = () => {
                                         </div>
                                     )
                                 })
-                                : ""
+                                : "Kurslar topilmadi..!"
                         }
                     </div>
             }
