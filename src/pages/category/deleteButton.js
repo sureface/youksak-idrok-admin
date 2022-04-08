@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { AiFillDelete } from 'react-icons/ai';
 import {deleteCategory} from "./query"
 import {toast} from "react-toastify";
 

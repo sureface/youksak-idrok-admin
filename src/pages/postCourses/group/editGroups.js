@@ -20,11 +20,13 @@ const EditGroups = () => {
     const [durationByMonth, setDurationByMonth] = useState("");
     const [durationByDay, setDurationByDay] = useState("");
     const [durationByMonthByDay, setDurationByMonthByDay] = useState("");
-    const [isActive, setIsActive] = useState(false);
+    const [isActive, setIsActive] = useState(null);
 
     useEffect(() => {
         const getGroupsEdit = async () => {
             const {data, error} = await getGroupsById(id);
+            console.log(data.active, "get active");
+            console.log(typeof(data.active), "get active type");
             if (data) {
                 setGroupsData(data);
                 setDefaultTeacher(data.teacherName)
@@ -35,25 +37,26 @@ const EditGroups = () => {
                 setDurationByMonth(data.duration);
                 setDurationByDay(data.days);
                 setDurationByMonthByDay(data.in_month);
-                setIsActive(data.active)
-            }else if (error){
+                setIsActive(data.active);
+            } else if (error) {
                 toast.error("texnik xatolik... iltimos qaytatdan urinib  koring");
             }
         }
         getGroupsEdit();
-    },[])
+    }, [id]);
+
 
     useEffect(() => {
         const fetchTeachers = async () => {
             const {data, error} = await getAllTeachers();
             if (data) {
                 setAllTeachers(data);
-            }else if (error){
+            } else if (error) {
                 toast.error("texnik xatolik... iltimos qaytatdan urinib  koring");
             }
         }
         fetchTeachers();
-    },[])
+    }, []);
 
     const handleKeyPress = (e) => {
         if (e.charCode === 32){
@@ -63,6 +66,9 @@ const EditGroups = () => {
 
     const onSubmitGroup = async (e) => {
         e.preventDefault();
+
+        console.log(isActive, "on submit")
+        console.log(typeof(isActive), "on submit type")
 
         const GroupsData = {
             teacher_id: +selectedTeacher,
@@ -78,7 +84,6 @@ const EditGroups = () => {
 
         const {data} = await PatchGroup({GroupsData, id});
         if (data) {
-            console.log(data, "group changed..!");
             history.push('/card-group');
         }
     }

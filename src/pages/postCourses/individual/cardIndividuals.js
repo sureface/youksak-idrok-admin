@@ -20,7 +20,7 @@ const CardIndividuals = () => {
 
     useEffect(() => {
         getResIndividuals();
-    }, [resGroup])
+    }, [])
 
     return (
         <div className="group">

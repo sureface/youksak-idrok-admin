@@ -50,7 +50,7 @@ export const PatchGroup = async ({GroupsData, id}) => {
         toast.error("xatolik yuz berdi..!")
         console.log(err)
     }
-    return {data}
+    return {data};
 }
 
 export const deleteGroups = async (index) => {

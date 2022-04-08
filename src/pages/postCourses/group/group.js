@@ -7,7 +7,7 @@ const Group = () => {
 
     const location = useLocation();
     const history = useHistory();
-    const {courseId} = location.state
+    const {courseId} = location.state;
 
     const [getTeach, setGetTeach] = useState(null);
     const [selectedTeacher, setSelectedTeacher] = useState(null);
@@ -35,7 +35,7 @@ const Group = () => {
 
     useEffect(() => {
         getGroups();
-    },[getGroups()])
+    },[])
 
     const handleKeyPress = (e) => {
         if (e.charCode === 32){
@@ -46,8 +46,6 @@ const Group = () => {
     const onSubmitGroup = async (e) => {
         e.preventDefault();
 
-        const days = durationByDay.split(",");
-
         const data = {
             teacher_id: selectedTeacher,
             members: members,
@@ -55,7 +53,7 @@ const Group = () => {
             start: timeStart,
             end: timeEnd,
             duration: durationByMonth,
-            days: days,
+            days: durationByDay,
             in_month: durationByMonthByDay,
             active: isActive
         }
@@ -105,13 +103,13 @@ const Group = () => {
                     </div>
 
                     <div className="input-group">
-                        <label htmlFor="start">Kurs boshlanish vaqti</label>
+                        <label htmlFor="start">Kurs boshlanish vaqti ( 15:30 )</label>
                         <input type="text" name="start" id="start" placeholder="Kurs boshlanish vaqti"
                                onChange={(e) => setTimeStart(e.target.value)}/>
                     </div>
 
                     <div className="input-group">
-                        <label htmlFor="end">Kurs tugash vaqti</label>
+                        <label htmlFor="end">Kurs tugash vaqti ( 18:20 )</label>
                         <input type="text" name="end" id="end" placeholder="Kurs boshlanish vaqti"
                                onChange={(e) => setTimeEnd(e.target.value)}/>
                     </div>
@@ -123,7 +121,7 @@ const Group = () => {
                     </div>
 
                     <div className="input-group">
-                        <label htmlFor="days">Kurs kunlari</label>
+                        <label htmlFor="days">Kurs kunlari ( , *vergul bilan yozing* )</label>
                         <input type="text" name="days" id="days" placeholder="Kurs kunlari"
                                onKeyPress={(e) => handleKeyPress(e)}    onChange={(e) => setDurationByDay(e.target.value)}/>
                     </div>

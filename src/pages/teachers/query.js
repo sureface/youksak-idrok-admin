@@ -21,8 +21,8 @@ export const fetchTeacher = async (id) => {
         names = res.data.teacher[0].first_name;
         surNames = res.data.teacher[0].last_name;
         des = res.data.teacher[0].description;
-    } catch (error) {
-        error = error ? error.message : 'Oops kategoriyalarni olib kelishda xatolik yuz berdi !';
+    } catch (err) {
+        error = err ? err.message : 'Oops kategoriyalarni olib kelishda xatolik yuz berdi !';
     }
     return {names, surNames, des, error};
 }

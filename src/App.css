@@ -315,6 +315,11 @@
   font-weight: 400;
   color: #111111d3;
   letter-spacing: 1px;
+  flex-wrap: wrap;
+}
+.container .right_side .category .card-wrapper .res-group_text span, .container .right_side .certifications .card-wrapper .res-group_text span, .container .right_side .about .card-wrapper .res-group_text span, .container .right_side .courses .card-wrapper .res-group_text span, .container .right_side .news .card-wrapper .res-group_text span, .container .right_side .teachers .card-wrapper .res-group_text span, .container .right_side .login-wrapper .card-wrapper .res-group_text span, .container .right_side .individual .card-wrapper .res-group_text span, .container .right_side .group .card-wrapper .res-group_text span {
+  margin-bottom: 0;
+  color: black;
 }
 .container .right_side .category .card-wrapper .res-group_text h3, .container .right_side .certifications .card-wrapper .res-group_text h3, .container .right_side .about .card-wrapper .res-group_text h3, .container .right_side .courses .card-wrapper .res-group_text h3, .container .right_side .news .card-wrapper .res-group_text h3, .container .right_side .teachers .card-wrapper .res-group_text h3, .container .right_side .login-wrapper .card-wrapper .res-group_text h3, .container .right_side .individual .card-wrapper .res-group_text h3, .container .right_side .group .card-wrapper .res-group_text h3 {
   margin: 0;

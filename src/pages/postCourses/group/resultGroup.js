@@ -26,13 +26,12 @@ const ResultGroup = (props) => {
     useEffect(() => {
         axios.get(`${API_URL}/courses/${props.courseId}`)
             .then(res => {
-                const course_name = res.data.course[0].title
-                setCourseName(course_name)
+                const course_name = res.data.course[0].title;
+                setCourseName(course_name);
             })
             .catch(error => console.log(error))
 
     }, [props.courseId])
-
 
     const delGroup = async (index) => {
         setDelLoading(true);
@@ -44,9 +43,14 @@ const ResultGroup = (props) => {
         } else{
             toast.warning("oops, tehik xatolik yuz berdi..");
         }
+
         await getGroups();
         setDelLoading(false);
     }
+
+
+    let days = props.days.split(",");
+    const finalDays = days.map(name => ({name}))
 
     return (
         <div className={props.active ? "res-group active" : "res-group noActive"}>
@@ -55,7 +59,18 @@ const ResultGroup = (props) => {
             <div className='res-group_text'><h3>O'qituvchi: </h3>{name} </div>
             <div className='res-group_text'><h3>Kurs nomi:</h3> {courseName} </div>
             <div className='res-group_text'><h3>Kurs:</h3> {props.members} kishiga mojalangan</div>
-            <div className='res-group_text'><h3>Kurs:</h3> {props.days} kunlari bo'ladi</div>
+            <div className='res-group_text'><h3>Kurs:</h3>
+
+                {
+                finalDays.map((item, index) => {
+                    return (
+                        <span key={index}>
+                            {item.name}
+                        </span>
+                    )
+                })
+            }
+            kunlari bo'ladi</div>
             <div className='res-group_text'><h3>Kurs:</h3> har kuni soat {props.start} boshlanib soat {props.end} da tugaydi</div>
             <div className='res-group_text'><h3>Kurs:</h3> {props.duration} oy davom etadi</div>
             <div className='res-group_text'><h3>1 oyda: </h3> {props.in_month} dars boladi</div>

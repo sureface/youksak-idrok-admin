@@ -7,20 +7,18 @@ const CardGroup = () => {
 
     const [resGroup, setResGroup] = useState([]);
 
-    const getResGroups = async () => {
-
-        const {data, error} = await getGroups();
-        if (data){
-            setResGroup(data);
-        }else if (error){
-            toast.error("xatolik  yuz berdi..!")
+    useEffect( function () {
+        async function getResGroups() {
+            const {data, error} = await getGroups();
+            if (data) {
+                setResGroup(data);
+            } else if (error) {
+                toast.error("xatolik  yuz berdi..!")
+            }
         }
 
-    }
-
-    useEffect(() => {
         getResGroups();
-    }, [resGroup])
+    }, []);
 
     return (
         <div className="group">

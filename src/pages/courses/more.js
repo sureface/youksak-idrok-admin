@@ -23,7 +23,7 @@ const More = () => {
 
     useEffect(() => {
         fetchCourse();
-    }, []);
+    }, [id]);
 
     return (
         <div className="courses">
