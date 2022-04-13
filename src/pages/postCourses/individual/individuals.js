@@ -56,7 +56,6 @@ const Individuals = () => {
 
         const {pIndividuals, error} = await postIndividuals({data, courseId});
 
-        console.log(pIndividuals, "individuals....!")
         if (pIndividuals) {
             toast.success("Individual guruh mofaqiyatli qo'shildi..! 😊")
             history.push('/card-individuals');

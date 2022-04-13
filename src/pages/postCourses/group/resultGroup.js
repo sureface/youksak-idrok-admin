@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {API_URL} from "../../../utils/axios";
-import {deleteGroups, getGroups} from "./query";
+import {deleteGroups} from "./query";
 import {toast} from "react-toastify";
 import {NavLink} from "react-router-dom";
 
@@ -38,13 +38,13 @@ const ResultGroup = (props) => {
         const {data, error} = await deleteGroups(index);
         if (data) {
             toast.success("Guruh mofaqiyatli o'chirildi..!");
+            props.refetch();
         }else if (error){
             toast.error("kusr o'chirishda xatolik yuz berdi..!");
         } else{
             toast.warning("oops, tehik xatolik yuz berdi..");
         }
 
-        await getGroups();
         setDelLoading(false);
     }
 

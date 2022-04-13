@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {useHistory} from "react-router-dom";
 import "../../App.scss";
 import axios from "axios";
@@ -25,8 +25,11 @@ const Login = () => {
         axios.post(`${process.env.REACT_APP_API_PATH}/login`, data)
             .then((res) => {
                 setIsLoading(false);
+
                 localStorage.setItem("TOKEN-YUKSAK-IDROK", res.data.token);
+
                 history.push("/category");
+
                 setLogin("");
                 setPassword("");
             })

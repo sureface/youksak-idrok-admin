@@ -55,7 +55,7 @@ const Teachers = () => {
 
         await axios.post(`${API_URL}/teachers?token=${getToken()}`, data, config)
             .then((res) => {
-                if(res) {
+                if(res.status === 200) {
                     toast.success("😌 O'qituvchi Mofaqiyatli Qo'shildi..!")
                 }
             })

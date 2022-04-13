@@ -28,7 +28,6 @@ const ResultIndividuals = (props) => {
             .then(res => {
                 const course_name = res.data.course[0].title
                 setCourseName(course_name)
-                console.log(res.data.course)
             })
             .catch(error => console.log(error))
 
@@ -39,6 +38,7 @@ const ResultIndividuals = (props) => {
         const {data, error} = await deleteIndividuals(index)
         if (data) {
             toast.success("Guruh mofaqiyatli o'chirildi..!")
+            props.refetch()
         }else if (error){
             toast.error("kusr o'chirishda xatolik yuz berdi..!")
         } else{

@@ -30,7 +30,6 @@ export const postIndividuals = async ({data, courseId}) => {
     try {
         const res = await axios.post(`${API_URL}/courses/${courseId}/individuals?token=${token}`, data);
         pIndividuals = res
-        console.log(res, "posted..!")
     } catch (err) {
         error = error ? error.message : 'Oops something went wrong';
     }
